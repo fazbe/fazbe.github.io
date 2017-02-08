@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fazbe.github.io/"/>
-  <updated>2017-02-08T17:09:42.000Z</updated>
+  <updated>2017-02-08T19:06:32.000Z</updated>
   <id>https://fazbe.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://fazbe.github.io/Macro-Request-no-Laravel/"/>
     <id>https://fazbe.github.io/Macro-Request-no-Laravel/</id>
     <published>2017-02-08T13:01:45.000Z</published>
-    <updated>2017-02-08T17:09:42.000Z</updated>
+    <updated>2017-02-08T19:06:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>Para mim uma das coisas mais fascinantes no <a href="https://laravel.com/docs/" target="_blank" rel="external">Laravel</a>, são os Macros, muito pouco falados na documentação, mas, são demais.</p>
 <p>Os Macros eles basicamente servem, para extender os métodos de uma biblioteca ou seja la o que for, então, conseguimos criar “coisas” personalizadas de acordo com a nossa necessidade.</p>
@@ -44,7 +44,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Para mim uma das coisas mais fascinantes no &lt;a href=&quot;https://laravel.com/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Laravel&lt;/a&gt;, são os Macros
+      Macro Request no Laravel
     
     </summary>
     
@@ -56,7 +56,7 @@
     <link href="https://fazbe.github.io/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/"/>
     <id>https://fazbe.github.io/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/</id>
     <published>2017-02-08T12:41:37.000Z</published>
-    <updated>2017-02-08T13:00:42.000Z</updated>
+    <updated>2017-02-08T19:07:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>Que as <a href="https://laravel.com/docs/collections" target="_blank" rel="external">Collections do Laravel</a> são legais e que ajudam muito na hora de desenvolver todo mundo sabe. Mas em muitas ocasiões faltam funções que precisamos e não existe, para isso você tem duas opções, criar suas próprias collections ou usar pacotes de terceiros.</p>
 <p>É ai que entra a <a href="https://spatie.be/en/opensource/laravel" target="_blank" rel="external">Spatie</a>, eles criaram um pacote para Laravel, o <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="external">Laravel Collection Macros</a>.</p>
@@ -78,7 +78,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Que as &lt;a href=&quot;https://laravel.com/docs/collections&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Collections do Laravel&lt;/a&gt; são legais e que ajudam m
+      Turbine as Collection do Laravel com o Laravel Collection Macros da Spatie
     
     </summary>
     
@@ -90,7 +90,7 @@
     <link href="https://fazbe.github.io/Alterar-Collection-de-uma-tabela-no-MySQL/"/>
     <id>https://fazbe.github.io/Alterar-Collection-de-uma-tabela-no-MySQL/</id>
     <published>2017-02-08T12:24:18.000Z</published>
-    <updated>2017-02-08T12:30:57.000Z</updated>
+    <updated>2017-02-08T19:06:11.000Z</updated>
     
     <content type="html"><![CDATA[<p> Com a chegada do Laravel 5.4, nós preferimos mudar a collection de algumas tabelas do nosso banco de dados, não vou explicar o que mudou, nem o porquê, mas você <a href="https://laravel.com/docs/5.4/releases" target="_blank" rel="external">pode ver aqui</a>.</p>
 <p> Mas, para tal ação é só executar a seguinte query no console do MySQL ou no seu gerenciador preferido de banco de dados.</p>
@@ -100,7 +100,7 @@
     
     <summary type="html">
     
-      &lt;p&gt; Com a chegada do Laravel 5.4, nós preferimos mudar a collection de algumas tabelas do nosso banco de dados, não vou explicar o que mudou
+      Alterar Collection de uma tabela no MySQL
     
     </summary>
     
@@ -112,7 +112,7 @@
     <link href="https://fazbe.github.io/Pub-Sub-com-Laravel-e-Redis/"/>
     <id>https://fazbe.github.io/Pub-Sub-com-Laravel-e-Redis/</id>
     <published>2017-02-08T11:46:23.000Z</published>
-    <updated>2017-02-08T12:11:34.000Z</updated>
+    <updated>2017-02-08T19:06:58.000Z</updated>
     
     <content type="html"><![CDATA[<p>Eu nem precisava fazer este artigo, pois na <a href="https://laravel.com/docs/redis#pubsub" target="_blank" rel="external">documentação do laravel</a> tem exemplos, explica tudo. Mas beleza, sou um caboquim gente fina. Ok, beleza, pronto, vamos!</p>
 <p>Para quem não sabe, Redis é um banco de dados NoSQL e ele funciona com a idéia de chave-valor. O valor (e também a chave) pode ser qualquer coisa, eu uso muito para arrays e até mesmo para views que não mudam muito e podem ser cacheadas para carregar uma página web mais rápido. Se quiser saber mais sobre Redis, da-lhe Google.</p>
@@ -132,7 +132,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Eu nem precisava fazer este artigo, pois na &lt;a href=&quot;https://laravel.com/docs/redis#pubsub&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentação d
+      Pub / Sub com Laravel e Redis
     
     </summary>
     
@@ -140,11 +140,11 @@
   </entry>
   
   <entry>
-    <title>Instalando a extensão Mosquitto-PHP</title>
+    <title>Instalando a extensão Mosquitto-PHP no Ubuntu</title>
     <link href="https://fazbe.github.io/Instalando-a-extensao-Mosquitto-PHP/"/>
     <id>https://fazbe.github.io/Instalando-a-extensao-Mosquitto-PHP/</id>
     <published>2017-02-07T23:09:24.000Z</published>
-    <updated>2017-02-08T11:36:09.000Z</updated>
+    <updated>2017-02-08T19:05:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>E ai, bora instalar a extensão Mosquitto-PHP? Testado e sendo usado em <strong>dois servidores</strong> com Ubuntu 16.4, um local e um externo. Não sabe a versão do seu? Use o comando no terminal:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsb_release <span class="_">-a</span></div></pre></td></tr></table></figure></p>
 <p>O comando acima irá retornar algo como:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Distributor ID:	Ubuntu</div><div class="line">Description:	Ubuntu 16.04 LTS</div><div class="line">Release:	16.04</div><div class="line">Codename:	xenial</div></pre></td></tr></table></figure></p>
@@ -177,7 +177,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;E ai, bora instalar a extensão Mosquitto-PHP? Testado e sendo usado em &lt;strong&gt;dois servidores&lt;/strong&gt; com Ubuntu 16.4, um local e um ex
+      Instalando a extensão Mosquitto-PHP no Ubuntu
     
     </summary>
     
@@ -189,7 +189,7 @@
     <link href="https://fazbe.github.io/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/"/>
     <id>https://fazbe.github.io/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/</id>
     <published>2017-02-07T19:45:47.000Z</published>
-    <updated>2017-02-07T20:20:32.000Z</updated>
+    <updated>2017-02-08T19:06:52.000Z</updated>
     
     <content type="html"><![CDATA[<p>Olha essa linha de comando que coisinha mais simples e cheia de graça.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsof -i tcp:8000</div></pre></td></tr></table></figure></p>
 <p>Falei macOS, mas estou usando o OS X El Capitain. Na linha acima, vai mostrar o seguinte<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME</div><div class="line">VBoxHeadl 2011 wow   24u  IPv4 0xd0e6a899f3a4fa03      0t0  TCP *:irdmi (LISTEN)</div></pre></td></tr></table></figure></p>
@@ -200,7 +200,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Olha essa linha de comando que coisinha mais simples e cheia de graça.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
+      Procure portas no macOS e saiba quais processos estão usando elas
     
     </summary>
     
@@ -212,7 +212,7 @@
     <link href="https://fazbe.github.io/Quer-aprender-a-programar-para-web-sem-enrolacao/"/>
     <id>https://fazbe.github.io/Quer-aprender-a-programar-para-web-sem-enrolacao/</id>
     <published>2017-02-07T19:09:37.000Z</published>
-    <updated>2017-02-07T19:42:29.000Z</updated>
+    <updated>2017-02-08T19:07:03.000Z</updated>
     
     <content type="html"><![CDATA[<p>Se liga chegado, quer aprender a programar sem frescura? Deixa eu dar uma dica então. Eu aprendi a programar em 1 mês, na minha época tudo era mais difícil, mais complicado, nem internet eu tinha só livros (em portugês) e uma documentação em inglês que não adiantava de nada porquê eu não sabia inglês.</p>
 <p>Hoje em dia, tem muito, muito, mas muito conteúdo grátis por ai, para ser explorado e estudado. <strong>Já falei, que tem muito mesmo?</strong> Nossa, é <strong>muito</strong>! Mas para facilitar, reuni alguns cursos grátis que eu acredito ser um (ótimo) ponta pé inicial. Melhor que muitos pagos por ai.</p>
@@ -232,7 +232,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Se liga chegado, quer aprender a programar sem frescura? Deixa eu dar uma dica então. Eu aprendi a programar em 1 mês, na minha época tud
+      Quer aprender a programar para web sem enrolação?
     
     </summary>
     
@@ -244,7 +244,7 @@
     <link href="https://fazbe.github.io/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/"/>
     <id>https://fazbe.github.io/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/</id>
     <published>2017-02-07T18:40:03.000Z</published>
-    <updated>2017-02-07T20:58:54.000Z</updated>
+    <updated>2017-02-08T19:06:41.000Z</updated>
     
     <content type="html"><![CDATA[<p>Não vou explicar como instalar uma Biblioteca na <a href="https://www.arduino.cc/en/main/software" target="_blank" rel="external">Arduino IDE</a>, está cheio de tutoriais no Google, de qualquer forma, <a href="http://labdegaragem.com/profiles/blogs/tutorial-arduino-instalando-bibliotecas" target="_blank" rel="external">aqui tem um</a>, <a href="http://fritzenlab.com.br/2016/02/como-instalar-novas-bibliotecas-na-ide-do-arduino/" target="_blank" rel="external">aqui tem outro</a> e <a href="https://www.youtube.com/watch?v=C1U4KvMbhJk" target="_blank" rel="external">aqui tem mais outro (vídeo)</a> tutorial.</p>
 <p>Então, conheça o <a href="https://github.com/knolleary/pubsubclient" target="_blank" rel="external">PubSubClient</a>, esse é o cara! Todos sabemos (ou não) que o <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external"><strong>MQTT</strong></a> trabalha com publicações e subscrições!</p>
@@ -262,7 +262,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Não vou explicar como instalar uma Biblioteca na &lt;a href=&quot;https://www.arduino.cc/en/main/software&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Arduino
+      Precisando de um Cliente MQTT para usar no Arduino?
     
     </summary>
     
@@ -274,7 +274,7 @@
     <link href="https://fazbe.github.io/Instalando-o-MQTT-no-macOS/"/>
     <id>https://fazbe.github.io/Instalando-o-MQTT-no-macOS/</id>
     <published>2017-02-07T11:57:13.000Z</published>
-    <updated>2017-02-07T18:20:41.000Z</updated>
+    <updated>2017-02-08T19:06:23.000Z</updated>
     
     <content type="html"><![CDATA[<p>Eu acredito que quem chegou até aqui, já saiba bastante sobre programação. Então não vou explicar o que é <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>, <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external">MQTT</a> e nem <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>, a idéia aqui é ser direto e mostrar como deixar as coisas funcionando.</p>
 <p>Primeiro, vamos instalar o <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>, caso não o tenha feito ainda.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure></p>
@@ -296,7 +296,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Eu acredito que quem chegou até aqui, já saiba bastante sobre programação. Então não vou explicar o que é &lt;a href=&quot;https://mosquitto.org/
+      Instalando, testando e conhecendo o MQTT no macOS
     
     </summary>
     
