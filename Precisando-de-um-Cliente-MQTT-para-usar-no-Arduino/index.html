@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Precisando de um Cliente MQTT para usar no Arduino? | Faz-B</title>
+
+  
+  <meta name="author" content="Faz-B Man">
+  
+
+  
+  <meta name="description" content="Como fazer coisas tecnológicas de formas simples e rápidas, sem frescura!">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Precisando de um Cliente MQTT para usar no Arduino?"/>
+
+  <meta property="og:site_name" content="Faz-B"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Faz-B</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Início</a></li>
+      
+        <li><a href="/Sobre">Sobre</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="site-navigation">
+    <ul>
+      <li>
+        <br>
+        <br>
+
+        <script>
+          var domainroot="example.com"
+          function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value }
+        </script>
+        <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+          <div class="input-group">
+                  <input name="q" type="hidden" />
+                  <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="busque algo..." maxlength="50"/>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Precisando de um Cliente MQTT para usar no Arduino?</span></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-07T18:40:03.000Z">
+          2017-02-07
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Não vou explicar como instalar uma Biblioteca na <a href="https://www.arduino.cc/en/main/software" target="_blank" rel="external">Arduino IDE</a>, está cheio de tutoriais no Google, de qualquer forma, <a href="http://labdegaragem.com/profiles/blogs/tutorial-arduino-instalando-bibliotecas" target="_blank" rel="external">aqui tem um</a>, <a href="http://fritzenlab.com.br/2016/02/como-instalar-novas-bibliotecas-na-ide-do-arduino/" target="_blank" rel="external">aqui tem outro</a> e <a href="https://www.youtube.com/watch?v=C1U4KvMbhJk" target="_blank" rel="external">aqui tem mais outro (vídeo)</a> tutorial.</p>
+<p>Então, conheça o <a href="https://github.com/knolleary/pubsubclient" target="_blank" rel="external">PubSubClient</a>, esse é o cara! Todos sabemos (ou não) que o <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external"><strong>MQTT</strong></a> trabalha com publicações e subscrições!</p>
+<p>Não entendeu? Bora lá então, quando você envia um comando para um servidor <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external"><strong>MQTT</strong></a>, você usa um <strong>publish</strong>, ou seja, você faz uma <strong>publicação</strong> para o servidor <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external"><strong>MQTT</strong></a>, e se existe uma <strong>publicação</strong> ele precisa receber ela, ler e executar uma algo, correto amiguinho?</p>
+<p>É ai que entra o <strong>subscribe</strong>, ele fica o tempo todo “<strong>ouvindo</strong>“ se existe novas publicações, se existe, ele recebe e de acordo com o tópico e o conteúdo desta <strong>publicação</strong>, você executa uma ação, como por exemplo, ligar uma luz, fechar um portão e etc.</p>
+<p>No próprio GitHub deles, <a href="https://github.com/knolleary/pubsubclient/tree/master/examples" target="_blank" rel="external">tem ótimos exemplos</a>, como usar com autenticação, sem e etc.</p>
+<p>Primeiro, você tem que incluir ele no seu código do Arduino, como?<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;PubSubClient.h&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>Depois você cria o client<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">PubSubClient <span class="title">client</span><span class="params">(server, <span class="number">1883</span>, CALLBACK_SUB, CLIENT_ETHERNET_OU_WIFI)</span></span>;</div></pre></td></tr></table></figure></p>
+<h4 id="Publish"><a href="#Publish" class="headerlink" title="Publish"></a>Publish</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">client.publish(<span class="string">"tópico"</span>,<span class="string">"mensagem"</span>);</div></pre></td></tr></table></figure>
+<h4 id="Subscribe"><a href="#Subscribe" class="headerlink" title="Subscribe"></a>Subscribe</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">client.subscribe(<span class="string">"tópico"</span>);</div></pre></td></tr></table></figure>
+<p>Enfim, <a href="https://github.com/knolleary/pubsubclient/blob/master/examples/mqtt_auth/mqtt_auth.ino" target="_blank" rel="external">olhe este exemplo no Github deles</a>, é bem legal e você vai entender bem melhor, porquê criar o que já foi criado? Bora ganhar tempo galera.</p>
+<p>Mesmo assim, ainda está com dificuldades? Bom, eu acho difícil isso estar acontecendo, mas vamos lá, <a href="http://pubsubclient.knolleary.net/api.html" target="_blank" rel="external">aqui tem a documentação completa do PubSubClient</a>, mais que isso, impossível né?</p>
+<p>Pronto, foi? Deu certo? <strong>#tchaubrigado</strong></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Faz-B Man
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

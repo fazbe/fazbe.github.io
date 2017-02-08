@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Turbine as Collection do Laravel com o Laravel Collection Macros da Spatie | Faz-B</title>
+
+  
+  <meta name="author" content="Faz-B Man">
+  
+
+  
+  <meta name="description" content="Como fazer coisas tecnológicas de formas simples e rápidas, sem frescura!">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Turbine as Collection do Laravel com o Laravel Collection Macros da Spatie"/>
+
+  <meta property="og:site_name" content="Faz-B"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Faz-B</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Início</a></li>
+      
+        <li><a href="/Sobre">Sobre</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="site-navigation">
+    <ul>
+      <li>
+        <br>
+        <br>
+
+        <script>
+          var domainroot="example.com"
+          function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value }
+        </script>
+        <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+          <div class="input-group">
+                  <input name="q" type="hidden" />
+                  <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="busque algo..." maxlength="50"/>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Turbine as Collection do Laravel com o Laravel Collection Macros da Spatie</span></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-08T12:41:37.000Z">
+          2017-02-08
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Que as <a href="https://laravel.com/docs/collections" target="_blank" rel="external">Collections do Laravel</a> são legais e que ajudam muito na hora de desenvolver todo mundo sabe. Mas em muitas ocasiões faltam funções que precisamos e não existe, para isso você tem duas opções, criar suas próprias collections ou usar pacotes de terceiros.</p>
+<p>É ai que entra a <a href="https://spatie.be/en/opensource/laravel" target="_blank" rel="external">Spatie</a>, eles criaram um pacote para Laravel, o <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="external">Laravel Collection Macros</a>.</p>
+<p>Mesmo assim, no nosso caso aqui na empresa ainda faltam algumas funções, mas enfim, o foco aqui não é falar disso e isso também <strong>não tira o mérito do pacote da Spatie</strong>.</p>
+<p>Hoje em dia, AINDA vejo MUITOS programadores resistentes a usar pacotes e até mesmo frameworks, acreditam?</p>
+<p>Poisé, eu mesmo não acredito! Particularmente acho isso muita ignorância mas não julgo ninguém, em toda minha experiência posso falar com toda a certeza, usar pacotes de terceiros e frameworks não é uma vergonha e sim um ganho gigantesco de tempo e sem perder a qualidade do seu desenvolvimento.</p>
+<p>Então meu amigo, <strong>a menos que você esteja entrando no mundo da programação agora</strong>, use e abuse de pacotes e frameworks.</p>
+<p>Mas voltando ao pacote, para instalar vá a pasta do seu projeto Laravel e use o <a href="https://tableless.com.br/composer-para-iniciantes/" target="_blank" rel="external">composer</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer require spatie/laravel-collection-macros</div></pre></td></tr></table></figure></p>
+<p>Depois, adicione o provider no arquivo <strong>app.php</strong> que está na pasta <strong>config</strong> dentro da pasta do seu projeto Laravel<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Spatie\CollectionMacros\CollectionMacroServiceProvider::class,</div></pre></td></tr></table></figure></p>
+<p>E depois? Use, use e use! Para saber quais <strong>collections</strong> o pacote possui, entra la <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="external">no Github deles</a>, tem tudo! Os que mais usamos aqui são:</p>
+<ul>
+<li><a href="https://github.com/spatie/laravel-collection-macros#range" target="_blank" rel="external">range()</a></li>
+<li><a href="https://github.com/spatie/laravel-collection-macros#dd" target="_blank" rel="external">dd()</a></li>
+<li><a href="https://github.com/spatie/laravel-collection-macros#validate" target="_blank" rel="external">validate()</a></li>
+<li><a href="https://github.com/spatie/laravel-collection-macros#ifempty" target="_blank" rel="external">ifEmpty()</a></li>
+</ul>
+<p> Rapaiz, o <strong>dd()</strong> usado nesse contexto ai, é lindo! kk</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Faz-B Man
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

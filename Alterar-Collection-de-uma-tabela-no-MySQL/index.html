@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Alterar Collection de uma tabela no MySQL | Faz-B</title>
+
+  
+  <meta name="author" content="Faz-B Man">
+  
+
+  
+  <meta name="description" content="Como fazer coisas tecnológicas de formas simples e rápidas, sem frescura!">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Alterar Collection de uma tabela no MySQL"/>
+
+  <meta property="og:site_name" content="Faz-B"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Faz-B</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Início</a></li>
+      
+        <li><a href="/Sobre">Sobre</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="site-navigation">
+    <ul>
+      <li>
+        <br>
+        <br>
+
+        <script>
+          var domainroot="example.com"
+          function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value }
+        </script>
+        <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+          <div class="input-group">
+                  <input name="q" type="hidden" />
+                  <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="busque algo..." maxlength="50"/>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Alterar Collection de uma tabela no MySQL</span></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Alterar-Collection-de-uma-tabela-no-MySQL/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-08T12:24:18.000Z">
+          2017-02-08
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p> Com a chegada do Laravel 5.4, nós preferimos mudar a collection de algumas tabelas do nosso banco de dados, não vou explicar o que mudou, nem o porquê, mas você <a href="https://laravel.com/docs/5.4/releases" target="_blank" rel="external">pode ver aqui</a>.</p>
+<p> Mas, para tal ação é só executar a seguinte query no console do MySQL ou no seu gerenciador preferido de banco de dados.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE  SUA_TABELA CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</div></pre></td></tr></table></figure>
+<p>É isso, sem muita frescura.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Faz-B Man
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

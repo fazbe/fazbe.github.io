@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Pub / Sub com Laravel e Redis | Faz-B</title>
+
+  
+  <meta name="author" content="Faz-B Man">
+  
+
+  
+  <meta name="description" content="Como fazer coisas tecnológicas de formas simples e rápidas, sem frescura!">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Pub / Sub com Laravel e Redis"/>
+
+  <meta property="og:site_name" content="Faz-B"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Faz-B</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Início</a></li>
+      
+        <li><a href="/Sobre">Sobre</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="site-navigation">
+    <ul>
+      <li>
+        <br>
+        <br>
+
+        <script>
+          var domainroot="example.com"
+          function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value }
+        </script>
+        <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+          <div class="input-group">
+                  <input name="q" type="hidden" />
+                  <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="busque algo..." maxlength="50"/>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Pub / Sub com Laravel e Redis</span></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Pub-Sub-com-Laravel-e-Redis/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-08T11:46:23.000Z">
+          2017-02-08
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Eu nem precisava fazer este artigo, pois na <a href="https://laravel.com/docs/redis#pubsub" target="_blank" rel="external">documentação do laravel</a> tem exemplos, explica tudo. Mas beleza, sou um caboquim gente fina. Ok, beleza, pronto, vamos!</p>
+<p>Para quem não sabe, Redis é um banco de dados NoSQL e ele funciona com a idéia de chave-valor. O valor (e também a chave) pode ser qualquer coisa, eu uso muito para arrays e até mesmo para views que não mudam muito e podem ser cacheadas para carregar uma página web mais rápido. Se quiser saber mais sobre Redis, da-lhe Google.</p>
+<p>O Laravel é um framework para PHP robusto e que faz praticamente tudo o que você precisar, é simplesmente perfeito! Na empresa, usamos ele em todos os nosso projetos. Claro, usamos outras tecnologias também, mas a base de tudo gira em torno do Laravel. Chega de blá blá bléa, cansei!</p>
+<p>Primeiro, precisamos criar um comando no <a href="https://laravel.com/docs/artisan" target="_blank" rel="external">Artisan</a> para testarmos o nosso Subscribe.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan make:<span class="built_in">command</span> SubTestCommand</div></pre></td></tr></table></figure></p>
+<p>Isso, agora vai lá no seu arquivo maroto SubTestCommand.php, adicione a Facade do Redis:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Facades</span>\<span class="title">Redis</span>;</div></pre></td></tr></table></figure>
+<p>Dê uma assinatura pra ele “<strong>redis:subscribe</strong>“, uma descrição “<strong>Redis subscribe test</strong>“ ou qualquer outra descrição que você quiser, ou copie como está na <a href="https://laravel.com/docs/redis#pubsub" target="_blank" rel="external">documentação do laravel</a>, você quem sabe.</p>
+<p>Continuando… No método <strong>handle</strong> que é onde executa o comando, coloque o seguinte:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Redis::psubscribe([<span class="string">'casa/*'</span>], <span class="function"><span class="keyword">function</span> <span class="params">($message, $channel)</span> </span>&#123;</div><div class="line">    <span class="comment">// $message é a mensagem recebida, obviamente</span></div><div class="line">    <span class="comment">// $channel é o canal o qual foi enviada a publicação</span></div><div class="line">    <span class="keyword">echo</span> <span class="string">"\nMensagem: "</span>.$message.<span class="string">"\n\nCanal: "</span>.json_encode(explode(<span class="string">'/'</span>, $channel)).<span class="string">"\n"</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>Na <a href="https://laravel.com/docs/redis#pubsub" target="_blank" rel="external">documentação do laravel</a> existe duas formas de usar o subscribe, que é <strong>Redis::subscribe()</strong> e <strong>Redis::psubscribe()</strong> a diferença entre um e outro é que o primeiro não aceita curinga (wildcard) e o segundo aceita. Mas, se você quer saber mais, olhe ai na documentação, lá explica tudo. Mas o que eu expliquei aqui já é o suficiente acredito.</p>
+<p>Beleza, tudo lindo, funcionando até agora, mas, temos que executar o comando e criar um publish né? Certo, para executar o comando que criamos no Laravel faça o seguinte<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan redis:subscribe</div></pre></td></tr></table></figure></p>
+<p>Certo, agora precisamos enviar uma publicação para o canal “<strong>casa</strong>“, para testes vamos usar o <a href="https://github.com/laravel/tinker" target="_blank" rel="external">Laravel Tinker</a>, corre lá no terminal, onde está instalado o Laravel que você está usando para testes, e digite o comando:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan tinker</div></pre></td></tr></table></figure></p>
+<p>O Tinker será iniciado, lá, iremos digitar o seguinte:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Illuminate\Support\Facades\Redis::publish(<span class="string">'casa/sala'</span>, json_encode([<span class="string">'comando'</span> =&gt; <span class="string">'ligar-luz'</span>]));</div></pre></td></tr></table></figure></p>
+<p>Repare que na janela do terminal onde está executando o comando <strong>artisan redis:subscribe</strong> irá receber uma mensagem. Pronto, agora faça a seu gosto.</p>
+<p>No artigo, eu usei exemplo enviando um comando para uma casa, mas, você pode usar isso em qualquer lugar, seja software, hardware ou <a href="http://devtecnologia.com.br/internet-das-coisas-iot/" target="_blank" rel="external">IoT</a>, até porquê quando se diz respeito a <a href="http://devtecnologia.com.br/internet-das-coisas-iot/" target="_blank" rel="external">IoT</a> eu prefiro usar o MQTT.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Faz-B Man
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

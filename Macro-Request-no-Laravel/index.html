@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Macro Request no Laravel | Faz-B</title>
+
+  
+  <meta name="author" content="Faz-B Man">
+  
+
+  
+  <meta name="description" content="Como fazer coisas tecnológicas de formas simples e rápidas, sem frescura!">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Macro Request no Laravel"/>
+
+  <meta property="og:site_name" content="Faz-B"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Faz-B</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Início</a></li>
+      
+        <li><a href="/Sobre">Sobre</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="site-navigation">
+    <ul>
+      <li>
+        <br>
+        <br>
+
+        <script>
+          var domainroot="example.com"
+          function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value }
+        </script>
+        <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+          <div class="input-group">
+                  <input name="q" type="hidden" />
+                  <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="busque algo..." maxlength="50"/>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Macro Request no Laravel</span></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Macro-Request-no-Laravel/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-08T13:01:45.000Z">
+          2017-02-08
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Para mim uma das coisas mais fascinantes no <a href="https://laravel.com/docs/" target="_blank" rel="external">Laravel</a>, são os Macros, muito pouco falados na documentação, mas, são demais.</p>
+<p>Os Macros eles basicamente servem, para extender os métodos de uma biblioteca ou seja la o que for, então, conseguimos criar “coisas” personalizadas de acordo com a nossa necessidade.</p>
+<p>Por aqui eu vou mostrar, como utilizar um Macro para o <a href="https://laravel.com/docs/requests" target="_blank" rel="external">Requests do Laravel</a>.</p>
+<p>Primeiro, vamos criar um provider usando o artisan<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan make:provider MacroServiceProvider</div></pre></td></tr></table></figure></p>
+<p>Depois de criado, vá na pasta <strong>config</strong>, abra o arquivo <strong>app.php</strong> e adicione o seguinte Provider<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">App\Providers\MacroServiceProvider::class,</div></pre></td></tr></table></figure></p>
+<p>Isso, agora vá na pasta do seu projeto Laravel em <strong>app/Providers</strong> e abra o <strong>MacroServiceProvider.php</strong></p>
+<p>Já abriu? Bom demais, agora vamos adicionar a classe Request do Laravel para uso:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</div></pre></td></tr></table></figure></p>
+<p>O início do seu Provider ficará mais ou menos assim<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">ServiceProvider</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MacroServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></div><div class="line">&#123;</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>Certo, agora vamos criar o Macro, para isso <strong>dentro do método boot()</strong> coloque o seguinte código:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Request::macro(<span class="string">'isEdit'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;is(<span class="string">'/editar'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>Para usar:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Com helper do Laravel para ser chamado em uma view por exemplo</span></div><div class="line"><span class="keyword">if</span>(request()-&gt;isEdit())</div><div class="line">    <span class="keyword">echo</span>(<span class="string">"Estou editando o bagui"</span>);</div><div class="line"></div><div class="line"><span class="comment">// Sem o helper</span></div><div class="line"><span class="keyword">if</span>($request-&gt;isEdit())</div><div class="line">    <span class="keyword">echo</span>(<span class="string">"Estou editando o bagui"</span>);</div></pre></td></tr></table></figure></p>
+<p>O que aconteceu ai? Eu explico, quando chama o Macro <strong>isEdit()</strong> ele vai buscar usando o método <strong>is()</strong> do Request do Laravel, se a rota atual é a rota de edição retorna <strong>true</strong>, se não, <strong>false</strong>.</p>
+<p>Quase tudo no Laravel tem Macros, olha só:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Routing</span>\<span class="title">UrlGenerator</span>;</div><div class="line">UrlGenerator::macro(<span class="string">'nomeMacro'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; ... &#125;);</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Collection</span>;</div><div class="line">Collection::macro(<span class="string">'nomeMacro'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; ... &#125;);</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Routing</span>\<span class="title">Router</span>;</div><div class="line">Router::macro(<span class="string">'nomeMacro'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; ... &#125;);</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Str</span>;</div><div class="line">Str::macro(<span class="string">'nomeMacro'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; ... &#125;);</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Arr</span>;</div><div class="line">Arr::macro(<span class="string">'nomeMacro'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; ... &#125;);</div></pre></td></tr></table></figure>
+<p>… E muito mais!</p>
+<p>Como eu descobri onde o Laravel usa Macros?</p>
+<p>Não sei se foi a forma correta mas para mim e minha equipe funcionou perfeitamente. O código principal do <a href="https://laravel.com/api" target="_blank" rel="external">Framework Laravel</a>, o núcleo dele, o chamado <a href="https://laravel.com/api" target="_blank" rel="external">Illuminate</a>, contém todas as classes e métodos utilizados, enfim o core completo do framework, você pode <a href="https://laravel.com/api" target="_blank" rel="external">acessá-lo aqui</a>.</p>
+<p>Por exemplo, para o Request, normalmente é utilizado o <strong>Illuminate\Http\Request</strong>, se você abrir este arquivo, você verá que ele usa a <strong>Trait Macroable</strong> que é responsável pelos Macros, então adivinha eu chegado…<br><img src="/images/emojis/smirk.png" width="24" height="24" class="custom_class1 custom_class2 emoji nofancybox" title="smirk"> <img src="/images/emojis/wink.png" width="24" height="24" class="custom_class1 custom_class2 emoji nofancybox" title="wink"></p>
+<p>Um exemplo real do uso de macros, é o pacote <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="external">Laravel Collection Macros</a> que falei no post anterior, <a href="https://github.com/spatie/laravel-collection-macros/blob/master/src/macros.php" target="_blank" rel="external">olha só o código dos marcros dele</a>.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Faz-B Man
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

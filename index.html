@@ -1,0 +1,652 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Faz-B</title>
+
+  
+  <meta name="author" content="Faz-B Man">
+  
+
+  
+  <meta name="description" content="Como fazer coisas tecnológicas de formas simples e rápidas, sem frescura!">
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="Faz-B"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Faz-B</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Início</a></li>
+      
+        <li><a href="/Sobre">Sobre</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="site-navigation">
+    <ul>
+      <li>
+        <br>
+        <br>
+
+        <script>
+          var domainroot="example.com"
+          function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value }
+        </script>
+        <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+          <div class="input-group">
+                  <input name="q" type="hidden" />
+                  <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="busque algo..." maxlength="50"/>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Macro-Request-no-Laravel/"><span>Macro Request no Laravel</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Macro-Request-no-Laravel/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-08T13:01:45.000Z">
+          2017-02-08
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Para mim uma das coisas mais fascinantes no <a href="https://laravel.com/docs/" target="_blank" rel="external">Laravel</a>, são os Macros, muito pouco falados na documentação, mas, são demais.</p>
+<p>Os Macros eles basicamente servem, para extender os métodos de uma biblioteca ou seja la o que for, então, conseguimos criar “coisas” personalizadas de acordo com a nossa necessidade.</p>
+<p>Por aqui eu vou mostrar, como utilizar um Macro para o <a href="https://laravel.com/docs/requests" target="_blank" rel="external">Requests do Laravel</a>.</p>
+<p>Primeiro, vamos criar um provider usando o artisan<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan make:provider MacroServiceProvider</div></pre></td></tr></table></figure></p>
+<p>Depois de criado, vá na pasta <strong>config</strong>, abra o arquivo <strong>app.php</strong> e adicione o seguinte Provider<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">App\Providers\MacroServiceProvider::class,</div></pre></td></tr></table></figure></p>
+<p>Isso, agora vá na pasta do seu projeto Laravel em <strong>app/Providers</strong> e abra o <strong>MacroServiceProvider.php</strong></p>
+<p>Já abriu? Bom demais, agora vamos adicionar a classe Request do Laravel para uso:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</div></pre></td></tr></table></figure></p>
+<p>O início do seu Provider ficará mais ou menos assim<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">ServiceProvider</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MacroServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></div><div class="line">&#123;</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>Certo, agora vamos criar o Macro, para isso <strong>dentro do método boot()</strong> coloque o seguinte código:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Request::macro(<span class="string">'isEdit'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;is(<span class="string">'/editar'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>Para usar:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Com helper do Laravel para ser chamado em uma view por exemplo</span></div><div class="line"><span class="keyword">if</span>(request()-&gt;isEdit())</div><div class="line">    <span class="keyword">echo</span>(<span class="string">"Estou editando o bagui"</span>);</div><div class="line"></div><div class="line"><span class="comment">// Sem o helper</span></div><div class="line"><span class="keyword">if</span>($request-&gt;isEdit())</div><div class="line">    <span class="keyword">echo</span>(<span class="string">"Estou editando o bagui"</span>);</div></pre></td></tr></table></figure></p>
+<p>O que aconteceu ai? Eu explico, quando chama o Macro <strong>isEdit()</strong> ele vai buscar usando o método <strong>is()</strong> do Request do Laravel, se a rota atual é a rota de edição retorna <strong>true</strong>, se não, <strong>false</strong>.</p>
+<p>Quase tudo no Laravel tem Macros, olha só:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Routing</span>\<span class="title">UrlGenerator</span>;</div><div class="line">UrlGenerator::macro(<span class="string">'nomeMacro'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; ... &#125;);</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Collection</span>;</div><div class="line">Collection::macro(<span class="string">'nomeMacro'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; ... &#125;);</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Routing</span>\<span class="title">Router</span>;</div><div class="line">Router::macro(<span class="string">'nomeMacro'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; ... &#125;);</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Str</span>;</div><div class="line">Str::macro(<span class="string">'nomeMacro'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; ... &#125;);</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Arr</span>;</div><div class="line">Arr::macro(<span class="string">'nomeMacro'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; ... &#125;);</div></pre></td></tr></table></figure>
+<p>… E muito mais!</p>
+<p>Como eu descobri onde o Laravel usa Macros?</p>
+<p>Não sei se foi a forma correta mas para mim e minha equipe funcionou perfeitamente. O código principal do <a href="https://laravel.com/api" target="_blank" rel="external">Framework Laravel</a>, o núcleo dele, o chamado <a href="https://laravel.com/api" target="_blank" rel="external">Illuminate</a>, contém todas as classes e métodos utilizados, enfim o core completo do framework, você pode <a href="https://laravel.com/api" target="_blank" rel="external">acessá-lo aqui</a>.</p>
+<p>Por exemplo, para o Request, normalmente é utilizado o <strong>Illuminate\Http\Request</strong>, se você abrir este arquivo, você verá que ele usa a <strong>Trait Macroable</strong> que é responsável pelos Macros, então adivinha eu chegado…<br><img src="/images/emojis/smirk.png" width="24" height="24" class="custom_class1 custom_class2 emoji nofancybox" title="smirk"> <img src="/images/emojis/wink.png" width="24" height="24" class="custom_class1 custom_class2 emoji nofancybox" title="wink"></p>
+<p>Um exemplo real do uso de macros, é o pacote <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="external">Laravel Collection Macros</a> que falei no post anterior, <a href="https://github.com/spatie/laravel-collection-macros/blob/master/src/macros.php" target="_blank" rel="external">olha só o código dos marcros dele</a>.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/"><span>Turbine as Collection do Laravel com o Laravel Collection Macros da Spatie</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-08T12:41:37.000Z">
+          2017-02-08
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Que as <a href="https://laravel.com/docs/collections" target="_blank" rel="external">Collections do Laravel</a> são legais e que ajudam muito na hora de desenvolver todo mundo sabe. Mas em muitas ocasiões faltam funções que precisamos e não existe, para isso você tem duas opções, criar suas próprias collections ou usar pacotes de terceiros.</p>
+<p>É ai que entra a <a href="https://spatie.be/en/opensource/laravel" target="_blank" rel="external">Spatie</a>, eles criaram um pacote para Laravel, o <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="external">Laravel Collection Macros</a>.</p>
+<p>Mesmo assim, no nosso caso aqui na empresa ainda faltam algumas funções, mas enfim, o foco aqui não é falar disso e isso também <strong>não tira o mérito do pacote da Spatie</strong>.</p>
+<p>Hoje em dia, AINDA vejo MUITOS programadores resistentes a usar pacotes e até mesmo frameworks, acreditam?</p>
+<p>Poisé, eu mesmo não acredito! Particularmente acho isso muita ignorância mas não julgo ninguém, em toda minha experiência posso falar com toda a certeza, usar pacotes de terceiros e frameworks não é uma vergonha e sim um ganho gigantesco de tempo e sem perder a qualidade do seu desenvolvimento.</p>
+<p>Então meu amigo, <strong>a menos que você esteja entrando no mundo da programação agora</strong>, use e abuse de pacotes e frameworks.</p>
+<p>Mas voltando ao pacote, para instalar vá a pasta do seu projeto Laravel e use o <a href="https://tableless.com.br/composer-para-iniciantes/" target="_blank" rel="external">composer</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer require spatie/laravel-collection-macros</div></pre></td></tr></table></figure></p>
+<p>Depois, adicione o provider no arquivo <strong>app.php</strong> que está na pasta <strong>config</strong> dentro da pasta do seu projeto Laravel<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Spatie\CollectionMacros\CollectionMacroServiceProvider::class,</div></pre></td></tr></table></figure></p>
+<p>E depois? Use, use e use! Para saber quais <strong>collections</strong> o pacote possui, entra la <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="external">no Github deles</a>, tem tudo! Os que mais usamos aqui são:</p>
+<ul>
+<li><a href="https://github.com/spatie/laravel-collection-macros#range" target="_blank" rel="external">range()</a></li>
+<li><a href="https://github.com/spatie/laravel-collection-macros#dd" target="_blank" rel="external">dd()</a></li>
+<li><a href="https://github.com/spatie/laravel-collection-macros#validate" target="_blank" rel="external">validate()</a></li>
+<li><a href="https://github.com/spatie/laravel-collection-macros#ifempty" target="_blank" rel="external">ifEmpty()</a></li>
+</ul>
+<p> Rapaiz, o <strong>dd()</strong> usado nesse contexto ai, é lindo! kk</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Alterar-Collection-de-uma-tabela-no-MySQL/"><span>Alterar Collection de uma tabela no MySQL</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Alterar-Collection-de-uma-tabela-no-MySQL/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-08T12:24:18.000Z">
+          2017-02-08
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p> Com a chegada do Laravel 5.4, nós preferimos mudar a collection de algumas tabelas do nosso banco de dados, não vou explicar o que mudou, nem o porquê, mas você <a href="https://laravel.com/docs/5.4/releases" target="_blank" rel="external">pode ver aqui</a>.</p>
+<p> Mas, para tal ação é só executar a seguinte query no console do MySQL ou no seu gerenciador preferido de banco de dados.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ALTER TABLE  SUA_TABELA CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</div></pre></td></tr></table></figure>
+<p>É isso, sem muita frescura.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Pub-Sub-com-Laravel-e-Redis/"><span>Pub / Sub com Laravel e Redis</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Pub-Sub-com-Laravel-e-Redis/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-08T11:46:23.000Z">
+          2017-02-08
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Eu nem precisava fazer este artigo, pois na <a href="https://laravel.com/docs/redis#pubsub" target="_blank" rel="external">documentação do laravel</a> tem exemplos, explica tudo. Mas beleza, sou um caboquim gente fina. Ok, beleza, pronto, vamos!</p>
+<p>Para quem não sabe, Redis é um banco de dados NoSQL e ele funciona com a idéia de chave-valor. O valor (e também a chave) pode ser qualquer coisa, eu uso muito para arrays e até mesmo para views que não mudam muito e podem ser cacheadas para carregar uma página web mais rápido. Se quiser saber mais sobre Redis, da-lhe Google.</p>
+<p>O Laravel é um framework para PHP robusto e que faz praticamente tudo o que você precisar, é simplesmente perfeito! Na empresa, usamos ele em todos os nosso projetos. Claro, usamos outras tecnologias também, mas a base de tudo gira em torno do Laravel. Chega de blá blá bléa, cansei!</p>
+<p>Primeiro, precisamos criar um comando no <a href="https://laravel.com/docs/artisan" target="_blank" rel="external">Artisan</a> para testarmos o nosso Subscribe.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan make:<span class="built_in">command</span> SubTestCommand</div></pre></td></tr></table></figure></p>
+<p>Isso, agora vai lá no seu arquivo maroto SubTestCommand.php, adicione a Facade do Redis:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Facades</span>\<span class="title">Redis</span>;</div></pre></td></tr></table></figure>
+<p>Dê uma assinatura pra ele “<strong>redis:subscribe</strong>“, uma descrição “<strong>Redis subscribe test</strong>“ ou qualquer outra descrição que você quiser, ou copie como está na <a href="https://laravel.com/docs/redis#pubsub" target="_blank" rel="external">documentação do laravel</a>, você quem sabe.</p>
+<p>Continuando… No método <strong>handle</strong> que é onde executa o comando, coloque o seguinte:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Redis::psubscribe([<span class="string">'casa/*'</span>], <span class="function"><span class="keyword">function</span> <span class="params">($message, $channel)</span> </span>&#123;</div><div class="line">    <span class="comment">// $message é a mensagem recebida, obviamente</span></div><div class="line">    <span class="comment">// $channel é o canal o qual foi enviada a publicação</span></div><div class="line">    <span class="keyword">echo</span> <span class="string">"\nMensagem: "</span>.$message.<span class="string">"\n\nCanal: "</span>.json_encode(explode(<span class="string">'/'</span>, $channel)).<span class="string">"\n"</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>Na <a href="https://laravel.com/docs/redis#pubsub" target="_blank" rel="external">documentação do laravel</a> existe duas formas de usar o subscribe, que é <strong>Redis::subscribe()</strong> e <strong>Redis::psubscribe()</strong> a diferença entre um e outro é que o primeiro não aceita curinga (wildcard) e o segundo aceita. Mas, se você quer saber mais, olhe ai na documentação, lá explica tudo. Mas o que eu expliquei aqui já é o suficiente acredito.</p>
+<p>Beleza, tudo lindo, funcionando até agora, mas, temos que executar o comando e criar um publish né? Certo, para executar o comando que criamos no Laravel faça o seguinte<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan redis:subscribe</div></pre></td></tr></table></figure></p>
+<p>Certo, agora precisamos enviar uma publicação para o canal “<strong>casa</strong>“, para testes vamos usar o <a href="https://github.com/laravel/tinker" target="_blank" rel="external">Laravel Tinker</a>, corre lá no terminal, onde está instalado o Laravel que você está usando para testes, e digite o comando:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan tinker</div></pre></td></tr></table></figure></p>
+<p>O Tinker será iniciado, lá, iremos digitar o seguinte:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Illuminate\Support\Facades\Redis::publish(<span class="string">'casa/sala'</span>, json_encode([<span class="string">'comando'</span> =&gt; <span class="string">'ligar-luz'</span>]));</div></pre></td></tr></table></figure></p>
+<p>Repare que na janela do terminal onde está executando o comando <strong>artisan redis:subscribe</strong> irá receber uma mensagem. Pronto, agora faça a seu gosto.</p>
+<p>No artigo, eu usei exemplo enviando um comando para uma casa, mas, você pode usar isso em qualquer lugar, seja software, hardware ou <a href="http://devtecnologia.com.br/internet-das-coisas-iot/" target="_blank" rel="external">IoT</a>, até porquê quando se diz respeito a <a href="http://devtecnologia.com.br/internet-das-coisas-iot/" target="_blank" rel="external">IoT</a> eu prefiro usar o MQTT.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Instalando-a-extensao-Mosquitto-PHP/"><span>Instalando a extensão Mosquitto-PHP</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Instalando-a-extensao-Mosquitto-PHP/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-07T23:09:24.000Z">
+          2017-02-07
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>E ai, bora instalar a extensão Mosquitto-PHP? Testado e sendo usado em <strong>dois servidores</strong> com Ubuntu 16.4, um local e um externo. Não sabe a versão do seu? Use o comando no terminal:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsb_release <span class="_">-a</span></div></pre></td></tr></table></figure></p>
+<p>O comando acima irá retornar algo como:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Distributor ID:	Ubuntu</div><div class="line">Description:	Ubuntu 16.04 LTS</div><div class="line">Release:	16.04</div><div class="line">Codename:	xenial</div></pre></td></tr></table></figure></p>
+<p>Certo, chega de perder tempo olhando versão. Primeiro, temos que instalar o pacote libmosquitto-dev, em alguns sistemas derivados do Red Hat é provável que seja chamado de libmosquitto-devel, mas, se não for, tente a outra forma.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libmosquitto-dev</div></pre></td></tr></table></figure></p>
+<p>Já ia me esquecendo, a primeira vez que fui instalar usando o PECL e seguindo o tutorial do próprio Github deles, não deu muito certo, eu tive que pesquisar e tentar outras maneiras, até que achei uma solução e funcionou, mas mesmo assim houve alguns problemas no decorrer da instalação, então, aqui eu mostro como instalei e funcionou sem nenhum problema e sem nenhum erro antes, durante e nem depois da instalação. <strong>Se der algum problema no seu, pesquise e ache uma solução</strong>, mas creio que dará tudo certo.</p>
+<p>Agora vamos clonar o repositório da extensão para uma pasta qualquer, eu costumo jogar tudo na /tmp, mas é você quem decide.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/mgdm/Mosquitto-PHP.git</div></pre></td></tr></table></figure></p>
+<p>E vamos entrar na pasta…<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> Mosquitto-PHP/</div></pre></td></tr></table></figure></p>
+<p>E agora? Vamos instalar a extensão de fato.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">phpize</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure --with-mosquitto=/path/to/libmosquitto</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<p>Em alguns casos, aqui não é necessário usar sudo, mas em outros é! Então, faça de acordo com sua máquina.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
+<p>Já instalado, está quase pronto. Agora precisamos ativar a extensão nas configurações (<strong>php.ini</strong>) do PHP. No meu caso, o PHP se encontra instalado em <strong>/etc/php/7.0/</strong>.</p>
+<p>Abra e altere o arquivo php.ini. Se você não sabe como usar o vim, <a href="http://aurelio.net/vim/vim-basico.txt" target="_blank" rel="external">olhe aqui</a>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/php/7.0/cli/php.ini</div></pre></td></tr></table></figure></p>
+<p>E adicione a seguinte linha em extension no PHP Cli<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">extension</span>=mosquitto.so</div></pre></td></tr></table></figure></p>
+<p>Abra e altere o arquivo php.ini no FPM também.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/php/7.0/fpm/php.ini</div></pre></td></tr></table></figure></p>
+<p>E adicione a seguinte linha em extension no PHP FPM<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">extension=mosquitto.so</div></pre></td></tr></table></figure></p>
+<p>Como usar? Darei um exemplo simples para ouvir o tópico “<strong>casa</strong>“<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Inicia o cliente</span></div><div class="line">$c = <span class="keyword">new</span> \Mosquitto\Client;</div><div class="line"></div><div class="line"><span class="comment">// Se o seu mosquitto não possuir usuário e senha, basta remover a linha seguinte.</span></div><div class="line">$c-&gt;setCredentials(<span class="string">'USUARIO_MQTT'</span>, <span class="string">'SENHA_MQTT'</span>);</div><div class="line"></div><div class="line"><span class="comment">// Conecta no broker/servidor mosquitto</span></div><div class="line">$c-&gt;connect(<span class="string">'IP_DO_MOSQUITTO'</span>);</div><div class="line"></div><div class="line"><span class="comment">// Quando usa o "#", você está dizendo que tudo que chegar para o subscribe após a / (barra), ele irá receber.</span></div><div class="line"><span class="comment">// Lembrando que você pode subscrever em vários tópicos, basta adicionar uma linha abaixo da outra.</span></div><div class="line">$c-&gt;subscribe(<span class="string">'casa/#'</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="comment">// Quando chegar uma mensagem ao subscribe no tópico "casa"</span></div><div class="line">$c-&gt;onMessage(<span class="function"><span class="keyword">function</span><span class="params">($m)</span> <span class="title">use</span> <span class="params">($c)</span> </span>&#123;</div><div class="line">    print_r($m);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// Coloca em loop</span></div><div class="line">$c-&gt;loopForever(<span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<p>Tudo beleza? Salve o aquivo acima como mqttext.php em algum lugar na sua máquina. Dai, corre no seu terminal e digita o seguinte:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php mqttext.php</div></pre></td></tr></table></figure></p>
+<p>Envie uma publicação (usando o <a href="https://github.com/mqttjs/MQTT.js" target="_blank" rel="external">MQTT.js</a> ou o <a href="https://pypi.python.org/pypi/paho-mqtt" target="_blank" rel="external">paho-mqtt</a> ou qualquer outro que você quiser, só para teste) para o canal <strong>casa</strong> e veja a mágina acontecer.</p>
+<p>E para publicar uma mensagem usando a extensão Mosquitto-PHP? Simples também!</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Inicia o cliente</span></div><div class="line">$c = <span class="keyword">new</span> Mosquitto\Client;</div><div class="line"></div><div class="line"><span class="comment">// Quando conectar, envia a publicação</span></div><div class="line">$c-&gt;onConnect(<span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="title">use</span> <span class="params">($c)</span> </span>&#123;</div><div class="line">	$c-&gt;publish(<span class="string">'casa/sala'</span>, <span class="string">'Enviando para a Sala da Casa'</span>, <span class="number">1</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// Se o seu mosquitto não possuir usuário e senha, basta remover a linha seguinte.</span></div><div class="line">$c-&gt;setCredentials(<span class="string">'USUARIO_MQTT'</span>, <span class="string">'SENHA_MQTT'</span>);</div><div class="line"></div><div class="line"><span class="comment">// Conecta no broker/servidor mosquitto</span></div><div class="line">$c-&gt;connect(<span class="string">'IP_DO_MOSQUITTO'</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; <span class="number">100</span>; $i++) &#123;</div><div class="line">	<span class="comment">// Necessário para que a extensão funcione</span></div><div class="line">	<span class="comment">// Faz um loop até enviar</span></div><div class="line">	$c-&gt;loop(<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Salve o arquivo acima como mqttpub.php.</p>
+<p>Faça um teste mais legal ainda, quando você instalou o broker mosquitto, ele vem com comandos para sub e pub, abra uma nova aba ou janela do seu terminal, e inicie o mosquitto_sub da seguinte maneira:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -h IP_DO_MOSQUITTO -t casa/# -q 1</div></pre></td></tr></table></figure></p>
+<p>Caso tenha usuário e senha<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -h IP_DO_MOSQUITTO -t casa/# -q 1 -u USUARIO -P SENHA</div></pre></td></tr></table></figure></p>
+<p>Beleza, ele vai rodar em loop, abra uma nova aba ou janela novamente, e execute o arquivo mqttpub.php que você criou ali em cima.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php mqttpub.php</div></pre></td></tr></table></figure></p>
+<p>Repare que na aba onde está rodando o mosquitto_sub vai aparecer a mensagem “<strong>Enviando para a Sala da Casa</strong>“ publicada pelo mqttpub.php uando a extensão Mosquitto-PHP. Doido né?</p>
+<p>Quer mais sobre a extensão Mosquitto-PHP? Então, <a href="https://github.com/mgdm/Mosquitto-PHP" target="_blank" rel="external">aqui está o Github</a> deles e <a href="http://mosquitto-php.readthedocs.io/en/latest/client.html" target="_blank" rel="external">aqui a documentação</a>.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/"><span>Procure portas no macOS e saiba quais processos estão usando elas</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-07T19:45:47.000Z">
+          2017-02-07
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Olha essa linha de comando que coisinha mais simples e cheia de graça.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsof -i tcp:8000</div></pre></td></tr></table></figure></p>
+<p>Falei macOS, mas estou usando o OS X El Capitain. Na linha acima, vai mostrar o seguinte<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME</div><div class="line">VBoxHeadl 2011 wow   24u  IPv4 0xd0e6a899f3a4fa03      0t0  TCP *:irdmi (LISTEN)</div></pre></td></tr></table></figure></p>
+<p>Na minha porta 8000 quem (ou, o quê, costumo tratar máquinas como pessoas) está usando a danada, é o <a href="https://pt.wikipedia.org/wiki/VirtualBox" target="_blank" rel="external">Virtual Box</a> rodando o <a href="https://laravel.com/docs" target="_blank" rel="external">Laravel</a> <a href="https://laravel.com/docs/homestead" target="_blank" rel="external">Homestead</a>.</p>
+<p>Bruto hein? Usa isso ai, é melhor que série ruim da Netflix. O problema é que se você é um viciado em séries assim como eu, você precisa mais de Netflix do que dessa linha de comando aí.<br><img src="/images/emojis/joy.png" width="24" height="24" class="custom_class1 custom_class2 emoji nofancybox" title="joy"> <img src="/images/emojis/muscle.png" width="24" height="24" class="custom_class1 custom_class2 emoji nofancybox" title="muscle"></p>
+<p>Não precisa? Não usa!<br>Não tem Mac? Fazer o quê, demorei a ter um também!</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Quer-aprender-a-programar-para-web-sem-enrolacao/"><span>Quer aprender a programar para web sem enrolação?</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Quer-aprender-a-programar-para-web-sem-enrolacao/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-07T19:09:37.000Z">
+          2017-02-07
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Se liga chegado, quer aprender a programar sem frescura? Deixa eu dar uma dica então. Eu aprendi a programar em 1 mês, na minha época tudo era mais difícil, mais complicado, nem internet eu tinha só livros (em portugês) e uma documentação em inglês que não adiantava de nada porquê eu não sabia inglês.</p>
+<p>Hoje em dia, tem muito, muito, mas muito conteúdo grátis por ai, para ser explorado e estudado. <strong>Já falei, que tem muito mesmo?</strong> Nossa, é <strong>muito</strong>! Mas para facilitar, reuni alguns cursos grátis que eu acredito ser um (ótimo) ponta pé inicial. Melhor que muitos pagos por ai.</p>
+<hr>
+<h2 id="Curso-de-Algoritmo-e-Logica"><a href="#Curso-de-Algoritmo-e-Logica" class="headerlink" title="Curso de Algoritmo e Lógica"></a>Curso de Algoritmo e Lógica</h2><p><a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV</a></p>
+<h2 id="Curso-HTML5-Completo"><a href="#Curso-HTML5-Completo" class="headerlink" title="Curso HTML5 Completo"></a>Curso HTML5 Completo</h2><p><a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dlAnJ_jJtV29RFxnPHDuk9o" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLHz_AreHm4dlAnJ_jJtV29RFxnPHDuk9o</a></p>
+<h2 id="Curso-de-Banco-de-Dados-MySQL"><a href="#Curso-de-Banco-de-Dados-MySQL" class="headerlink" title="Curso de Banco de Dados MySQL"></a>Curso de Banco de Dados MySQL</h2><p><a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r</a></p>
+<h2 id="Curso-PHP-Iniciantes"><a href="#Curso-PHP-Iniciantes" class="headerlink" title="Curso PHP Iniciantes"></a>Curso PHP Iniciantes</h2><p><a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dm4beCCCmW4xwpmLf6EHY9k" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLHz_AreHm4dm4beCCCmW4xwpmLf6EHY9k</a></p>
+<h2 id="Curso-de-POO-PHP-Programacao-Orientada-a-Objetos"><a href="#Curso-de-POO-PHP-Programacao-Orientada-a-Objetos" class="headerlink" title="Curso de POO PHP (Programação Orientada a Objetos)"></a>Curso de POO PHP (Programação Orientada a Objetos)</h2><p><a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dmGuLII3tsvryMMD7VgcT7x" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLHz_AreHm4dmGuLII3tsvryMMD7VgcT7x</a></p>
+<hr>
+<p>Tem MUITAS outras coisas para aprender, mas o básico é isso, te aconselho a iniciar do primeiro para o último. O <a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV" target="_blank" rel="external"><strong>Curso de Algoritmo e Lógica</strong></a> e o <a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dlAnJ_jJtV29RFxnPHDuk9o" target="_blank" rel="external"><strong>Curso HTML5 Completo</strong></a> são os principais para quem quer começar a programar e já focar em web.</p>
+<p>Dai você me fala “<strong>Quanta coisa, a neim to com preguiça!</strong>“.</p>
+<p>Eu também tive preguiça no início quando vi um livro de mais de mil páginas, eu li todas? <strong>Claro que não (kkk)</strong>.</p>
+<p>Na medida que eu fui entendendo como as coisas funcionavam logo no início do livro, eu comecei a fazer testes reais e fui testando, no que fui testando fui encontrando erros e aprendendo com eles.</p>
+<p><strong>Tempo quem perde é relógio sem pilha! Sabia?</strong></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/"><span>Precisando de um Cliente MQTT para usar no Arduino?</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-07T18:40:03.000Z">
+          2017-02-07
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Não vou explicar como instalar uma Biblioteca na <a href="https://www.arduino.cc/en/main/software" target="_blank" rel="external">Arduino IDE</a>, está cheio de tutoriais no Google, de qualquer forma, <a href="http://labdegaragem.com/profiles/blogs/tutorial-arduino-instalando-bibliotecas" target="_blank" rel="external">aqui tem um</a>, <a href="http://fritzenlab.com.br/2016/02/como-instalar-novas-bibliotecas-na-ide-do-arduino/" target="_blank" rel="external">aqui tem outro</a> e <a href="https://www.youtube.com/watch?v=C1U4KvMbhJk" target="_blank" rel="external">aqui tem mais outro (vídeo)</a> tutorial.</p>
+<p>Então, conheça o <a href="https://github.com/knolleary/pubsubclient" target="_blank" rel="external">PubSubClient</a>, esse é o cara! Todos sabemos (ou não) que o <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external"><strong>MQTT</strong></a> trabalha com publicações e subscrições!</p>
+<p>Não entendeu? Bora lá então, quando você envia um comando para um servidor <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external"><strong>MQTT</strong></a>, você usa um <strong>publish</strong>, ou seja, você faz uma <strong>publicação</strong> para o servidor <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external"><strong>MQTT</strong></a>, e se existe uma <strong>publicação</strong> ele precisa receber ela, ler e executar uma algo, correto amiguinho?</p>
+<p>É ai que entra o <strong>subscribe</strong>, ele fica o tempo todo “<strong>ouvindo</strong>“ se existe novas publicações, se existe, ele recebe e de acordo com o tópico e o conteúdo desta <strong>publicação</strong>, você executa uma ação, como por exemplo, ligar uma luz, fechar um portão e etc.</p>
+<p>No próprio GitHub deles, <a href="https://github.com/knolleary/pubsubclient/tree/master/examples" target="_blank" rel="external">tem ótimos exemplos</a>, como usar com autenticação, sem e etc.</p>
+<p>Primeiro, você tem que incluir ele no seu código do Arduino, como?<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;PubSubClient.h&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>Depois você cria o client<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">PubSubClient <span class="title">client</span><span class="params">(server, <span class="number">1883</span>, CALLBACK_SUB, CLIENT_ETHERNET_OU_WIFI)</span></span>;</div></pre></td></tr></table></figure></p>
+<h4 id="Publish"><a href="#Publish" class="headerlink" title="Publish"></a>Publish</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">client.publish(<span class="string">"tópico"</span>,<span class="string">"mensagem"</span>);</div></pre></td></tr></table></figure>
+<h4 id="Subscribe"><a href="#Subscribe" class="headerlink" title="Subscribe"></a>Subscribe</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">client.subscribe(<span class="string">"tópico"</span>);</div></pre></td></tr></table></figure>
+<p>Enfim, <a href="https://github.com/knolleary/pubsubclient/blob/master/examples/mqtt_auth/mqtt_auth.ino" target="_blank" rel="external">olhe este exemplo no Github deles</a>, é bem legal e você vai entender bem melhor, porquê criar o que já foi criado? Bora ganhar tempo galera.</p>
+<p>Mesmo assim, ainda está com dificuldades? Bom, eu acho difícil isso estar acontecendo, mas vamos lá, <a href="http://pubsubclient.knolleary.net/api.html" target="_blank" rel="external">aqui tem a documentação completa do PubSubClient</a>, mais que isso, impossível né?</p>
+<p>Pronto, foi? Deu certo? <strong>#tchaubrigado</strong></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Instalando-o-MQTT-no-macOS/"><span>Instalando, testando e conhecendo o MQTT no macOS</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Instalando-o-MQTT-no-macOS/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-07T11:57:13.000Z">
+          2017-02-07
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Eu acredito que quem chegou até aqui, já saiba bastante sobre programação. Então não vou explicar o que é <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>, <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external">MQTT</a> e nem <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>, a idéia aqui é ser direto e mostrar como deixar as coisas funcionando.</p>
+<p>Primeiro, vamos instalar o <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>, caso não o tenha feito ainda.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure></p>
+<p>Segundo, vamos instalar o <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a> usando o <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mosquitto</div></pre></td></tr></table></figure></p>
+<p>Quando termina a instalação, é mostrado como colocar para iniciar o MQTT server na inicialização do sistema. Simples!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/mosquitto/*.plist ~/Library/LaunchAgents</div></pre></td></tr></table></figure></p>
+<p>Então, precisamos iniciar o <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>, certo? É mamão com açucar!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">launchctl load /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/homebrew.mxcl.mosquitto.plist</div></pre></td></tr></table></figure></p>
+<p>Legal né? Agora, você pode usar o <strong><em>mosquitto_sub</em></strong> e o <strong><em>mosquitto_pub</em></strong> para brincar e fazer seus testes!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Wowwww padrim, to em casa!"</span></div></pre></td></tr></table></figure>
+<p>Opa, mas espera ai! Eu não quero o meu <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a> de estimação livre pra qualquer um né? Quero colocar um usuário e senha nele! Oxi, acha que sou bobo?<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_passwd -c /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/etc/mosquitto/pwfile USUARIO</div></pre></td></tr></table></figure></p>
+<p>Quando você pressionar RETURN/ENTER, ele vai pedir uma senha, coloque e pressione RETURN/ENTER de novo.</p>
+<p>E agora você precisa passar o usuário e senha nos seus testes não é mesmo? Simples de novo!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -u USUARIO -P SENHA</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Noh, agora to protegido!"</span> -u USUARIO -P SENHA</div></pre></td></tr></table></figure>
+<p>Opa, já ia me esquecendo, quer definir o HOST e a PORTA manualmente? To cansado já, de tanto que as coisas são simples!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -h 127.0.0.1 -p 1883</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Wowwww padrim, to em casa!"</span> -h 127.0.0.1 -p 1883</div></pre></td></tr></table></figure>
+<p>Gosta de <a href="http://pythonclub.com.br/" target="_blank" rel="external">Python</a> ou <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>? Então conheça o pacote <a href="https://pypi.python.org/pypi/paho-mqtt" target="_blank" rel="external">paho-mqtt</a> para <a href="http://pythonclub.com.br/" target="_blank" rel="external">Python</a> e o <a href="https://github.com/mqttjs/MQTT.js" target="_blank" rel="external">MQTT.js</a> para <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>, eles são uma belezura. Tem também para <a href="http://br.php.net/" target="_blank" rel="external">PHP</a> que é bem legal e funciona perfeitamente com a extensão <a href="https://github.com/mgdm/Mosquitto-PHP" target="_blank" rel="external">Mosquitto-PHP</a>, eu particularmente uso ele para comunicação com uma API desenvolvida para o <a href="https://laravel.com/docs" target="_blank" rel="external">Laravel</a>.</p>
+<p>Cansou de brincar e fazer seus testes? Ta na hora então, de ir descansar, comer um sanduba do tio ali do lanchinho e de matar o danado do <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a> né?<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">launchctl unload /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/homebrew.mxcl.mosquitto.plist</div></pre></td></tr></table></figure></p>
+<p>Quer saber mais sobre Mosquitto e MQTT? Rapaiz, corre no <a href="https://www.google.com.br/webhp?ion=1&amp;espv=2&amp;ie=UTF-8#q=mqtt" target="_blank" rel="external">google</a> ai, tem tudo lá, até o que você não precisa saber e nunca vai usar na sua vida.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+
+<nav class="pagination">
+  
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Faz-B Man
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
