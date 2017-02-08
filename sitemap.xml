@@ -2,23 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://fazbe.github.io/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/</loc>
-    
-    <lastmod>2017-02-08T19:07:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://fazbe.github.io/Quer-aprender-a-programar-para-web-sem-enrolacao/</loc>
     
-    <lastmod>2017-02-08T19:07:03.000Z</lastmod>
+    <lastmod>2017-02-08T19:09:00.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://fazbe.github.io/Pub-Sub-com-Laravel-e-Redis/</loc>
     
-    <lastmod>2017-02-08T19:06:58.000Z</lastmod>
+    <lastmod>2017-02-08T19:08:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/</loc>
+    
+    <lastmod>2017-02-08T19:08:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Macro-Request-no-Laravel/</loc>
+    
+    <lastmod>2017-02-08T19:08:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Instalando-a-extensao-Mosquitto-PHP/</loc>
+    
+    <lastmod>2017-02-08T19:08:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Alterar-Collection-de-uma-tabela-no-MySQL/</loc>
+    
+    <lastmod>2017-02-08T19:07:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/</loc>
+    
+    <lastmod>2017-02-08T19:07:10.000Z</lastmod>
     
   </url>
   
@@ -30,37 +58,9 @@
   </url>
   
   <url>
-    <loc>https://fazbe.github.io/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/</loc>
-    
-    <lastmod>2017-02-08T19:06:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Macro-Request-no-Laravel/</loc>
-    
-    <lastmod>2017-02-08T19:06:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://fazbe.github.io/Instalando-o-MQTT-no-macOS/</loc>
     
     <lastmod>2017-02-08T19:06:23.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Alterar-Collection-de-uma-tabela-no-MySQL/</loc>
-    
-    <lastmod>2017-02-08T19:06:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Instalando-a-extensao-Mosquitto-PHP/</loc>
-    
-    <lastmod>2017-02-08T19:05:26.000Z</lastmod>
     
   </url>
   
