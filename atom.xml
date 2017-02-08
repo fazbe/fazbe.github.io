@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-08T16:42:57.000Z</updated>
+  <updated>2017-02-08T17:09:42.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/Macro-Request-no-Laravel/"/>
     <id>http://yoursite.com/Macro-Request-no-Laravel/</id>
     <published>2017-02-08T13:01:45.000Z</published>
-    <updated>2017-02-08T16:42:57.000Z</updated>
+    <updated>2017-02-08T17:09:42.000Z</updated>
     
     <content type="html"><![CDATA[<p>Para mim uma das coisas mais fascinantes no <a href="https://laravel.com/docs/" target="_blank" rel="external">Laravel</a>, são os Macros, muito pouco falados na documentação, mas, são demais.</p>
 <p>Os Macros eles basicamente servem, para extender os métodos de uma biblioteca ou seja la o que for, então, conseguimos criar “coisas” personalizadas de acordo com a nossa necessidade.</p>
@@ -39,7 +39,7 @@
 <p>Como eu descobri onde o Laravel usa Macros?</p>
 <p>Não sei se foi a forma correta mas para mim e minha equipe funcionou perfeitamente. O código principal do <a href="https://laravel.com/api" target="_blank" rel="external">Framework Laravel</a>, o núcleo dele, o chamado <a href="https://laravel.com/api" target="_blank" rel="external">Illuminate</a>, contém todas as classes e métodos utilizados, enfim o core completo do framework, você pode <a href="https://laravel.com/api" target="_blank" rel="external">acessá-lo aqui</a>.</p>
 <p>Por exemplo, para o Request, normalmente é utilizado o <strong>Illuminate\Http\Request</strong>, se você abrir este arquivo, você verá que ele usa a <strong>Trait Macroable</strong> que é responsável pelos Macros, então adivinha meu chegado…<br><img src="/images/emojis/smirk.png" width="24" height="24" class="custom_class1 custom_class2 emoji nofancybox" title="smirk"> <img src="/images/emojis/wink.png" width="24" height="24" class="custom_class1 custom_class2 emoji nofancybox" title="wink"></p>
-<p>Um exemplo real do uso de macros, é o pacote <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="external">Laravel Collection Macros</a> que falei no post anterior, <a href="https://github.com/spatie/laravel-collection-macros/blob/master/src/macros.php" target="_blank" rel="external">olha só o código dos marcros dele</a>.</p>
+<p>Um exemplo real do uso de macros, é o pacote <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="external">Laravel Collection Macros</a> que falei no post anterior, <a href="https://github.com/spatie/laravel-collection-macros/blob/master/src/macros.php" target="_blank" rel="external">olha só o código dos macros dele</a>.</p>
 ]]></content>
     
     <summary type="html">
