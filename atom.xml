@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://fazbe.github.io/"/>
   <updated>2017-02-08T17:09:42.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://fazbe.github.io/</id>
   
   <author>
     <name>Faz-B Man</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Macro Request no Laravel</title>
-    <link href="http://yoursite.com/Macro-Request-no-Laravel/"/>
-    <id>http://yoursite.com/Macro-Request-no-Laravel/</id>
+    <link href="https://fazbe.github.io/Macro-Request-no-Laravel/"/>
+    <id>https://fazbe.github.io/Macro-Request-no-Laravel/</id>
     <published>2017-02-08T13:01:45.000Z</published>
     <updated>2017-02-08T17:09:42.000Z</updated>
     
@@ -53,8 +53,8 @@
   
   <entry>
     <title>Turbine as Collection do Laravel com o Laravel Collection Macros da Spatie</title>
-    <link href="http://yoursite.com/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/"/>
-    <id>http://yoursite.com/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/</id>
+    <link href="https://fazbe.github.io/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/"/>
+    <id>https://fazbe.github.io/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/</id>
     <published>2017-02-08T12:41:37.000Z</published>
     <updated>2017-02-08T13:00:42.000Z</updated>
     
@@ -87,8 +87,8 @@
   
   <entry>
     <title>Alterar Collection de uma tabela no MySQL</title>
-    <link href="http://yoursite.com/Alterar-Collection-de-uma-tabela-no-MySQL/"/>
-    <id>http://yoursite.com/Alterar-Collection-de-uma-tabela-no-MySQL/</id>
+    <link href="https://fazbe.github.io/Alterar-Collection-de-uma-tabela-no-MySQL/"/>
+    <id>https://fazbe.github.io/Alterar-Collection-de-uma-tabela-no-MySQL/</id>
     <published>2017-02-08T12:24:18.000Z</published>
     <updated>2017-02-08T12:30:57.000Z</updated>
     
@@ -109,8 +109,8 @@
   
   <entry>
     <title>Pub / Sub com Laravel e Redis</title>
-    <link href="http://yoursite.com/Pub-Sub-com-Laravel-e-Redis/"/>
-    <id>http://yoursite.com/Pub-Sub-com-Laravel-e-Redis/</id>
+    <link href="https://fazbe.github.io/Pub-Sub-com-Laravel-e-Redis/"/>
+    <id>https://fazbe.github.io/Pub-Sub-com-Laravel-e-Redis/</id>
     <published>2017-02-08T11:46:23.000Z</published>
     <updated>2017-02-08T12:11:34.000Z</updated>
     
@@ -141,8 +141,8 @@
   
   <entry>
     <title>Instalando a extensão Mosquitto-PHP</title>
-    <link href="http://yoursite.com/Instalando-a-extensao-Mosquitto-PHP/"/>
-    <id>http://yoursite.com/Instalando-a-extensao-Mosquitto-PHP/</id>
+    <link href="https://fazbe.github.io/Instalando-a-extensao-Mosquitto-PHP/"/>
+    <id>https://fazbe.github.io/Instalando-a-extensao-Mosquitto-PHP/</id>
     <published>2017-02-07T23:09:24.000Z</published>
     <updated>2017-02-08T11:36:09.000Z</updated>
     
@@ -186,8 +186,8 @@
   
   <entry>
     <title>Procure portas no macOS e saiba quais processos estão usando elas</title>
-    <link href="http://yoursite.com/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/"/>
-    <id>http://yoursite.com/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/</id>
+    <link href="https://fazbe.github.io/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/"/>
+    <id>https://fazbe.github.io/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/</id>
     <published>2017-02-07T19:45:47.000Z</published>
     <updated>2017-02-07T20:20:32.000Z</updated>
     
@@ -209,8 +209,8 @@
   
   <entry>
     <title>Quer aprender a programar para web sem enrolação?</title>
-    <link href="http://yoursite.com/Quer-aprender-a-programar-para-web-sem-enrolacao/"/>
-    <id>http://yoursite.com/Quer-aprender-a-programar-para-web-sem-enrolacao/</id>
+    <link href="https://fazbe.github.io/Quer-aprender-a-programar-para-web-sem-enrolacao/"/>
+    <id>https://fazbe.github.io/Quer-aprender-a-programar-para-web-sem-enrolacao/</id>
     <published>2017-02-07T19:09:37.000Z</published>
     <updated>2017-02-07T19:42:29.000Z</updated>
     
@@ -241,8 +241,8 @@
   
   <entry>
     <title>Precisando de um Cliente MQTT para usar no Arduino?</title>
-    <link href="http://yoursite.com/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/"/>
-    <id>http://yoursite.com/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/</id>
+    <link href="https://fazbe.github.io/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/"/>
+    <id>https://fazbe.github.io/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/</id>
     <published>2017-02-07T18:40:03.000Z</published>
     <updated>2017-02-07T20:58:54.000Z</updated>
     
@@ -271,8 +271,8 @@
   
   <entry>
     <title>Instalando, testando e conhecendo o MQTT no macOS</title>
-    <link href="http://yoursite.com/Instalando-o-MQTT-no-macOS/"/>
-    <id>http://yoursite.com/Instalando-o-MQTT-no-macOS/</id>
+    <link href="https://fazbe.github.io/Instalando-o-MQTT-no-macOS/"/>
+    <id>https://fazbe.github.io/Instalando-o-MQTT-no-macOS/</id>
     <published>2017-02-07T11:57:13.000Z</published>
     <updated>2017-02-07T18:20:41.000Z</updated>
     
