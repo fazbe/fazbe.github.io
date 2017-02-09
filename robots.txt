@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://fazb.github.io/sitemap.xml
