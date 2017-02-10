@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fazbe.github.io/"/>
-  <updated>2017-02-08T19:08:22.000Z</updated>
+  <updated>2017-02-10T11:58:07.000Z</updated>
   <id>https://fazbe.github.io/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Diferenças entre os diversos modelos de Arduino</title>
+    <link href="https://fazbe.github.io/Diferencas-entre-os-diversos-modelos-de-Arduino/"/>
+    <id>https://fazbe.github.io/Diferencas-entre-os-diversos-modelos-de-Arduino/</id>
+    <published>2017-02-10T11:50:14.000Z</published>
+    <updated>2017-02-10T11:58:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>O lance aqui hoje é rápido, você sabe a diferença entre os modelos de Arduino? Se não sabe, essa é a hora camarada.</p>
+<p><img src="http://blog.filipeflop.com/wp-content/uploads/2014/02/Tabela-comparativa1.png" alt="I"></p>
+<p>Essa tabela acima é bem legal, ela explica e resume tudo.</p>
+<p>Mas, para mais detalhes você pode acessar ela lá no <a href="http://blog.filipeflop.com/arduino/tipos-de-arduino-qual-comprar.html" target="_blank" rel="external">Blog do FilipeFlop</a> e <a href="http://blog.filipeflop.com/wp-content/uploads/2014/02/Tabela-comparativa1.png" target="_blank" rel="external">aqui você pode ver</a> a imagem em tamanho real.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Saiba quais são as diferenças entre os diversos modelos de Arduino
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Macro Request no Laravel</title>
