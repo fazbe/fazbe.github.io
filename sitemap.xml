@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://fazbe.github.io/Instalando-testando-e-conhecendo-o-MQTT-no-Ubuntu/</loc>
+    
+    <lastmod>2017-02-10T12:49:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Instalando-o-MQTT-no-macOS/</loc>
+    
+    <lastmod>2017-02-10T12:35:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://fazbe.github.io/Diferencas-entre-os-diversos-modelos-de-Arduino/</loc>
     
     <lastmod>2017-02-10T11:58:07.000Z</lastmod>
@@ -61,13 +75,6 @@
     <loc>https://fazbe.github.io/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/</loc>
     
     <lastmod>2017-02-08T19:06:52.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Instalando-o-MQTT-no-macOS/</loc>
-    
-    <lastmod>2017-02-08T19:06:23.000Z</lastmod>
     
   </url>
   

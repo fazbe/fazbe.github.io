@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fazbe.github.io/"/>
-  <updated>2017-02-10T11:58:07.000Z</updated>
+  <updated>2017-02-10T12:49:08.000Z</updated>
   <id>https://fazbe.github.io/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Instalando, testando e conhecendo o MQTT no Ubuntu</title>
+    <link href="https://fazbe.github.io/Instalando-testando-e-conhecendo-o-MQTT-no-Ubuntu/"/>
+    <id>https://fazbe.github.io/Instalando-testando-e-conhecendo-o-MQTT-no-Ubuntu/</id>
+    <published>2017-02-10T12:38:04.000Z</published>
+    <updated>2017-02-10T12:49:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Já mostrei como <a href="/Instalando-o-MQTT-no-macOS">fazer no macOS</a>, no Ubuntu não é muito diferente, é até mais simples.</p>
+<p>Primeiro passo, instalar o <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a> usando o <strong>apt-get</strong>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install mosquitto mosquitto-clients</div></pre></td></tr></table></figure></p>
+<p>Simples, ou não? Use o <strong><em>mosquitto_sub</em></strong> e o <strong><em>mosquitto_pub</em></strong> para brincar e fazer seus testes!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Ubuntu work!"</span></div></pre></td></tr></table></figure>
+<p>Quer proteger o seu <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>?</p>
+<p>Defina nas configurações do mosquitto para não aceitar usuários anônimos, abra o arquivo de configuração usando o <strong>editor vim</strong> mesmo.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/mosquitto/mosquitto.conf</div></pre></td></tr></table></figure></p>
+<p>ou</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/mosquitto/conf.d/default.conf</div></pre></td></tr></table></figure>
+<p>E adicione (ou altere) a linha onde está o <strong>allow_anonymous</strong> para <strong>false</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">allow_anonymous <span class="literal">false</span></div></pre></td></tr></table></figure></p>
+<p>Se estiver comentado, <strong>descomente</strong>! E se não existe a linha? <strong>Crie</strong>!</p>
+<p>Depois, adicione a linha informando o local do seu arquivo de senhas<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">password_file /etc/mosquitto/passwd</div></pre></td></tr></table></figure></p>
+<p>Feito isto reinicie o Mosquitto:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mosquitto restart</div></pre></td></tr></table></figure></p>
+<p>E agora, vamos adicionar um usuário e senha:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo mosquitto_passwd -c /etc/mosquitto/passwd USUARIO</div></pre></td></tr></table></figure></p>
+<p>Quando você pressionar RETURN/ENTER, ele vai pedir uma senha!<br>Defina uma senha, confirme e pressione RETURN/ENTER movamente.</p>
+<p>E agora você precisa passar o usuário e senha nos seus testes!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -u USUARIO -P SENHA</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Proteção sinistra!"</span> -u USUARIO -P SENHA</div></pre></td></tr></table></figure>
+<p>Quer definir o HOST e a PORTA manualmente? Faça o seguinte:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -h 127.0.0.1 -p 1883</div></pre></td></tr></table></figure></p>
+<p>e também na publicação:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Wowwww padrim, to em casa!"</span> -h 127.0.0.1 -p 1883</div></pre></td></tr></table></figure></p>
+<p>Gosta de <a href="http://pythonclub.com.br/" target="_blank" rel="external">Python</a> ou <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>? Então conheça o pacote <a href="https://pypi.python.org/pypi/paho-mqtt" target="_blank" rel="external">paho-mqtt</a> para <a href="http://pythonclub.com.br/" target="_blank" rel="external">Python</a> e o <a href="https://github.com/mqttjs/MQTT.js" target="_blank" rel="external">MQTT.js</a> para <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>, eles são uma belezura. Tem também para <a href="http://br.php.net/" target="_blank" rel="external">PHP</a> que é bem legal e funciona perfeitamente com a extensão <a href="https://github.com/mgdm/Mosquitto-PHP" target="_blank" rel="external">Mosquitto-PHP</a>, eu particularmente uso ele para comunicação com uma API desenvolvida para o <a href="https://laravel.com/docs" target="_blank" rel="external">Laravel</a>.</p>
+<p>Quer finalizar o <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>? Claro, somente se você quiser, não é necessário!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mosquitto stop</div></pre></td></tr></table></figure></p>
+<p>Quer saber mais sobre Mosquitto e MQTT? Cola la no <a href="https://www.google.com.br/webhp?ion=1&amp;espv=2&amp;ie=UTF-8#q=mqtt" target="_blank" rel="external">google</a>, tem tudo!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Instalando, testando e conhecendo o MQTT no Ubuntu
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Diferenças entre os diversos modelos de Arduino</title>
@@ -296,7 +335,7 @@
     <link href="https://fazbe.github.io/Instalando-o-MQTT-no-macOS/"/>
     <id>https://fazbe.github.io/Instalando-o-MQTT-no-macOS/</id>
     <published>2017-02-07T11:57:13.000Z</published>
-    <updated>2017-02-08T19:06:23.000Z</updated>
+    <updated>2017-02-10T12:35:21.000Z</updated>
     
     <content type="html"><![CDATA[<p>Eu acredito que quem chegou até aqui, já saiba bastante sobre programação. Então não vou explicar o que é <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>, <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external">MQTT</a> e nem <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>, a idéia aqui é ser direto e mostrar como deixar as coisas funcionando.</p>
 <p>Primeiro, vamos instalar o <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>, caso não o tenha feito ainda.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure></p>
@@ -305,8 +344,12 @@
 <p>Então, precisamos iniciar o <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>, certo? É mamão com açucar!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">launchctl load /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/homebrew.mxcl.mosquitto.plist</div></pre></td></tr></table></figure></p>
 <p>Legal né? Agora, você pode usar o <strong><em>mosquitto_sub</em></strong> e o <strong><em>mosquitto_pub</em></strong> para brincar e fazer seus testes!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home</div></pre></td></tr></table></figure></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Wowwww padrim, to em casa!"</span></div></pre></td></tr></table></figure>
-<p>Opa, mas espera ai! Eu não quero o meu <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a> de estimação livre pra qualquer um né? Quero colocar um usuário e senha nele! Oxi, acha que sou bobo?<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_passwd -c /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/etc/mosquitto/pwfile USUARIO</div></pre></td></tr></table></figure></p>
-<p>Quando você pressionar RETURN/ENTER, ele vai pedir uma senha, coloque e pressione RETURN/ENTER de novo.</p>
+<p>Opa, mas espera ai! Eu não quero o meu <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a> de estimação livre pra qualquer um né? Quero colocar um usuário e senha nele! Oxi, acha que sou bobo?</p>
+<p>Antes de mais nada, você precisa definir o mosquitto para não aceitar usuários anônimos, abra o arquivo de configuração usando o <strong>editor vim</strong> mesmo.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/etc/mosquitto/mosquitto.conf</div></pre></td></tr></table></figure></p>
+<p>E adicione (ou altere) a linha onde está o <strong>allow_anonymous</strong> para <strong>false</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">allow_anonymous <span class="literal">false</span></div></pre></td></tr></table></figure></p>
+<p>Se estiver comentado, descomente!<br>Feito isto reinicie o Mosquitto. Para tal, você pode parar e iniciar novamente o serviço usando os comandos citados no início e no fim deste artigo.</p>
+<p>E agora, vamos adicionar um usuário e senha:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_passwd -c /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/etc/mosquitto/pwfile USUARIO</div></pre></td></tr></table></figure></p>
+<p>Quando você pressionar RETURN/ENTER, ele vai pedir uma senha!<br>Defina uma senha, confirme e pressione RETURN/ENTER movamente.</p>
 <p>E agora você precisa passar o usuário e senha nos seus testes não é mesmo? Simples de novo!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -u USUARIO -P SENHA</div></pre></td></tr></table></figure></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Noh, agora to protegido!"</span> -u USUARIO -P SENHA</div></pre></td></tr></table></figure>
 <p>Opa, já ia me esquecendo, quer definir o HOST e a PORTA manualmente? To cansado já, de tanto que as coisas são simples!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -h 127.0.0.1 -p 1883</div></pre></td></tr></table></figure></p>

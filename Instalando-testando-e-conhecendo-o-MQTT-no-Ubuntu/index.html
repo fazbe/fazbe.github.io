@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Instalando, testando e conhecendo o MQTT no Ubuntu | Faz-B</title>
+
+  
+  <meta name="author" content="Faz-B Man">
+  
+
+  
+  <meta name="description" content="Instalando, testando e conhecendo o MQTT no Ubuntu">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Instalando, testando e conhecendo o MQTT no Ubuntu"/>
+
+  <meta property="og:site_name" content="Faz-B"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Faz-B</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Início</a></li>
+      
+        <li><a href="/Sobre">Sobre</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="site-navigation">
+    <ul>
+      <li>
+        <br>
+        <br>
+
+        <script>
+          var domainroot="fazbe.github.io"
+          function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value }
+        </script>
+        <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+          <div class="input-group">
+                  <input name="q" type="hidden" />
+                  <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="busque algo..." maxlength="50"/>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Instalando, testando e conhecendo o MQTT no Ubuntu</span></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Instalando-testando-e-conhecendo-o-MQTT-no-Ubuntu/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-10T12:38:04.000Z">
+          2017-02-10
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Já mostrei como <a href="/Instalando-o-MQTT-no-macOS">fazer no macOS</a>, no Ubuntu não é muito diferente, é até mais simples.</p>
+<p>Primeiro passo, instalar o <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a> usando o <strong>apt-get</strong>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install mosquitto mosquitto-clients</div></pre></td></tr></table></figure></p>
+<p>Simples, ou não? Use o <strong><em>mosquitto_sub</em></strong> e o <strong><em>mosquitto_pub</em></strong> para brincar e fazer seus testes!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Ubuntu work!"</span></div></pre></td></tr></table></figure>
+<p>Quer proteger o seu <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>?</p>
+<p>Defina nas configurações do mosquitto para não aceitar usuários anônimos, abra o arquivo de configuração usando o <strong>editor vim</strong> mesmo.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/mosquitto/mosquitto.conf</div></pre></td></tr></table></figure></p>
+<p>ou</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/mosquitto/conf.d/default.conf</div></pre></td></tr></table></figure>
+<p>E adicione (ou altere) a linha onde está o <strong>allow_anonymous</strong> para <strong>false</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">allow_anonymous <span class="literal">false</span></div></pre></td></tr></table></figure></p>
+<p>Se estiver comentado, <strong>descomente</strong>! E se não existe a linha? <strong>Crie</strong>!</p>
+<p>Depois, adicione a linha informando o local do seu arquivo de senhas<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">password_file /etc/mosquitto/passwd</div></pre></td></tr></table></figure></p>
+<p>Feito isto reinicie o Mosquitto:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mosquitto restart</div></pre></td></tr></table></figure></p>
+<p>E agora, vamos adicionar um usuário e senha:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo mosquitto_passwd -c /etc/mosquitto/passwd USUARIO</div></pre></td></tr></table></figure></p>
+<p>Quando você pressionar RETURN/ENTER, ele vai pedir uma senha!<br>Defina uma senha, confirme e pressione RETURN/ENTER movamente.</p>
+<p>E agora você precisa passar o usuário e senha nos seus testes!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -u USUARIO -P SENHA</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Proteção sinistra!"</span> -u USUARIO -P SENHA</div></pre></td></tr></table></figure>
+<p>Quer definir o HOST e a PORTA manualmente? Faça o seguinte:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -h 127.0.0.1 -p 1883</div></pre></td></tr></table></figure></p>
+<p>e também na publicação:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Wowwww padrim, to em casa!"</span> -h 127.0.0.1 -p 1883</div></pre></td></tr></table></figure></p>
+<p>Gosta de <a href="http://pythonclub.com.br/" target="_blank" rel="external">Python</a> ou <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>? Então conheça o pacote <a href="https://pypi.python.org/pypi/paho-mqtt" target="_blank" rel="external">paho-mqtt</a> para <a href="http://pythonclub.com.br/" target="_blank" rel="external">Python</a> e o <a href="https://github.com/mqttjs/MQTT.js" target="_blank" rel="external">MQTT.js</a> para <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>, eles são uma belezura. Tem também para <a href="http://br.php.net/" target="_blank" rel="external">PHP</a> que é bem legal e funciona perfeitamente com a extensão <a href="https://github.com/mgdm/Mosquitto-PHP" target="_blank" rel="external">Mosquitto-PHP</a>, eu particularmente uso ele para comunicação com uma API desenvolvida para o <a href="https://laravel.com/docs" target="_blank" rel="external">Laravel</a>.</p>
+<p>Quer finalizar o <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>? Claro, somente se você quiser, não é necessário!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mosquitto stop</div></pre></td></tr></table></figure></p>
+<p>Quer saber mais sobre Mosquitto e MQTT? Cola la no <a href="https://www.google.com.br/webhp?ion=1&amp;espv=2&amp;ie=UTF-8#q=mqtt" target="_blank" rel="external">google</a>, tem tudo!</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Faz-B Man
+    
+  </p>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74265041-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    
+  </div>
+</div>
+</body>
+</html>
