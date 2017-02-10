@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Criar uma paginação customizada no Laravel com dados de uma collection | Faz-B</title>
+
+  
+  <meta name="author" content="Faz-B Man">
+  
+
+  
+  <meta name="description" content="Criar uma paginação customizada no Laravel com dados de uma collection">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Criar uma paginação customizada no Laravel com dados de uma collection"/>
+
+  <meta property="og:site_name" content="Faz-B"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Faz-B</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Início</a></li>
+      
+        <li><a href="/Sobre">Sobre</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="site-navigation">
+    <ul>
+      <li>
+        <br>
+        <br>
+
+        <script>
+          var domainroot="fazbe.github.io"
+          function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value }
+        </script>
+        <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+          <div class="input-group">
+                  <input name="q" type="hidden" />
+                  <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="busque algo..." maxlength="50"/>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Criar uma paginação customizada no Laravel com dados de uma collection</span></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Criar-uma-paginacao-customizada-no-Laravel-com-dados-de-uma-collection/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-10T17:22:13.000Z">
+          2017-02-10
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Talvez você seja um programador fodão em Laravel e fale “Mais isso todo mundo sabe fazer”. É ai que você se engana meu coleguinha, trabalho com Laravel a bastante tempo e posso dizer com toda certeza, muita gente tem dificuldade no momento de criar uma instância customizada de paginação com Laravel.</p>
+<p>Logo abaixo, encontra-se uma função usando os recursos do Laravel, mas você pode criar uma classe, uma pacote ou seja la o que for necessário no seu caso.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!function_exists(<span class="string">'paginator_instance'</span>)) &#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Cria uma intância personalizada do paginator, a qual pode ser usada em retornos de collect e retornis customizados</div><div class="line">     * <span class="doctag">@param</span>  collect/model $items         Itens a serem paginados</div><div class="line">     * <span class="doctag">@param</span>  array  $requests             Requests que devem ser passados na paginação, por exemplo, uma busca (query) e etc</div><div class="line">     * <span class="doctag">@param</span>  int $perPage                 Quantidade de itens por página</div><div class="line">     * <span class="doctag">@param</span>  int $currentPage             Página atual, normalmente vazio pois usa padrão do Laravel</div><div class="line">     * <span class="doctag">@param</span>  array  $options              Opções de paginação, normalmente, usa o padrão do Laravel</div><div class="line">     * <span class="doctag">@return</span> paginator/collect            Paginator com resultados</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">paginator_instance</span><span class="params">($items, $requests = [], $perPage = <span class="number">10</span>, $currentPage = null, array $options = [])</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">// Monta $perPage</span></div><div class="line">        $perPage = $perPage;</div><div class="line"></div><div class="line">        <span class="comment">// Pega a página atual</span></div><div class="line">        <span class="comment">// Se não preenchido, usa o método resolveCurrentPage() da \Illuminate\Pagination\LengthAwarePaginator</span></div><div class="line">        $page = $currentPage ? $currentPage : \Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage();</div><div class="line"></div><div class="line">        <span class="comment">// Monta collection com itens para paginacao</span></div><div class="line">        $currentPageSearchResults = collect($items)-&gt;slice(($page - <span class="number">1</span>) * $perPage, $perPage)-&gt;all();</div><div class="line"></div><div class="line">        <span class="comment">// Cria a paginação</span></div><div class="line">        $paginator = (<span class="keyword">new</span> \Illuminate\Pagination\LengthAwarePaginator($currentPageSearchResults, count($items), $perPage, $page, $options &gt;= <span class="number">1</span> ? $options : [</div><div class="line">            <span class="string">'path'</span> =&gt; \Illuminate\Pagination\Paginator::resolveCurrentPath(),</div><div class="line">            <span class="string">'pageName'</span> =&gt; <span class="string">'page'</span>,</div><div class="line">        ]));</div><div class="line">		</div><div class="line">        <span class="comment">// Retorna os dados montado e com paginação</span></div><div class="line">        <span class="keyword">return</span> $paginator-&gt;appends($requests);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Fácil né? Poisé!<br>Entenda melhor a classe <a href="https://laravel.com/api/5.4/Illuminate/Pagination/LengthAwarePaginator.html" target="_blank" rel="external"><strong>LengthAwarePaginator</strong></a> e <a href="https://github.com/laravel/framework/blob/5.4/src/Illuminate/Pagination/LengthAwarePaginator.php" target="_blank" rel="external">aqui você pode ver</a> o arquivo completo no Github.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Faz-B Man
+    
+  </p>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74265041-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    
+  </div>
+</div>
+</body>
+</html>

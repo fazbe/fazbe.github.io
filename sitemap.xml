@@ -2,30 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://fazbe.github.io/Instalando-testando-e-conhecendo-o-MQTT-no-Ubuntu/</loc>
-    
-    <lastmod>2017-02-10T12:49:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://fazbe.github.io/Instalando-o-MQTT-no-macOS/</loc>
     
-    <lastmod>2017-02-10T12:35:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Diferencas-entre-os-diversos-modelos-de-Arduino/</loc>
-    
-    <lastmod>2017-02-10T11:58:07.000Z</lastmod>
+    <lastmod>2017-02-10T17:55:10.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://fazbe.github.io/Quer-aprender-a-programar-para-web-sem-enrolacao/</loc>
     
-    <lastmod>2017-02-08T19:09:00.000Z</lastmod>
+    <lastmod>2017-02-10T17:55:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Verificando-se-um-conteudo-ou-palavra-existe-dentro-de-arquivos-com-PHP-e-Laravel/</loc>
+    
+    <lastmod>2017-02-10T17:53:09.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Diferencas-entre-os-diversos-modelos-de-Arduino/</loc>
+    
+    <lastmod>2017-02-10T17:42:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Criar-uma-paginacao-customizada-no-Laravel-com-dados-de-uma-collection/</loc>
+    
+    <lastmod>2017-02-10T17:31:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Instalando-testando-e-conhecendo-o-MQTT-no-Ubuntu/</loc>
+    
+    <lastmod>2017-02-10T12:49:08.000Z</lastmod>
     
   </url>
   

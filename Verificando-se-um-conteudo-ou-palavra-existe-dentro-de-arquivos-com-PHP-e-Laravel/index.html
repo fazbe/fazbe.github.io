@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Diferenças entre os diversos modelos de Arduino | Faz-B</title>
+  <title>Verificando se um conteúdo ou palavra existe dentro de arquivos com PHP e Laravel | Faz-B</title>
 
   
   <meta name="author" content="Faz-B Man">
   
 
   
-  <meta name="description" content="Saiba quais são as diferenças entre os diversos modelos de Arduino">
+  <meta name="description" content="Verificando se um conteúdo ou palavra existe dentro de arquivos com PHP e Laravel">
   
 
   
@@ -22,7 +22,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="Diferenças entre os diversos modelos de Arduino"/>
+  <meta property="og:title" content="Verificando se um conteúdo ou palavra existe dentro de arquivos com PHP e Laravel"/>
 
   <meta property="og:site_name" content="Faz-B"/>
 
@@ -85,15 +85,15 @@
 
   
     
-    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Diferenças entre os diversos modelos de Arduino</span></h3>
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Verificando se um conteúdo ou palavra existe dentro de arquivos com PHP e Laravel</span></h3>
     
   
 
   <!--
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/Diferencas-entre-os-diversos-modelos-de-Arduino/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-10T11:50:14.000Z">
+      <a href="/Verificando-se-um-conteudo-ou-palavra-existe-dentro-de-arquivos-com-PHP-e-Laravel/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-10T17:33:55.000Z">
           2017-02-10
         </time>
       </a>
@@ -107,10 +107,11 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>O lance aqui hoje é rápido, você sabe a diferença entre os modelos de Arduino? Se não sabe, essa é a hora camarada.</p>
-<p><img src="http://blog.filipeflop.com/wp-content/uploads/2014/02/Tabela-comparativa1.png" alt="I"></p>
-<p>Essa tabela acima é bem legal, ela explica e resume tudo. Na empresa utilizamos muito o Nano e Pro Mini para produtos finais e o Uno para testes.</p>
-<p>Mas, para mais detalhes você pode acessar ela lá no <a href="http://blog.filipeflop.com/arduino/tipos-de-arduino-qual-comprar.html" target="_blank" rel="external">Blog do FilipeFlop</a> e <a href="http://blog.filipeflop.com/wp-content/uploads/2014/02/Tabela-comparativa1.png" target="_blank" rel="external">aqui você pode ver</a> a imagem em tamanho real.</p>
+        <p>Isso mesmo que você leu. Sem enrolação vamos executar esse código logo. Mais uma vez, como na postagem anterior, iremos criar como uma função, mas você usa como quiser.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!function_exists((<span class="string">'file_has_content'</span>))) &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">file_has_content</span><span class="params">($file, $subject)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> str_contains(file_get_contents(base_path($file)), $subject);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Para usar é simples, levando em consideração que usa dois helpers do Laravel, o <a href="https://laravel.com/docs/5.4/helpers#method-str-contains" target="_blank" rel="external">str_contains</a> e o <a href="https://laravel.com/docs/5.4/helpers#method-base-path" target="_blank" rel="external">base_path</a>, vamos fazer o seguinte:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">file_has_content(<span class="string">'composer.json'</span>, <span class="string">'require-dev'</span>);</div></pre></td></tr></table></figure>
+<p>Provavelmente o código acima irá retornar <strong>true</strong> uma vez que na instalação padrão do Laravel, existe <strong>require-dev</strong> no <strong>composer.json</strong> que está na base do projeto Laravel.</p>
 
       
     </div>

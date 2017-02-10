@@ -83,6 +83,109 @@
 
   
     
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Verificando-se-um-conteudo-ou-palavra-existe-dentro-de-arquivos-com-PHP-e-Laravel/"><span>Verificando se um conteúdo ou palavra existe dentro de arquivos com PHP e Laravel</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Verificando-se-um-conteudo-ou-palavra-existe-dentro-de-arquivos-com-PHP-e-Laravel/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-10T17:33:55.000Z">
+          2017-02-10
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Isso mesmo que você leu. Sem enrolação vamos executar esse código logo. Mais uma vez, como na postagem anterior, iremos criar como uma função, mas você usa como quiser.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!function_exists((<span class="string">'file_has_content'</span>))) &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">file_has_content</span><span class="params">($file, $subject)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> str_contains(file_get_contents(base_path($file)), $subject);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Para usar é simples, levando em consideração que usa dois helpers do Laravel, o <a href="https://laravel.com/docs/5.4/helpers#method-str-contains" target="_blank" rel="external">str_contains</a> e o <a href="https://laravel.com/docs/5.4/helpers#method-base-path" target="_blank" rel="external">base_path</a>, vamos fazer o seguinte:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">file_has_content(<span class="string">'composer.json'</span>, <span class="string">'require-dev'</span>);</div></pre></td></tr></table></figure>
+<p>Provavelmente o código acima irá retornar <strong>true</strong> uma vez que na instalação padrão do Laravel, existe <strong>require-dev</strong> no <strong>composer.json</strong> que está na base do projeto Laravel.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Criar-uma-paginacao-customizada-no-Laravel-com-dados-de-uma-collection/"><span>Criar uma paginação customizada no Laravel com dados de uma collection</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Criar-uma-paginacao-customizada-no-Laravel-com-dados-de-uma-collection/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-10T17:22:13.000Z">
+          2017-02-10
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Talvez você seja um programador fodão em Laravel e fale “Mais isso todo mundo sabe fazer”. É ai que você se engana meu coleguinha, trabalho com Laravel a bastante tempo e posso dizer com toda certeza, muita gente tem dificuldade no momento de criar uma instância customizada de paginação com Laravel.</p>
+<p>Logo abaixo, encontra-se uma função usando os recursos do Laravel, mas você pode criar uma classe, uma pacote ou seja la o que for necessário no seu caso.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!function_exists(<span class="string">'paginator_instance'</span>)) &#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Cria uma intância personalizada do paginator, a qual pode ser usada em retornos de collect e retornis customizados</div><div class="line">     * <span class="doctag">@param</span>  collect/model $items         Itens a serem paginados</div><div class="line">     * <span class="doctag">@param</span>  array  $requests             Requests que devem ser passados na paginação, por exemplo, uma busca (query) e etc</div><div class="line">     * <span class="doctag">@param</span>  int $perPage                 Quantidade de itens por página</div><div class="line">     * <span class="doctag">@param</span>  int $currentPage             Página atual, normalmente vazio pois usa padrão do Laravel</div><div class="line">     * <span class="doctag">@param</span>  array  $options              Opções de paginação, normalmente, usa o padrão do Laravel</div><div class="line">     * <span class="doctag">@return</span> paginator/collect            Paginator com resultados</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">paginator_instance</span><span class="params">($items, $requests = [], $perPage = <span class="number">10</span>, $currentPage = null, array $options = [])</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">// Monta $perPage</span></div><div class="line">        $perPage = $perPage;</div><div class="line"></div><div class="line">        <span class="comment">// Pega a página atual</span></div><div class="line">        <span class="comment">// Se não preenchido, usa o método resolveCurrentPage() da \Illuminate\Pagination\LengthAwarePaginator</span></div><div class="line">        $page = $currentPage ? $currentPage : \Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage();</div><div class="line"></div><div class="line">        <span class="comment">// Monta collection com itens para paginacao</span></div><div class="line">        $currentPageSearchResults = collect($items)-&gt;slice(($page - <span class="number">1</span>) * $perPage, $perPage)-&gt;all();</div><div class="line"></div><div class="line">        <span class="comment">// Cria a paginação</span></div><div class="line">        $paginator = (<span class="keyword">new</span> \Illuminate\Pagination\LengthAwarePaginator($currentPageSearchResults, count($items), $perPage, $page, $options &gt;= <span class="number">1</span> ? $options : [</div><div class="line">            <span class="string">'path'</span> =&gt; \Illuminate\Pagination\Paginator::resolveCurrentPath(),</div><div class="line">            <span class="string">'pageName'</span> =&gt; <span class="string">'page'</span>,</div><div class="line">        ]));</div><div class="line">		</div><div class="line">        <span class="comment">// Retorna os dados montado e com paginação</span></div><div class="line">        <span class="keyword">return</span> $paginator-&gt;appends($requests);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Fácil né? Poisé!<br>Entenda melhor a classe <a href="https://laravel.com/api/5.4/Illuminate/Pagination/LengthAwarePaginator.html" target="_blank" rel="external"><strong>LengthAwarePaginator</strong></a> e <a href="https://github.com/laravel/framework/blob/5.4/src/Illuminate/Pagination/LengthAwarePaginator.php" target="_blank" rel="external">aqui você pode ver</a> o arquivo completo no Github.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Instalando-testando-e-conhecendo-o-MQTT-no-Ubuntu/"><span>Instalando, testando e conhecendo o MQTT no Ubuntu</span></a></h3>
     
   
@@ -175,7 +278,7 @@
       
         <p>O lance aqui hoje é rápido, você sabe a diferença entre os modelos de Arduino? Se não sabe, essa é a hora camarada.</p>
 <p><img src="http://blog.filipeflop.com/wp-content/uploads/2014/02/Tabela-comparativa1.png" alt="I"></p>
-<p>Essa tabela acima é bem legal, ela explica e resume tudo.</p>
+<p>Essa tabela acima é bem legal, ela explica e resume tudo. Na empresa utilizamos muito o Nano e Pro Mini para produtos finais e o Uno para testes.</p>
 <p>Mas, para mais detalhes você pode acessar ela lá no <a href="http://blog.filipeflop.com/arduino/tipos-de-arduino-qual-comprar.html" target="_blank" rel="external">Blog do FilipeFlop</a> e <a href="http://blog.filipeflop.com/wp-content/uploads/2014/02/Tabela-comparativa1.png" target="_blank" rel="external">aqui você pode ver</a> a imagem em tamanho real.</p>
 
       
