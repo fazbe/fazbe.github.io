@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fazbe.github.io/"/>
-  <updated>2017-02-10T17:53:09.000Z</updated>
+  <updated>2017-02-12T14:09:26.000Z</updated>
   <id>https://fazbe.github.io/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Executando comandos de Apple Script no Node.js</title>
+    <link href="https://fazbe.github.io/Executando-comandos-de-Apple-Script-no-Node-js/"/>
+    <id>https://fazbe.github.io/Executando-comandos-de-Apple-Script-no-Node-js/</id>
+    <published>2017-02-12T13:54:43.000Z</published>
+    <updated>2017-02-12T14:09:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Não sei você mas eu adoro automatizar tarefas no Mac, por exemplo, scripts para backup e sincronização no Google Drive, Dropbox e HD externo, envio de SMS quando tais backups chegam ao fim, execução de comandos bash personalizados e etc.</p>
+<p>Recentemente criei um projeto em node que recebe comandos atavés de um <strong>MQTT Broker</strong> e executa certas tarefas no Mac, uma vez que costumo sair e deixá-lo ligado. E o que mais uso, são <strong>Apple Scripts</strong>.</p>
+<p>Precisei executar alguns <strong>Apple Scripts</strong> através do <strong>node.js</strong> e encontrei a biblioteca <a href="https://www.npmjs.com/package/node-osascript" target="_blank" rel="external">node-osascript</a>, não tenho muito o que falar, só que funciona perfeitamente.</p>
+<p>Enfim, aqui eu instalei ele (o pacote) global<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install node-osascript -g</div></pre></td></tr></table></figure></p>
+<p>E para testar, crie um script (<a href="https://www.npmjs.com/package/node-osascript#simple" target="_blank" rel="external">o mesmo do exemplo na página do pacote</a>), porém mudei para ativar o Google Chrome, se ele estiver fechado, será aberto, se já estiver aberto, será focado/ativado.</p>
+<p>Salve o script abaixo como <strong>index.js</strong> em qualquer pasta que você quiser.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> osascript = <span class="built_in">require</span>(<span class="string">'node-osascript'</span>);</div><div class="line"> </div><div class="line">osascript.execute(<span class="string">'tell application "Chrome" to activate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, result, raw</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.error(err)</div><div class="line">  <span class="built_in">console</span>.log(result, raw)</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>Execute o script com o node e seja feliz.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node index.php</div></pre></td></tr></table></figure></p>
+<p>Para ver como funciona, você pode testar o Apple Script sem o node no terminal<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">osascript <span class="_">-e</span> <span class="string">'tell application "Chrome" to activate'</span></div></pre></td></tr></table></figure></p>
+<p>Locura hein!? Já tive colegas que me perguntaram porquê eu faço tudo isso, ao invés de usar aplicativos!</p>
+<p>Bom, para começar aplicativos eu nunca encontro um que me atenda da forma <strong>que preciso</strong>, além de alguns custarem um preço absurdo. Segundo, é legal criar esses scripts e aprender um pouco mais sobre node, apple scripts, javascript e etc.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Executando comandos de Apple Script no Node.js
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Usando o paho-mqtt para Python</title>
+    <link href="https://fazbe.github.io/Usando-o-paho-mqtt-para-Python/"/>
+    <id>https://fazbe.github.io/Usando-o-paho-mqtt-para-Python/</id>
+    <published>2017-02-12T13:42:20.000Z</published>
+    <updated>2017-02-12T13:53:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Bom, você já deve entender de Python né? Senão, estude e volte aqui.</p>
+<p>O lance aqui é simples com <a href="https://eclipse.org/paho/" target="_blank" rel="external">paho-mqtt</a>, para ouvir um tópico, façamos o seguinte</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Para instalar o paho-mqtt use o comando pip install paho-mqtt</span></div><div class="line"><span class="keyword">import</span> paho.mqtt.client <span class="keyword">as</span> mqtt</div><div class="line"></div><div class="line"><span class="comment"># The callback for when the client receives a CONNACK response from the server.</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_connect</span><span class="params">(client, userdata, flags, rc)</span>:</span></div><div class="line"></div><div class="line">    <span class="comment"># O subscribe fica no on_connect pois, caso perca a conexão ele a renova</span></div><div class="line">    <span class="comment"># Lembrando que quando usado o #, você está falando que tudo que chegar após a barra do topico, será recebido</span></div><div class="line">    client.subscribe(<span class="string">"topico/#"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Callback responável por receber uma mensagem publicada no tópico acima</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_message</span><span class="params">(client, userdata, msg)</span>:</span></div><div class="line">    print(msg.topic+<span class="string">" -  "</span>+str(msg.payload))</div><div class="line"></div><div class="line">client = mqtt.Client()</div><div class="line">client.on_connect = on_connect</div><div class="line">client.on_message = on_message</div><div class="line"></div><div class="line"><span class="comment"># Seta um usuário e senha para o Broker, se não tem, não use esta linha</span></div><div class="line">client.username_pw_set(<span class="string">"USUARIO"</span>, password=<span class="string">"SENHA"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Conecta no MQTT Broker, no meu caso, o Mosquitto</span></div><div class="line">client.connect(<span class="string">"IP_OU_URL_BROKER"</span>, PORTA, <span class="number">60</span>)</div><div class="line"></div><div class="line"><span class="comment"># Inicia o loop</span></div><div class="line">client.loop_forever()</div></pre></td></tr></table></figure>
+<p>Para publicar, faça o seguinte<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Importa o publish do paho-mqtt</span></div><div class="line"><span class="keyword">import</span> paho.mqtt.publish <span class="keyword">as</span> publish</div><div class="line"></div><div class="line"><span class="comment"># Publica</span></div><div class="line">publish.single(<span class="string">"topico/teste"</span>, <span class="string">"Oi, aqui é um teste"</span>, hostname=<span class="string">"IP_OU_URL_BROKER"</span>)</div></pre></td></tr></table></figure></p>
+<p>Na publicação, você passa todos os parâmetros no publish, como QOS, porta, auth e etc. Tudo muito fácil né? Quer saber mais? <a href="https://eclipse.org/paho/clients/python/docs/" target="_blank" rel="external">Leia a documentação do paho-mqtt</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      Usando o paho-mqtt para Python
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Verificando se um conteúdo ou palavra existe dentro de arquivos com PHP e Laravel</title>

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://fazbe.github.io/Executando-comandos-de-Apple-Script-no-Node-js/</loc>
+    
+    <lastmod>2017-02-12T14:09:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Usando-o-paho-mqtt-para-Python/</loc>
+    
+    <lastmod>2017-02-12T13:53:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://fazbe.github.io/Instalando-o-MQTT-no-macOS/</loc>
     
     <lastmod>2017-02-10T17:55:10.000Z</lastmod>

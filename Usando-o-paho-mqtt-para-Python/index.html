@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Usando o paho-mqtt para Python | Faz-B</title>
+
+  
+  <meta name="author" content="Faz-B Man">
+  
+
+  
+  <meta name="description" content="Usando o paho-mqtt para Python">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Usando o paho-mqtt para Python"/>
+
+  <meta property="og:site_name" content="Faz-B"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U" />
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Faz-B</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Início</a></li>
+      
+        <li><a href="/Sobre">Sobre</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="site-navigation">
+    <ul>
+      <li>
+        <br>
+        <br>
+
+        <script>
+          var domainroot="fazbe.github.io"
+          function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value }
+        </script>
+        <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+          <div class="input-group">
+                  <input name="q" type="hidden" />
+                  <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="busque algo..." maxlength="50"/>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Usando o paho-mqtt para Python</span></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Usando-o-paho-mqtt-para-Python/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-12T13:42:20.000Z">
+          2017-02-12
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Bom, você já deve entender de Python né? Senão, estude e volte aqui.</p>
+<p>O lance aqui é simples com <a href="https://eclipse.org/paho/" target="_blank" rel="external">paho-mqtt</a>, para ouvir um tópico, façamos o seguinte</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Para instalar o paho-mqtt use o comando pip install paho-mqtt</span></div><div class="line"><span class="keyword">import</span> paho.mqtt.client <span class="keyword">as</span> mqtt</div><div class="line"></div><div class="line"><span class="comment"># The callback for when the client receives a CONNACK response from the server.</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_connect</span><span class="params">(client, userdata, flags, rc)</span>:</span></div><div class="line"></div><div class="line">    <span class="comment"># O subscribe fica no on_connect pois, caso perca a conexão ele a renova</span></div><div class="line">    <span class="comment"># Lembrando que quando usado o #, você está falando que tudo que chegar após a barra do topico, será recebido</span></div><div class="line">    client.subscribe(<span class="string">"topico/#"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Callback responável por receber uma mensagem publicada no tópico acima</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_message</span><span class="params">(client, userdata, msg)</span>:</span></div><div class="line">    print(msg.topic+<span class="string">" -  "</span>+str(msg.payload))</div><div class="line"></div><div class="line">client = mqtt.Client()</div><div class="line">client.on_connect = on_connect</div><div class="line">client.on_message = on_message</div><div class="line"></div><div class="line"><span class="comment"># Seta um usuário e senha para o Broker, se não tem, não use esta linha</span></div><div class="line">client.username_pw_set(<span class="string">"USUARIO"</span>, password=<span class="string">"SENHA"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Conecta no MQTT Broker, no meu caso, o Mosquitto</span></div><div class="line">client.connect(<span class="string">"IP_OU_URL_BROKER"</span>, PORTA, <span class="number">60</span>)</div><div class="line"></div><div class="line"><span class="comment"># Inicia o loop</span></div><div class="line">client.loop_forever()</div></pre></td></tr></table></figure>
+<p>Para publicar, faça o seguinte<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Importa o publish do paho-mqtt</span></div><div class="line"><span class="keyword">import</span> paho.mqtt.publish <span class="keyword">as</span> publish</div><div class="line"></div><div class="line"><span class="comment"># Publica</span></div><div class="line">publish.single(<span class="string">"topico/teste"</span>, <span class="string">"Oi, aqui é um teste"</span>, hostname=<span class="string">"IP_OU_URL_BROKER"</span>)</div></pre></td></tr></table></figure></p>
+<p>Na publicação, você passa todos os parâmetros no publish, como QOS, porta, auth e etc. Tudo muito fácil né? Quer saber mais? <a href="https://eclipse.org/paho/clients/python/docs/" target="_blank" rel="external">Leia a documentação do paho-mqtt</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Faz-B Man
+    
+  </p>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74265041-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    
+  </div>
+</div>
+</body>
+</html>
