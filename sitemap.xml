@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://fazbe.github.io/Sobre/index.html</loc>
+    
+    <lastmod>2017-02-16T22:32:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://fazbe.github.io/Lei-de-Ohm-e-Resistores-voce-conhece-e-sabe/</loc>
     
     <lastmod>2017-02-16T18:48:19.000Z</lastmod>
@@ -103,13 +110,6 @@
     <loc>https://fazbe.github.io/Diferencas-entre-os-diversos-modelos-de-Arduino/</loc>
     
     <lastmod>2017-02-16T16:45:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Sobre/index.html</loc>
-    
-    <lastmod>2017-02-16T16:42:45.000Z</lastmod>
     
   </url>
   
