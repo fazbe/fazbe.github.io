@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Abrir pasta do Finder no Terminal e vice-versa no Mac | Faz-B</title>
+
+  
+  <meta name="author" content="Faz-B Man">
+  
+
+  
+  <meta name="description" content="Abrir pasta do Finder no Terminal e vice-versa no Mac">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Abrir pasta do Finder no Terminal e vice-versa no Mac"/>
+
+  <meta property="og:site_name" content="Faz-B"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U" />
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Faz-B</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Início</a></li>
+      
+        <li><a href="/Sobre">Sobre</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="site-navigation">
+    <ul>
+      <li>
+        <br>
+        <br>
+
+        <script>
+          var domainroot="fazbe.github.io"
+          function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value }
+        </script>
+        <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
+          <div class="input-group">
+                  <input name="q" type="hidden" />
+                  <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="busque algo..." maxlength="50"/>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Abrir pasta do Finder no Terminal e vice-versa no Mac</span></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Abrir-pasta-do-Finder-no-Terminal-e-vice-versa-no-Mac/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-16T17:40:05.000Z">
+          2017-02-16
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Eu acredito que você já saiba trabalhar no Terminal do Mac, configurar e usar inclusive o bash_profile. Se não sabe, <a href="https://nandovieira.com.br/configurando-o-terminal-no-mac-os-x" target="_blank" rel="external">dê uma olhada aqui</a> e <a href="http://www.vitorbritto.com.br/blog/adicionando-caminhos-na-variavel-de-ambiente-PATH/" target="_blank" rel="external">aqui também</a></p>
+<p>Certo, vamos criar uma função no nosso arquivo de configuração <strong>.bash_profile</strong> normalmente no Mac ele fica no diretório base do seu usuário.</p>
+<p>Para abrir uma pasta que está ativa no Finder dentro do Terminal:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">finder_term</span></span>() &#123;</div><div class="line">    <span class="comment"># Neste caso "of" é somente um alias customizado criado para excução</span></div><div class="line">    of=`osascript <span class="_">-e</span> <span class="string">'tell application "Finder" to if (count of Finder windows) &gt; 0 then get POSIX path of (target of front Finder window as text)'</span>` &amp;&amp; [ -n <span class="string">"<span class="variable">$of</span>"</span> ] &amp;&amp; <span class="built_in">cd</span> <span class="string">"<span class="variable">$of</span>"</span> &amp;&amp; <span class="built_in">pwd</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Para abrir uma pasta que está ativa no Terminal dentro do Finder. Neste caso não iremos criar uma função e sim um <strong>alias</strong>:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> term_finder=<span class="string">'open -a Finder .'</span></div></pre></td></tr></table></figure></p>
+<p>Pronto, salve o seu arquivo .bash_profile e “atualize” ele digitando no Terminal o comando:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> ~/.bash_profile</div></pre></td></tr></table></figure></p>
+<p>Para testar, <strong>abra uma pasta no Finder</strong> e com ela ativa, abra o Terminal e digite:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">finder_term</div></pre></td></tr></table></figure></p>
+<p>Pressione RETURN/ENTER e ele vai abrir a pasta do Finder <strong>dentro do seu Terminal</strong>.</p>
+<p>Pronto, agora <strong>feche a janela do Finder</strong> e na mesma janela do Terminal digite:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">term_finder</div></pre></td></tr></table></figure></p>
+<p>Pressione RETURN/ENTER e ele vai abrir a pasta do Terminal <strong>em uma janela do Finder</strong>.</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Faz-B Man
+    
+  </p>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74265041-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    
+  </div>
+</div>
+</body>
+</html>

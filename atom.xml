@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fazbe.github.io/"/>
-  <updated>2017-02-16T16:38:30.000Z</updated>
+  <updated>2017-02-16T18:48:19.000Z</updated>
   <id>https://fazbe.github.io/</id>
   
   <author>
@@ -14,6 +14,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Lei de Ohm e Resistores, você conhece e sabe?</title>
+    <link href="https://fazbe.github.io/Lei-de-Ohm-e-Resistores-voce-conhece-e-sabe/"/>
+    <id>https://fazbe.github.io/Lei-de-Ohm-e-Resistores-voce-conhece-e-sabe/</id>
+    <published>2017-02-16T18:19:13.000Z</published>
+    <updated>2017-02-16T18:48:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Um dos componentes eletrônicos mais usados pelo menos quando o assunto é Arduino e seus agregados, é o resistor. No início é complicado mas com o tempo você vai pegando o jeito. E não se preocupe também, na internet hoje em dia tem MUITO material para estudar, prontos e etc.</p>
+<p>Existem diversos vídeos bem complexos e com muita teoria, cálculos e mais cálculos, então selecionei dois que são bem diretos e explica bem!</p>
+<p>Selecionei alguns vídeos legais, que falam sobre resistores e a tal lei de ohm.</p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/LQGUwEe915I" frameborder="0" allowfullscreen></iframe></div>
+<p>Como calcular o resistor adequado</p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/h9oK4o63Kvs" frameborder="0" allowfullscreen></iframe></div>]]></content>
+    
+    <summary type="html">
+    
+      Lei de Ohm e Resistores, você conhece e sabe?
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Abrir pasta do Finder no Terminal e vice-versa no Mac</title>
+    <link href="https://fazbe.github.io/Abrir-pasta-do-Finder-no-Terminal-e-vice-versa-no-Mac/"/>
+    <id>https://fazbe.github.io/Abrir-pasta-do-Finder-no-Terminal-e-vice-versa-no-Mac/</id>
+    <published>2017-02-16T17:40:05.000Z</published>
+    <updated>2017-02-16T18:15:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Eu acredito que você já saiba trabalhar no Terminal do Mac, configurar e usar inclusive o bash_profile. Se não sabe, <a href="https://nandovieira.com.br/configurando-o-terminal-no-mac-os-x" target="_blank" rel="external">dê uma olhada aqui</a> e <a href="http://www.vitorbritto.com.br/blog/adicionando-caminhos-na-variavel-de-ambiente-PATH/" target="_blank" rel="external">aqui também</a></p>
+<p>Certo, vamos criar uma função no nosso arquivo de configuração <strong>.bash_profile</strong> normalmente no Mac ele fica no diretório base do seu usuário.</p>
+<p>Para abrir uma pasta que está ativa no Finder dentro do Terminal:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">finder_term</span></span>() &#123;</div><div class="line">    <span class="comment"># Neste caso "of" é somente um alias customizado criado para excução</span></div><div class="line">    of=`osascript <span class="_">-e</span> <span class="string">'tell application "Finder" to if (count of Finder windows) &gt; 0 then get POSIX path of (target of front Finder window as text)'</span>` &amp;&amp; [ -n <span class="string">"<span class="variable">$of</span>"</span> ] &amp;&amp; <span class="built_in">cd</span> <span class="string">"<span class="variable">$of</span>"</span> &amp;&amp; <span class="built_in">pwd</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Para abrir uma pasta que está ativa no Terminal dentro do Finder. Neste caso não iremos criar uma função e sim um <strong>alias</strong>:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> term_finder=<span class="string">'open -a Finder .'</span></div></pre></td></tr></table></figure></p>
+<p>Pronto, salve o seu arquivo .bash_profile e “atualize” ele digitando no Terminal o comando:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> ~/.bash_profile</div></pre></td></tr></table></figure></p>
+<p>Para testar, <strong>abra uma pasta no Finder</strong> e com ela ativa, abra o Terminal e digite:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">finder_term</div></pre></td></tr></table></figure></p>
+<p>Pressione RETURN/ENTER e ele vai abrir a pasta do Finder <strong>dentro do seu Terminal</strong>.</p>
+<p>Pronto, agora <strong>feche a janela do Finder</strong> e na mesma janela do Terminal digite:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">term_finder</div></pre></td></tr></table></figure></p>
+<p>Pressione RETURN/ENTER e ele vai abrir a pasta do Terminal <strong>em uma janela do Finder</strong>.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Abrir pasta do Finder no Terminal e vice-versa no Mac
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Mostrar informações das portas USB no Mac</title>
