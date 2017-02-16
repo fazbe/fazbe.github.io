@@ -65,15 +65,19 @@
         <br>
 
         <script>
-          var domainroot="fazbe.github.io"
-          function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value }
-        </script>
-        <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)">
-          <div class="input-group">
-                  <input name="q" type="hidden" />
-                  <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="busque algo..." maxlength="50"/>
-          </div>
-        </form>
+  (function() {
+    var cx = '004458774873966046760:dbs6nv-auso';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+        
       </li>
     </ul>
   </nav>
