@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fazbe.github.io/"/>
-  <updated>2017-02-16T22:45:00.000Z</updated>
+  <updated>2017-02-17T19:37:20.000Z</updated>
   <id>https://fazbe.github.io/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Requisições HTTP com Python</title>
+    <link href="https://fazbe.github.io/Requisicoes-HTTP-com-Python/"/>
+    <id>https://fazbe.github.io/Requisicoes-HTTP-com-Python/</id>
+    <published>2017-02-17T19:31:54.000Z</published>
+    <updated>2017-02-17T19:37:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Conheça o <a href="http://docs.python-requests.org/pt_BR/latest/" target="_blank" rel="external">Python HTTP for Humans</a> não vou aprofundar em nada, mas fica a dica. Na <a href="http://docs.python-requests.org/pt_BR/latest" target="_blank" rel="external">documentação</a> deles, tem tudo. Só ler, aprender e executar, tudo em português.</p>
+<p>Por aqui estamos utilizando para se comunicar com uma <a href="https://canaltech.com.br/o-que-e/software/o-que-e-api/" target="_blank" rel="external">API</a> desenvolvida em <a href="https://laravel.com/docs" target="_blank" rel="external">Laravel</a> que recebe e trata dados de uma aplicação de <a href="http://computerworld.com.br/dez-aplicacoes-possiveis-do-conceito-de-internet-das-coisas-em-pmes" target="_blank" rel="external">IoT</a>.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Requisições HTTP com Python
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>NodeMCU, conheça esta plaquinha com ESP8266</title>
