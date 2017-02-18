@@ -2,23 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://fazbe.github.io/Requisicoes-HTTP-com-Python/</loc>
+    <loc>https://fazbe.github.io/Usando-o-paho-mqtt-para-Python/</loc>
     
-    <lastmod>2017-02-17T19:37:20.000Z</lastmod>
+    <lastmod>2017-02-18T12:08:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://fazbe.github.io/NodeMCU-conheca-esta-plaquinha-com-ESP8266/</loc>
+    <loc>https://fazbe.github.io/Mostrar-informacoes-das-portas-USB-no-Mac/</loc>
     
-    <lastmod>2017-02-16T22:45:00.000Z</lastmod>
+    <lastmod>2017-02-18T12:05:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Abrir-pasta-do-Finder-no-Terminal-e-vice-versa-no-Mac/</loc>
+    
+    <lastmod>2017-02-18T12:04:22.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://fazbe.github.io/Lei-de-Ohm-e-Resistores-voce-conhece-e-sabe/</loc>
     
-    <lastmod>2017-02-16T22:36:39.000Z</lastmod>
+    <lastmod>2017-02-18T12:03:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/NodeMCU-conheca-esta-plaquinha-com-ESP8266/</loc>
+    
+    <lastmod>2017-02-18T12:02:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Requisicoes-HTTP-com-Python/</loc>
+    
+    <lastmod>2017-02-18T12:01:28.000Z</lastmod>
     
   </url>
   
@@ -30,23 +51,9 @@
   </url>
   
   <url>
-    <loc>https://fazbe.github.io/Abrir-pasta-do-Finder-no-Terminal-e-vice-versa-no-Mac/</loc>
-    
-    <lastmod>2017-02-16T18:15:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://fazbe.github.io/Verificando-se-um-conteudo-ou-palavra-existe-dentro-de-arquivos-com-PHP-e-Laravel/</loc>
     
     <lastmod>2017-02-16T17:21:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Usando-o-paho-mqtt-para-Python/</loc>
-    
-    <lastmod>2017-02-16T17:20:21.000Z</lastmod>
     
   </url>
   
@@ -131,13 +138,6 @@
     <loc>https://fazbe.github.io/Sobre/index_old.html</loc>
     
     <lastmod>2017-02-16T16:40:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Mostrar-informacoes-das-portas-USB-no-Mac/</loc>
-    
-    <lastmod>2017-02-16T16:38:30.000Z</lastmod>
     
   </url>
   

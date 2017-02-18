@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fazbe.github.io/"/>
-  <updated>2017-02-17T19:37:20.000Z</updated>
+  <updated>2017-02-18T12:01:28.000Z</updated>
   <id>https://fazbe.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://fazbe.github.io/Requisicoes-HTTP-com-Python/"/>
     <id>https://fazbe.github.io/Requisicoes-HTTP-com-Python/</id>
     <published>2017-02-17T19:31:54.000Z</published>
-    <updated>2017-02-17T19:37:20.000Z</updated>
+    <updated>2017-02-18T12:01:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>Conheça o <a href="http://docs.python-requests.org/pt_BR/latest/" target="_blank" rel="external">Python HTTP for Humans</a> não vou aprofundar em nada, mas fica a dica. Na <a href="http://docs.python-requests.org/pt_BR/latest" target="_blank" rel="external">documentação</a> deles, tem tudo. Só ler, aprender e executar, tudo em português.</p>
 <p>Por aqui estamos utilizando para se comunicar com uma <a href="https://canaltech.com.br/o-que-e/software/o-que-e-api/" target="_blank" rel="external">API</a> desenvolvida em <a href="https://laravel.com/docs" target="_blank" rel="external">Laravel</a> que recebe e trata dados de uma aplicação de <a href="http://computerworld.com.br/dez-aplicacoes-possiveis-do-conceito-de-internet-das-coisas-em-pmes" target="_blank" rel="external">IoT</a>.</p>
@@ -32,6 +32,8 @@
     
     </summary>
     
+      <category term="python" scheme="https://fazbe.github.io/categories/python/"/>
+    
     
   </entry>
   
@@ -40,7 +42,7 @@
     <link href="https://fazbe.github.io/NodeMCU-conheca-esta-plaquinha-com-ESP8266/"/>
     <id>https://fazbe.github.io/NodeMCU-conheca-esta-plaquinha-com-ESP8266/</id>
     <published>2017-02-16T22:43:09.000Z</published>
-    <updated>2017-02-16T22:45:00.000Z</updated>
+    <updated>2017-02-18T12:02:15.000Z</updated>
     
     <content type="html"><![CDATA[<p>Ótimo vídeo da <a href="">Navarro Eletrônica</a></p>
 <div class="video-container"><iframe src="//www.youtube.com/embed/d91YqbND8A8" frameborder="0" allowfullscreen></iframe></div>
@@ -53,6 +55,10 @@
     
     </summary>
     
+      <category term="nodemcu" scheme="https://fazbe.github.io/categories/nodemcu/"/>
+    
+      <category term="esp8266" scheme="https://fazbe.github.io/categories/nodemcu/esp8266/"/>
+    
     
   </entry>
   
@@ -61,7 +67,7 @@
     <link href="https://fazbe.github.io/Lei-de-Ohm-e-Resistores-voce-conhece-e-sabe/"/>
     <id>https://fazbe.github.io/Lei-de-Ohm-e-Resistores-voce-conhece-e-sabe/</id>
     <published>2017-02-16T18:19:13.000Z</published>
-    <updated>2017-02-16T22:36:39.000Z</updated>
+    <updated>2017-02-18T12:03:53.000Z</updated>
     
     <content type="html"><![CDATA[<p>Um dos componentes eletrônicos mais usados pelo menos quando o assunto é Arduino e seus agregados, é o resistor. No início é complicado mas com o tempo você vai pegando o jeito. E não se preocupe também, na internet hoje em dia tem MUITO material para estudar, prontos e etc.</p>
 <p>Existem diversos vídeos bem complexos e com muita teoria, cálculos e mais cálculos, então selecionei dois que são bem diretos e explica bem!</p>
@@ -76,6 +82,8 @@
     
     </summary>
     
+      <category term="eletronica" scheme="https://fazbe.github.io/categories/eletronica/"/>
+    
     
   </entry>
   
@@ -84,7 +92,7 @@
     <link href="https://fazbe.github.io/Abrir-pasta-do-Finder-no-Terminal-e-vice-versa-no-Mac/"/>
     <id>https://fazbe.github.io/Abrir-pasta-do-Finder-no-Terminal-e-vice-versa-no-Mac/</id>
     <published>2017-02-16T17:40:05.000Z</published>
-    <updated>2017-02-16T18:15:46.000Z</updated>
+    <updated>2017-02-18T12:04:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>Eu acredito que você já saiba trabalhar no Terminal do Mac, configurar e usar inclusive o bash_profile. Se não sabe, <a href="https://nandovieira.com.br/configurando-o-terminal-no-mac-os-x" target="_blank" rel="external">dê uma olhada aqui</a> e <a href="http://www.vitorbritto.com.br/blog/adicionando-caminhos-na-variavel-de-ambiente-PATH/" target="_blank" rel="external">aqui também</a></p>
 <p>Certo, vamos criar uma função no nosso arquivo de configuração <strong>.bash_profile</strong> normalmente no Mac ele fica no diretório base do seu usuário.</p>
@@ -103,6 +111,12 @@
     
     </summary>
     
+      <category term="mac" scheme="https://fazbe.github.io/categories/mac/"/>
+    
+      <category term="terminal" scheme="https://fazbe.github.io/categories/mac/terminal/"/>
+    
+      <category term="applescript" scheme="https://fazbe.github.io/categories/mac/terminal/applescript/"/>
+    
     
   </entry>
   
@@ -111,7 +125,7 @@
     <link href="https://fazbe.github.io/Mostrar-informacoes-das-portas-USB-no-Mac/"/>
     <id>https://fazbe.github.io/Mostrar-informacoes-das-portas-USB-no-Mac/</id>
     <published>2017-02-16T16:35:50.000Z</published>
-    <updated>2017-02-16T16:38:30.000Z</updated>
+    <updated>2017-02-18T12:05:44.000Z</updated>
     
     <content type="html"><![CDATA[<p>Só abrir o <a href="https://tecnologia.umcomo.com.br/artigo/como-abrir-o-terminal-em-computadores-mac-3950.html" target="_blank" rel="external">Terminal</a> e digitar o comando:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">system_profiler SPUSBDataType</div></pre></td></tr></table></figure></p>
 <p>Irá aparecer algo como:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">USB:</div><div class="line"></div><div class="line">    USB 2.0 Bus:</div><div class="line"></div><div class="line">      Host Controller Driver: AppleUSBEHCIPCI</div><div class="line">      PCI Device ID: 0x1e2d</div><div class="line">      PCI Revision ID: 0x0004</div><div class="line">      PCI Vendor ID: 0x8086</div><div class="line"></div><div class="line">        Hub:</div><div class="line"></div><div class="line">          Product ID: 0x0024</div><div class="line">          Vendor ID: 0x8087  (Intel Corporation)</div><div class="line">          Version: 0.00</div><div class="line">          Speed: Up to 480 Mb/sec</div><div class="line">          Location ID: 0x1a100000 / 1</div><div class="line">          Current Available (mA): 1000</div><div class="line">          Current Required (mA): 0</div><div class="line">          Extra Operating Current (mA): 0</div><div class="line">          Built-In: Yes</div></pre></td></tr></table></figure></p>
@@ -122,6 +136,10 @@
       Mostrar informações das portas USB no Mac
     
     </summary>
+    
+      <category term="mac" scheme="https://fazbe.github.io/categories/mac/"/>
+    
+      <category term="terminal" scheme="https://fazbe.github.io/categories/mac/terminal/"/>
     
     
   </entry>
@@ -158,7 +176,7 @@
     <link href="https://fazbe.github.io/Usando-o-paho-mqtt-para-Python/"/>
     <id>https://fazbe.github.io/Usando-o-paho-mqtt-para-Python/</id>
     <published>2017-02-12T13:42:20.000Z</published>
-    <updated>2017-02-16T17:20:21.000Z</updated>
+    <updated>2017-02-18T12:08:54.000Z</updated>
     
     <content type="html"><![CDATA[<p>Bom, você já deve entender de Python né? Senão, estude e volte aqui.</p>
 <p>O lance aqui é simples com <a href="https://eclipse.org/paho/" target="_blank" rel="external">paho-mqtt</a>, para ouvir um tópico, façamos o seguinte:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Para instalar o paho-mqtt use o comando pip install paho-mqtt</span></div><div class="line"><span class="keyword">import</span> paho.mqtt.client <span class="keyword">as</span> mqtt</div><div class="line"></div><div class="line"><span class="comment"># The callback for when the client receives a CONNACK response from the server.</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_connect</span><span class="params">(client, userdata, flags, rc)</span>:</span></div><div class="line"></div><div class="line">    <span class="comment"># O subscribe fica no on_connect pois, caso perca a conexão ele a renova</span></div><div class="line">    <span class="comment"># Lembrando que quando usado o #, você está falando que tudo que chegar após a barra do topico, será recebido</span></div><div class="line">    client.subscribe(<span class="string">"topico/#"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Callback responável por receber uma mensagem publicada no tópico acima</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_message</span><span class="params">(client, userdata, msg)</span>:</span></div><div class="line">    print(msg.topic+<span class="string">" -  "</span>+str(msg.payload))</div><div class="line"></div><div class="line">client = mqtt.Client()</div><div class="line">client.on_connect = on_connect</div><div class="line">client.on_message = on_message</div><div class="line"></div><div class="line"><span class="comment"># Seta um usuário e senha para o Broker, se não tem, não use esta linha</span></div><div class="line">client.username_pw_set(<span class="string">"USUARIO"</span>, password=<span class="string">"SENHA"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Conecta no MQTT Broker, no meu caso, o Mosquitto</span></div><div class="line">client.connect(<span class="string">"IP_OU_URL_BROKER"</span>, PORTA, <span class="number">60</span>)</div><div class="line"></div><div class="line"><span class="comment"># Inicia o loop</span></div><div class="line">client.loop_forever()</div></pre></td></tr></table></figure></p>
@@ -171,6 +189,12 @@
       Usando o paho-mqtt para Python
     
     </summary>
+    
+      <category term="python" scheme="https://fazbe.github.io/categories/python/"/>
+    
+      <category term="mqtt" scheme="https://fazbe.github.io/categories/python/mqtt/"/>
+    
+      <category term="mosquitto" scheme="https://fazbe.github.io/categories/python/mqtt/mosquitto/"/>
     
     
   </entry>
