@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>Turbine as Collection do Laravel com o Laravel Collection Macros da Spatie | Faz-B</title>
@@ -15,22 +15,22 @@
 
   
   
-  <meta name="keywords" content="">
+  <meta name="keywords" content>
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="Turbine as Collection do Laravel com o Laravel Collection Macros da Spatie"/>
+  <meta property="og:title" content="Turbine as Collection do Laravel com o Laravel Collection Macros da Spatie">
 
-  <meta property="og:site_name" content="Faz-B"/>
+  <meta property="og:site_name" content="Faz-B">
 
   
-  <meta property="og:image" content="/favicon.ico"/>
+  <meta property="og:image" content="/favicon.ico">
   
 
-  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U" />
+  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U">
 
   <link href="/favicon.ico" rel="icon">
   <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
@@ -54,7 +54,7 @@
       
         <li><a href="/">Início</a></li>
       
-        <li><a href="/Sobre">Sobre</a></li>
+        <li><a href="https://gercil.me">Gercil.Me</a></li>
       
     </ul>
   </nav>
@@ -99,8 +99,8 @@
   <div class="article-top-meta">
     <span class="posted-on">
       <a href="/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-08T12:41:37.000Z">
-          2017-02-08
+        <time class="entry-date published" datetime="2017-02-16T17:19:47.000Z">
+          2017-02-16
         </time>
       </a>
     </span>
@@ -113,22 +113,24 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>Que as <a href="https://laravel.com/docs/collections" target="_blank" rel="external">Collections do Laravel</a> são legais e que ajudam muito na hora de desenvolver todo mundo sabe. Mas em muitas ocasiões faltam funções que precisamos e não existe, para isso você tem duas opções, criar suas próprias collections ou usar pacotes de terceiros.</p>
-<p>É ai que entra a <a href="https://spatie.be/en/opensource/laravel" target="_blank" rel="external">Spatie</a>, eles criaram um pacote para Laravel, o <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="external">Laravel Collection Macros</a>.</p>
+        <p>Que as <a href="https://laravel.com/docs/collections" target="_blank" rel="noopener">Collections do Laravel</a> são legais e que ajudam muito na hora de desenvolver todo mundo sabe. Mas em muitas ocasiões faltam funções que precisamos e não existe, para isso você tem duas opções, criar suas próprias collections ou usar pacotes de terceiros.</p>
+<p>É ai que entra a <a href="https://spatie.be/en/opensource/laravel" target="_blank" rel="noopener">Spatie</a>, eles criaram um pacote para Laravel, o <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="noopener">Laravel Collection Macros</a>.</p>
 <p>Mesmo assim, no nosso caso aqui na empresa ainda faltam algumas funções, mas enfim, o foco aqui não é falar disso e isso também <strong>não tira o mérito do pacote da Spatie</strong>.</p>
 <p>Hoje em dia, AINDA vejo MUITOS programadores resistentes a usar pacotes e até mesmo frameworks, acreditam?</p>
 <p>Poisé, eu mesmo não acredito! Particularmente acho isso muita ignorância mas não julgo ninguém, em toda minha experiência posso falar com toda a certeza, usar pacotes de terceiros e frameworks não é uma vergonha e sim um ganho gigantesco de tempo e sem perder a qualidade do seu desenvolvimento.</p>
 <p>Então meu amigo, <strong>a menos que você esteja entrando no mundo da programação agora e não entende de nada AINDA</strong>, use e abuse de pacotes e frameworks.</p>
-<p>Mas voltando ao pacote, para instalar vá a pasta do seu projeto Laravel e use o <a href="https://tableless.com.br/composer-para-iniciantes/" target="_blank" rel="external">composer</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer require spatie/laravel-collection-macros</div></pre></td></tr></table></figure></p>
-<p>Depois, adicione o provider no arquivo <strong>app.php</strong> que está na pasta <strong>config</strong> dentro da pasta do seu projeto Laravel<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Spatie\CollectionMacros\CollectionMacroServiceProvider::class,</div></pre></td></tr></table></figure></p>
-<p>E depois? Use, use e use! Para saber quais <strong>collections</strong> o pacote possui, entra la <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="external">no Github deles</a>, tem tudo! Os que mais usamos aqui são:</p>
+<p>Mas voltando ao pacote, para instalar vá a pasta do seu projeto Laravel e use o <a href="https://tableless.com.br/composer-para-iniciantes/" target="_blank" rel="noopener">composer</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require spatie/laravel-collection-macros</span><br></pre></td></tr></table></figure></p>
+<p>Depois, adicione o provider no arquivo <strong>app.php</strong> que está na pasta <strong>config</strong> dentro da pasta do seu projeto Laravel<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spatie\CollectionMacros\CollectionMacroServiceProvider::class,</span><br></pre></td></tr></table></figure></p>
+<p>E depois? Use, use e use! Para saber quais <strong>collections</strong> o pacote possui, entra la <a href="https://github.com/spatie/laravel-collection-macros" target="_blank" rel="noopener">no Github deles</a>, tem tudo! Os que mais usamos aqui são:</p>
 <ul>
-<li><a href="https://github.com/spatie/laravel-collection-macros#range" target="_blank" rel="external">range()</a></li>
-<li><a href="https://github.com/spatie/laravel-collection-macros#dd" target="_blank" rel="external">dd()</a></li>
-<li><a href="https://github.com/spatie/laravel-collection-macros#validate" target="_blank" rel="external">validate()</a></li>
-<li><a href="https://github.com/spatie/laravel-collection-macros#ifempty" target="_blank" rel="external">ifEmpty()</a></li>
+<li><a href="https://github.com/spatie/laravel-collection-macros#range" target="_blank" rel="noopener">range()</a></li>
+<li><a href="https://github.com/spatie/laravel-collection-macros#dd" target="_blank" rel="noopener">dd()</a></li>
+<li><a href="https://github.com/spatie/laravel-collection-macros#validate" target="_blank" rel="noopener">validate()</a></li>
+<li><a href="https://github.com/spatie/laravel-collection-macros#ifempty" target="_blank" rel="noopener">ifEmpty()</a></li>
 </ul>
 <p> Rapaiz, o <strong>dd()</strong> usado nesse contexto ai, é sinistrão!</p>
+<hr>
+<p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
 
       
     </div>
@@ -157,7 +159,7 @@
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2017 Faz-B Man
+    &copy; 2020 Faz-B Man
     
   </p>
 </footer>

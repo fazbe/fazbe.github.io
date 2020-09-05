@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>Instalando, testando e conhecendo o MQTT no macOS | Faz-B</title>
@@ -15,22 +15,22 @@
 
   
   
-  <meta name="keywords" content="">
+  <meta name="keywords" content>
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="Instalando, testando e conhecendo o MQTT no macOS"/>
+  <meta property="og:title" content="Instalando, testando e conhecendo o MQTT no macOS">
 
-  <meta property="og:site_name" content="Faz-B"/>
+  <meta property="og:site_name" content="Faz-B">
 
   
-  <meta property="og:image" content="/favicon.ico"/>
+  <meta property="og:image" content="/favicon.ico">
   
 
-  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U" />
+  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U">
 
   <link href="/favicon.ico" rel="icon">
   <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
@@ -54,7 +54,7 @@
       
         <li><a href="/">Início</a></li>
       
-        <li><a href="/Sobre">Sobre</a></li>
+        <li><a href="https://gercil.me">Gercil.Me</a></li>
       
     </ul>
   </nav>
@@ -99,8 +99,8 @@
   <div class="article-top-meta">
     <span class="posted-on">
       <a href="/Instalando-o-MQTT-no-macOS/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-07T11:57:13.000Z">
-          2017-02-07
+        <time class="entry-date published" datetime="2017-02-16T17:03:26.000Z">
+          2017-02-16
         </time>
       </a>
     </span>
@@ -113,26 +113,28 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>Eu acredito que quem chegou até aqui, já saiba bastante sobre programação. Então não vou explicar o que é <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>, <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external">MQTT</a> e nem <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>, a idéia aqui é ser direto e mostrar como deixar as coisas funcionando.</p>
-<p>Primeiro, vamos instalar o <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>, caso não o tenha feito ainda.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure></p>
-<p>Segundo, vamos instalar o <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a> usando o <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mosquitto</div></pre></td></tr></table></figure></p>
-<p>Quando termina a instalação, é mostrado como colocar para iniciar o MQTT server na inicialização do sistema. Simples!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/mosquitto/*.plist ~/Library/LaunchAgents</div></pre></td></tr></table></figure></p>
-<p>Então, precisamos iniciar o <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>, certo? É mamão com açucar!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">launchctl load /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/homebrew.mxcl.mosquitto.plist</div></pre></td></tr></table></figure></p>
-<p>Legal né? Agora, você pode usar o <strong><em>mosquitto_sub</em></strong> e o <strong><em>mosquitto_pub</em></strong> para brincar e fazer seus testes!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Wowwww padrim, to em casa!"</span></div></pre></td></tr></table></figure>
-<p>Opa, mas espera ai! Eu não quero o meu <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a> livre pra qualquer um acessar né? Bora colocar senha então!</p>
-<p>Antes de mais nada, você precisa definir o mosquitto para <strong>não</strong> aceitar usuários anônimos, abra o arquivo de configuração usando o <strong>editor vim</strong> mesmo.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/etc/mosquitto/mosquitto.conf</div></pre></td></tr></table></figure></p>
-<p>E adicione (ou altere) a linha onde está o <strong>allow_anonymous</strong> para <strong>false</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">allow_anonymous <span class="literal">false</span></div></pre></td></tr></table></figure></p>
+        <p>Eu acredito que quem chegou até aqui, já saiba bastante sobre programação. Então não vou explicar o que é <a href="https://mosquitto.org/" target="_blank" rel="noopener">Mosquitto</a>, <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="noopener">MQTT</a> e nem <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="noopener">Homebrew</a>, a idéia aqui é ser direto e mostrar como deixar as coisas funcionando.</p>
+<p>Primeiro, vamos instalar o <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="noopener">Homebrew</a>, caso não o tenha feito ainda.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>Segundo, vamos instalar o <a href="https://mosquitto.org/" target="_blank" rel="noopener">Mosquitto</a> usando o <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="noopener">Homebrew</a>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mosquitto</span><br></pre></td></tr></table></figure></p>
+<p>Quando termina a instalação, é mostrado como colocar para iniciar o MQTT server na inicialização do sistema. Simples!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/mosquitto/*.plist ~/Library/LaunchAgents</span><br></pre></td></tr></table></figure></p>
+<p>Então, precisamos iniciar o <a href="https://mosquitto.org/" target="_blank" rel="noopener">Mosquitto</a>, certo? É mamão com açucar!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">launchctl load /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/homebrew.mxcl.mosquitto.plist</span><br></pre></td></tr></table></figure></p>
+<p>Legal né? Agora, você pode usar o <strong><em>mosquitto_sub</em></strong> e o <strong><em>mosquitto_pub</em></strong> para brincar e fazer seus testes!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -t topic/home</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -t topic/home -m <span class="string">"Wowwww padrim, to em casa!"</span></span><br></pre></td></tr></table></figure>
+<p>Opa, mas espera ai! Eu não quero o meu <a href="https://mosquitto.org/" target="_blank" rel="noopener">Mosquitto</a> livre pra qualquer um acessar né? Bora colocar senha então!</p>
+<p>Antes de mais nada, você precisa definir o mosquitto para <strong>não</strong> aceitar usuários anônimos, abra o arquivo de configuração usando o <strong>editor vim</strong> mesmo.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/etc/mosquitto/mosquitto.conf</span><br></pre></td></tr></table></figure></p>
+<p>E adicione (ou altere) a linha onde está o <strong>allow_anonymous</strong> para <strong>false</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allow_anonymous <span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
 <p>Se estiver comentado, descomente!<br>Feito isto reinicie o Mosquitto. Para tal, você pode parar e iniciar novamente o serviço usando os comandos citados no início e no fim deste artigo.</p>
-<p>E agora, vamos adicionar um usuário e senha:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_passwd -c /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/etc/mosquitto/pwfile USUARIO</div></pre></td></tr></table></figure></p>
+<p>E agora, vamos adicionar um usuário e senha:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_passwd -c /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/etc/mosquitto/pwfile USUARIO</span><br></pre></td></tr></table></figure></p>
 <p>Quando você pressionar RETURN/ENTER, ele vai pedir uma senha!<br>Defina uma senha, confirme e pressione RETURN/ENTER movamente.</p>
-<p>E agora você precisa passar o usuário e senha nos seus testes não é mesmo? Simples de novo!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -u USUARIO -P SENHA</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Noh, agora to protegido!"</span> -u USUARIO -P SENHA</div></pre></td></tr></table></figure>
-<p>Quer definir o HOST e a PORTA manualmente?<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -h 127.0.0.1 -p 1883</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Wowwww padrim, to em casa!"</span> -h 127.0.0.1 -p 1883</div></pre></td></tr></table></figure>
-<p>Gosta de <a href="http://pythonclub.com.br/" target="_blank" rel="external">Python</a> ou <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>? Então conheça o pacote <a href="https://pypi.python.org/pypi/paho-mqtt" target="_blank" rel="external">paho-mqtt</a> para <a href="http://pythonclub.com.br/" target="_blank" rel="external">Python</a> e o <a href="https://github.com/mqttjs/MQTT.js" target="_blank" rel="external">MQTT.js</a> para <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>, esses caras são demais. Tem também para <a href="http://br.php.net/" target="_blank" rel="external">PHP</a> que é bem legal e funciona perfeitamente com a extensão <a href="https://github.com/mgdm/Mosquitto-PHP" target="_blank" rel="external">Mosquitto-PHP</a>, eu particularmente uso ele para comunicação com uma API desenvolvida em <a href="https://laravel.com/docs" target="_blank" rel="external">Laravel</a>.</p>
-<p>Cansou de brincar e fazer seus testes? Se quiser, pode finalizar o seu <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">launchctl unload /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/homebrew.mxcl.mosquitto.plist</div></pre></td></tr></table></figure></p>
-<p>Quer saber mais sobre Mosquitto e MQTT? La no <a href="https://www.google.com.br/webhp?ion=1&amp;espv=2&amp;ie=UTF-8#q=mqtt" target="_blank" rel="external">google</a> tem muito material, até o que você não precisa saber e nunca vai usar na sua vida.</p>
+<p>E agora você precisa passar o usuário e senha nos seus testes não é mesmo? Simples de novo!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -t topic/home -u USUARIO -P SENHA</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -t topic/home -m <span class="string">"Noh, agora to protegido!"</span> -u USUARIO -P SENHA</span><br></pre></td></tr></table></figure>
+<p>Quer definir o HOST e a PORTA manualmente?<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -t topic/home -h 127.0.0.1 -p 1883</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -t topic/home -m <span class="string">"Wowwww padrim, to em casa!"</span> -h 127.0.0.1 -p 1883</span><br></pre></td></tr></table></figure>
+<p>Gosta de <a href="http://pythonclub.com.br/" target="_blank" rel="noopener">Python</a> ou <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a>? Então conheça o pacote <a href="https://pypi.python.org/pypi/paho-mqtt" target="_blank" rel="noopener">paho-mqtt</a> para <a href="http://pythonclub.com.br/" target="_blank" rel="noopener">Python</a> e o <a href="https://github.com/mqttjs/MQTT.js" target="_blank" rel="noopener">MQTT.js</a> para <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a>, esses caras são demais. Tem também para <a href="http://br.php.net/" target="_blank" rel="noopener">PHP</a> que é bem legal e funciona perfeitamente com a extensão <a href="https://github.com/mgdm/Mosquitto-PHP" target="_blank" rel="noopener">Mosquitto-PHP</a>, eu particularmente uso ele para comunicação com uma API desenvolvida em <a href="https://laravel.com/docs" target="_blank" rel="noopener">Laravel</a>.</p>
+<p>Cansou de brincar e fazer seus testes? Se quiser, pode finalizar o seu <a href="https://mosquitto.org/" target="_blank" rel="noopener">Mosquitto</a>!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">launchctl unload /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/homebrew.mxcl.mosquitto.plist</span><br></pre></td></tr></table></figure></p>
+<p>Quer saber mais sobre Mosquitto e MQTT? La no <a href="https://www.google.com.br/webhp?ion=1&amp;espv=2&amp;ie=UTF-8#q=mqtt" target="_blank" rel="noopener">google</a> tem muito material, até o que você não precisa saber e nunca vai usar na sua vida.</p>
+<hr>
+<p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
 
       
     </div>
@@ -161,7 +163,7 @@
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2017 Faz-B Man
+    &copy; 2020 Faz-B Man
     
   </p>
 </footer>

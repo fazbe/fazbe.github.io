@@ -2,44 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://fazbe.github.io/Diferencas-entre-os-diversos-modelos-de-Arduino/</loc>
+    
+    <lastmod>2020-09-05T14:09:47.908Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Verificando-se-um-conteudo-ou-palavra-existe-dentro-de-arquivos-com-PHP-e-Laravel/</loc>
+    
+    <lastmod>2020-09-04T13:55:08.868Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://fazbe.github.io/Usando-o-paho-mqtt-para-Python/</loc>
     
-    <lastmod>2017-02-18T12:08:54.000Z</lastmod>
+    <lastmod>2020-09-04T13:55:05.523Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://fazbe.github.io/Mostrar-informacoes-das-portas-USB-no-Mac/</loc>
+    <loc>https://fazbe.github.io/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/</loc>
     
-    <lastmod>2017-02-18T12:05:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Abrir-pasta-do-Finder-no-Terminal-e-vice-versa-no-Mac/</loc>
-    
-    <lastmod>2017-02-18T12:04:22.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Lei-de-Ohm-e-Resistores-voce-conhece-e-sabe/</loc>
-    
-    <lastmod>2017-02-18T12:03:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/NodeMCU-conheca-esta-plaquinha-com-ESP8266/</loc>
-    
-    <lastmod>2017-02-18T12:02:15.000Z</lastmod>
+    <lastmod>2020-09-04T13:55:01.612Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://fazbe.github.io/Requisicoes-HTTP-com-Python/</loc>
     
-    <lastmod>2017-02-18T12:01:28.000Z</lastmod>
+    <lastmod>2020-09-04T13:54:57.762Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Quer-aprender-a-programar-para-web-sem-enrolacao/</loc>
+    
+    <lastmod>2020-09-04T13:54:54.612Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Pub-Sub-com-Laravel-e-Redis/</loc>
+    
+    <lastmod>2020-09-04T13:54:49.564Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/</loc>
+    
+    <lastmod>2020-09-04T13:54:45.161Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/</loc>
+    
+    <lastmod>2020-09-04T13:54:41.846Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/NodeMCU-conheca-esta-plaquinha-com-ESP8266/</loc>
+    
+    <lastmod>2020-09-04T13:54:36.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Mostrar-informacoes-das-portas-USB-no-Mac/</loc>
+    
+    <lastmod>2020-09-04T13:54:32.899Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Macro-Request-no-Laravel/</loc>
+    
+    <lastmod>2020-09-04T13:54:27.622Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Lei-de-Ohm-e-Resistores-voce-conhece-e-sabe/</loc>
+    
+    <lastmod>2020-09-04T13:54:22.832Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Instalando-testando-e-conhecendo-o-MQTT-no-Ubuntu/</loc>
+    
+    <lastmod>2020-09-04T13:54:17.431Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Instalando-o-MQTT-no-macOS/</loc>
+    
+    <lastmod>2020-09-04T13:54:12.898Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Instalando-a-extensao-Mosquitto-PHP/</loc>
+    
+    <lastmod>2020-09-04T13:54:07.288Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Executando-comandos-de-Apple-Script-no-Node-js/</loc>
+    
+    <lastmod>2020-09-04T13:53:57.004Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Criar-uma-paginacao-customizada-no-Laravel-com-dados-de-uma-collection/</loc>
+    
+    <lastmod>2020-09-04T13:53:46.797Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Alterar-Collection-de-uma-tabela-no-MySQL/</loc>
+    
+    <lastmod>2020-09-04T13:53:39.327Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fazbe.github.io/Abrir-pasta-do-Finder-no-Terminal-e-vice-versa-no-Mac/</loc>
+    
+    <lastmod>2020-09-04T13:53:24.434Z</lastmod>
     
   </url>
   
@@ -51,107 +149,9 @@
   </url>
   
   <url>
-    <loc>https://fazbe.github.io/Verificando-se-um-conteudo-ou-palavra-existe-dentro-de-arquivos-com-PHP-e-Laravel/</loc>
-    
-    <lastmod>2017-02-16T17:21:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Turbine-as-Collection-do-Laravel-com-o-Laravel-Collection-Macros-da-Spatie/</loc>
-    
-    <lastmod>2017-02-16T17:19:47.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Quer-aprender-a-programar-para-web-sem-enrolacao/</loc>
-    
-    <lastmod>2017-02-16T17:18:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Pub-Sub-com-Laravel-e-Redis/</loc>
-    
-    <lastmod>2017-02-16T17:15:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/</loc>
-    
-    <lastmod>2017-02-16T17:12:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/</loc>
-    
-    <lastmod>2017-02-16T17:10:38.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Macro-Request-no-Laravel/</loc>
-    
-    <lastmod>2017-02-16T17:07:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Instalando-testando-e-conhecendo-o-MQTT-no-Ubuntu/</loc>
-    
-    <lastmod>2017-02-16T17:04:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Instalando-o-MQTT-no-macOS/</loc>
-    
-    <lastmod>2017-02-16T17:03:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Instalando-a-extensao-Mosquitto-PHP/</loc>
-    
-    <lastmod>2017-02-16T17:00:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Executando-comandos-de-Apple-Script-no-Node-js/</loc>
-    
-    <lastmod>2017-02-16T16:53:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Diferencas-entre-os-diversos-modelos-de-Arduino/</loc>
-    
-    <lastmod>2017-02-16T16:45:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://fazbe.github.io/Sobre/index_old.html</loc>
     
     <lastmod>2017-02-16T16:40:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Criar-uma-paginacao-customizada-no-Laravel-com-dados-de-uma-collection/</loc>
-    
-    <lastmod>2017-02-10T17:31:35.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://fazbe.github.io/Alterar-Collection-de-uma-tabela-no-MySQL/</loc>
-    
-    <lastmod>2017-02-08T19:07:50.000Z</lastmod>
     
   </url>
   

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>Usando o paho-mqtt para Python | Faz-B</title>
@@ -15,22 +15,22 @@
 
   
   
-  <meta name="keywords" content="">
+  <meta name="keywords" content>
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="Usando o paho-mqtt para Python"/>
+  <meta property="og:title" content="Usando o paho-mqtt para Python">
 
-  <meta property="og:site_name" content="Faz-B"/>
+  <meta property="og:site_name" content="Faz-B">
 
   
-  <meta property="og:image" content="/favicon.ico"/>
+  <meta property="og:image" content="/favicon.ico">
   
 
-  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U" />
+  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U">
 
   <link href="/favicon.ico" rel="icon">
   <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
@@ -54,7 +54,7 @@
       
         <li><a href="/">Início</a></li>
       
-        <li><a href="/Sobre">Sobre</a></li>
+        <li><a href="https://gercil.me">Gercil.Me</a></li>
       
     </ul>
   </nav>
@@ -99,8 +99,8 @@
   <div class="article-top-meta">
     <span class="posted-on">
       <a href="/Usando-o-paho-mqtt-para-Python/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-12T13:42:20.000Z">
-          2017-02-12
+        <time class="entry-date published" datetime="2017-02-18T12:08:54.000Z">
+          2017-02-18
         </time>
       </a>
     </span>
@@ -114,9 +114,11 @@
     <div class="entry">
       
         <p>Bom, você já deve entender de Python né? Senão, estude e volte aqui.</p>
-<p>O lance aqui é simples com <a href="https://eclipse.org/paho/" target="_blank" rel="external">paho-mqtt</a>, para ouvir um tópico, façamos o seguinte:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Para instalar o paho-mqtt use o comando pip install paho-mqtt</span></div><div class="line"><span class="keyword">import</span> paho.mqtt.client <span class="keyword">as</span> mqtt</div><div class="line"></div><div class="line"><span class="comment"># The callback for when the client receives a CONNACK response from the server.</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_connect</span><span class="params">(client, userdata, flags, rc)</span>:</span></div><div class="line"></div><div class="line">    <span class="comment"># O subscribe fica no on_connect pois, caso perca a conexão ele a renova</span></div><div class="line">    <span class="comment"># Lembrando que quando usado o #, você está falando que tudo que chegar após a barra do topico, será recebido</span></div><div class="line">    client.subscribe(<span class="string">"topico/#"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Callback responável por receber uma mensagem publicada no tópico acima</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_message</span><span class="params">(client, userdata, msg)</span>:</span></div><div class="line">    print(msg.topic+<span class="string">" -  "</span>+str(msg.payload))</div><div class="line"></div><div class="line">client = mqtt.Client()</div><div class="line">client.on_connect = on_connect</div><div class="line">client.on_message = on_message</div><div class="line"></div><div class="line"><span class="comment"># Seta um usuário e senha para o Broker, se não tem, não use esta linha</span></div><div class="line">client.username_pw_set(<span class="string">"USUARIO"</span>, password=<span class="string">"SENHA"</span>)</div><div class="line"></div><div class="line"><span class="comment"># Conecta no MQTT Broker, no meu caso, o Mosquitto</span></div><div class="line">client.connect(<span class="string">"IP_OU_URL_BROKER"</span>, PORTA, <span class="number">60</span>)</div><div class="line"></div><div class="line"><span class="comment"># Inicia o loop</span></div><div class="line">client.loop_forever()</div></pre></td></tr></table></figure></p>
-<p>Para publicar, faça o seguinte<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Importa o publish do paho-mqtt</span></div><div class="line"><span class="keyword">import</span> paho.mqtt.publish <span class="keyword">as</span> publish</div><div class="line"></div><div class="line"><span class="comment"># Publica</span></div><div class="line">publish.single(<span class="string">"topico/teste"</span>, <span class="string">"Oi, aqui é um teste"</span>, hostname=<span class="string">"IP_OU_URL_BROKER"</span>)</div></pre></td></tr></table></figure></p>
-<p>Na publicação, você passa todos os parâmetros no publish, como QOS, porta, auth e etc. Tudo muito fácil né? Quer saber mais? <a href="https://eclipse.org/paho/clients/python/docs/" target="_blank" rel="external">Leia a documentação do paho-mqtt</a></p>
+<p>O lance aqui é simples com <a href="https://eclipse.org/paho/" target="_blank" rel="noopener">paho-mqtt</a>, para ouvir um tópico, façamos o seguinte:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Para instalar o paho-mqtt use o comando pip install paho-mqtt</span></span><br><span class="line"><span class="keyword">import</span> paho.mqtt.client <span class="keyword">as</span> mqtt</span><br><span class="line"></span><br><span class="line"><span class="comment"># The callback for when the client receives a CONNACK response from the server.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_connect</span><span class="params">(client, userdata, flags, rc)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># O subscribe fica no on_connect pois, caso perca a conexão ele a renova</span></span><br><span class="line">    <span class="comment"># Lembrando que quando usado o #, você está falando que tudo que chegar após a barra do topico, será recebido</span></span><br><span class="line">    client.subscribe(<span class="string">"topico/#"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Callback responável por receber uma mensagem publicada no tópico acima</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_message</span><span class="params">(client, userdata, msg)</span>:</span></span><br><span class="line">    print(msg.topic+<span class="string">" -  "</span>+str(msg.payload))</span><br><span class="line"></span><br><span class="line">client = mqtt.Client()</span><br><span class="line">client.on_connect = on_connect</span><br><span class="line">client.on_message = on_message</span><br><span class="line"></span><br><span class="line"><span class="comment"># Seta um usuário e senha para o Broker, se não tem, não use esta linha</span></span><br><span class="line">client.username_pw_set(<span class="string">"USUARIO"</span>, password=<span class="string">"SENHA"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Conecta no MQTT Broker, no meu caso, o Mosquitto</span></span><br><span class="line">client.connect(<span class="string">"IP_OU_URL_BROKER"</span>, PORTA, <span class="number">60</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Inicia o loop</span></span><br><span class="line">client.loop_forever()</span><br></pre></td></tr></table></figure></p>
+<p>Para publicar, faça o seguinte<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Importa o publish do paho-mqtt</span></span><br><span class="line"><span class="keyword">import</span> paho.mqtt.publish <span class="keyword">as</span> publish</span><br><span class="line"></span><br><span class="line"><span class="comment"># Publica</span></span><br><span class="line">publish.single(<span class="string">"topico/teste"</span>, <span class="string">"Oi, aqui é um teste"</span>, hostname=<span class="string">"IP_OU_URL_BROKER"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>Na publicação, você passa todos os parâmetros no publish, como QOS, porta, auth e etc. Tudo muito fácil né? Quer saber mais? <a href="https://eclipse.org/paho/clients/python/docs/" target="_blank" rel="noopener">Leia a documentação do paho-mqtt</a></p>
+<hr>
+<p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
 
       
     </div>
@@ -152,7 +154,7 @@
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2017 Faz-B Man
+    &copy; 2020 Faz-B Man
     
   </p>
 </footer>

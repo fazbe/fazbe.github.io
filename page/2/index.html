@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>第 2 页 | Faz-B</title>
+  <title>Page 2 | Faz-B</title>
 
   
   <meta name="author" content="Faz-B Man">
@@ -21,13 +21,13 @@
 
   
 
-  <meta property="og:site_name" content="Faz-B"/>
+  <meta property="og:site_name" content="Faz-B">
 
   
-  <meta property="og:image" content="/favicon.ico"/>
+  <meta property="og:image" content="/favicon.ico">
   
 
-  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U" />
+  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U">
 
   <link href="/favicon.ico" rel="icon">
   <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
@@ -51,7 +51,7 @@
       
         <li><a href="/">Início</a></li>
       
-        <li><a href="/Sobre">Sobre</a></li>
+        <li><a href="https://gercil.me">Gercil.Me</a></li>
       
     </ul>
   </nav>
@@ -97,8 +97,8 @@
   <div class="article-top-meta">
     <span class="posted-on">
       <a href="/Instalando-a-extensao-Mosquitto-PHP/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-07T23:09:24.000Z">
-          2017-02-07
+        <time class="entry-date published" datetime="2017-02-16T17:00:26.000Z">
+          2017-02-16
         </time>
       </a>
     </span>
@@ -111,145 +111,94 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>E ai, bora instalar a extensão Mosquitto-PHP? Testado e sendo usado em <strong>dois servidores</strong> com Ubuntu 16+, um local e um externo. Não sabe a versão do seu? Use o comando no terminal:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsb_release <span class="_">-a</span></div></pre></td></tr></table></figure></p>
-<p>O comando acima irá retornar algo como:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Distributor ID:	Ubuntu</div><div class="line">Description:	Ubuntu 16.04 LTS</div><div class="line">Release:	16.04</div><div class="line">Codename:	xenial</div></pre></td></tr></table></figure></p>
-<p>Certo, chega de perder tempo olhando versão. Primeiro, temos que instalar o pacote libmosquitto-dev, em alguns sistemas derivados do Red Hat é provável que seja chamado de libmosquitto-devel, mas, se não for, tente a outra forma.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libmosquitto-dev</div></pre></td></tr></table></figure></p>
+        <p>E ai, bora instalar a extensão Mosquitto-PHP? Testado e sendo usado em <strong>dois servidores</strong> com Ubuntu 16+, um local e um externo. Não sabe a versão do seu? Use o comando no terminal:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure></p>
+<p>O comando acima irá retornar algo como:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure></p>
+<p>Certo, chega de perder tempo olhando versão. Primeiro, temos que instalar o pacote libmosquitto-dev, em alguns sistemas derivados do Red Hat é provável que seja chamado de libmosquitto-devel, mas, se não for, tente a outra forma.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libmosquitto-dev</span><br></pre></td></tr></table></figure></p>
 <p>Já ia me esquecendo, a primeira vez que fui instalar usando o PECL e seguindo o tutorial do próprio Github deles, não deu muito certo, eu tive que pesquisar e tentar outras maneiras, até que achei uma solução e funcionou, mas mesmo assim houve alguns problemas no decorrer da instalação, então, aqui eu mostro como instalei e funcionou sem nenhum problema e sem nenhum erro antes, durante e nem depois da instalação. <strong>Se der algum problema no seu, pesquise e ache uma solução</strong>, mas creio que dará tudo certo.</p>
-<p>Agora vamos clonar o repositório da extensão para uma pasta qualquer, eu costumo jogar tudo na /tmp, mas é você quem decide.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/mgdm/Mosquitto-PHP.git</div></pre></td></tr></table></figure></p>
-<p>E vamos entrar na pasta…<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> Mosquitto-PHP/</div></pre></td></tr></table></figure></p>
-<p>E agora? Vamos instalar a extensão de fato.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">phpize</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure --with-mosquitto=/path/to/libmosquitto</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make <span class="built_in">test</span></div></pre></td></tr></table></figure>
-<p>Em alguns casos, aqui não é necessário usar sudo, mas em outros é! Então, faça de acordo com sua máquina.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
+<p>Agora vamos clonar o repositório da extensão para uma pasta qualquer, eu costumo jogar tudo na /tmp, mas é você quem decide.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/mgdm/Mosquitto-PHP.git</span><br></pre></td></tr></table></figure></p>
+<p>E vamos entrar na pasta…<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Mosquitto-PHP/</span><br></pre></td></tr></table></figure></p>
+<p>E agora? Vamos instalar a extensão de fato.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phpize</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --with-mosquitto=/path/to/libmosquitto</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<p>Em alguns casos, aqui não é necessário usar sudo, mas em outros é! Então, faça de acordo com sua máquina.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
 <p>Já instalado, está quase pronto. Agora precisamos ativar a extensão nas configurações (<strong>php.ini</strong>) do PHP. No meu caso, o PHP se encontra instalado em <strong>/etc/php/7.0/</strong>.</p>
-<p>Abra e altere o arquivo php.ini. Se você não sabe como usar o vim, <a href="http://aurelio.net/vim/vim-basico.txt" target="_blank" rel="external">olhe aqui</a>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/php/7.0/cli/php.ini</div></pre></td></tr></table></figure></p>
-<p>E adicione a seguinte linha em extension no PHP Cli<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">extension</span>=mosquitto.so</div></pre></td></tr></table></figure></p>
-<p>Abra e altere o arquivo php.ini no FPM também.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/php/7.0/fpm/php.ini</div></pre></td></tr></table></figure></p>
-<p>E adicione a seguinte linha em extension no PHP FPM<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">extension=mosquitto.so</div></pre></td></tr></table></figure></p>
-<p>Como usar? Darei um exemplo simples para ouvir o tópico “<strong>casa</strong>“<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Inicia o cliente</span></div><div class="line">$c = <span class="keyword">new</span> \Mosquitto\Client;</div><div class="line"></div><div class="line"><span class="comment">// Se o seu mosquitto não possuir usuário e senha, basta remover a linha seguinte.</span></div><div class="line">$c-&gt;setCredentials(<span class="string">'USUARIO_MQTT'</span>, <span class="string">'SENHA_MQTT'</span>);</div><div class="line"></div><div class="line"><span class="comment">// Conecta no broker/servidor mosquitto</span></div><div class="line">$c-&gt;connect(<span class="string">'IP_DO_MOSQUITTO'</span>);</div><div class="line"></div><div class="line"><span class="comment">// Quando usa o "#", você está dizendo que tudo que chegar para o subscribe após a / (barra), ele irá receber.</span></div><div class="line"><span class="comment">// Lembrando que você pode subscrever em vários tópicos, basta adicionar uma linha abaixo da outra.</span></div><div class="line">$c-&gt;subscribe(<span class="string">'casa/#'</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="comment">// Quando chegar uma mensagem ao subscribe no tópico "casa"</span></div><div class="line">$c-&gt;onMessage(<span class="function"><span class="keyword">function</span><span class="params">($m)</span> <span class="title">use</span> <span class="params">($c)</span> </span>&#123;</div><div class="line">    print_r($m);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// Coloca em loop</span></div><div class="line">$c-&gt;loopForever(<span class="number">0</span>);</div></pre></td></tr></table></figure></p>
-<p>Tudo beleza? Salve o aquivo acima como mqttext.php em algum lugar na sua máquina. Dai, corre no seu terminal e digita o seguinte:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php mqttext.php</div></pre></td></tr></table></figure></p>
-<p>Envie uma publicação (usando o <a href="https://github.com/mqttjs/MQTT.js" target="_blank" rel="external">MQTT.js</a> ou o <a href="https://pypi.python.org/pypi/paho-mqtt" target="_blank" rel="external">paho-mqtt</a> ou qualquer outro que você quiser, só para teste) para o canal <strong>casa</strong> e veja a mágina acontecer.</p>
+<p>Abra e altere o arquivo php.ini. Se você não sabe como usar o vim, <a href="http://aurelio.net/vim/vim-basico.txt" target="_blank" rel="noopener">olhe aqui</a>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/php/7.0/cli/php.ini</span><br></pre></td></tr></table></figure></p>
+<p>E adicione a seguinte linha em extension no PHP Cli<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">extension</span>=mosquitto.so</span><br></pre></td></tr></table></figure></p>
+<p>Abra e altere o arquivo php.ini no FPM também.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/php/7.0/fpm/php.ini</span><br></pre></td></tr></table></figure></p>
+<p>E adicione a seguinte linha em extension no PHP FPM<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension=mosquitto.so</span><br></pre></td></tr></table></figure></p>
+<p>Como usar? Darei um exemplo simples para ouvir o tópico “<strong>casa</strong>“<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Inicia o cliente</span></span><br><span class="line">$c = <span class="keyword">new</span> \Mosquitto\Client;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Se o seu mosquitto não possuir usuário e senha, basta remover a linha seguinte.</span></span><br><span class="line">$c-&gt;setCredentials(<span class="string">'USUARIO_MQTT'</span>, <span class="string">'SENHA_MQTT'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Conecta no broker/servidor mosquitto</span></span><br><span class="line">$c-&gt;connect(<span class="string">'IP_DO_MOSQUITTO'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quando usa o "#", você está dizendo que tudo que chegar para o subscribe após a / (barra), ele irá receber.</span></span><br><span class="line"><span class="comment">// Lembrando que você pode subscrever em vários tópicos, basta adicionar uma linha abaixo da outra.</span></span><br><span class="line">$c-&gt;subscribe(<span class="string">'casa/#'</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quando chegar uma mensagem ao subscribe no tópico "casa"</span></span><br><span class="line">$c-&gt;onMessage(<span class="function"><span class="keyword">function</span><span class="params">($m)</span> <span class="title">use</span> <span class="params">($c)</span> </span>&#123;</span><br><span class="line">    print_r($m);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Coloca em loop</span></span><br><span class="line">$c-&gt;loopForever(<span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
+<p>Tudo beleza? Salve o aquivo acima como mqttext.php em algum lugar na sua máquina. Dai, corre no seu terminal e digita o seguinte:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php mqttext.php</span><br></pre></td></tr></table></figure></p>
+<p>Envie uma publicação (usando o <a href="https://github.com/mqttjs/MQTT.js" target="_blank" rel="noopener">MQTT.js</a> ou o <a href="https://pypi.python.org/pypi/paho-mqtt" target="_blank" rel="noopener">paho-mqtt</a> ou qualquer outro que você quiser, só para teste) para o canal <strong>casa</strong> e veja a mágina acontecer.</p>
 <p>E para publicar uma mensagem usando a extensão Mosquitto-PHP? Simples também!</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Inicia o cliente</span></div><div class="line">$c = <span class="keyword">new</span> Mosquitto\Client;</div><div class="line"></div><div class="line"><span class="comment">// Quando conectar, envia a publicação</span></div><div class="line">$c-&gt;onConnect(<span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="title">use</span> <span class="params">($c)</span> </span>&#123;</div><div class="line">	$c-&gt;publish(<span class="string">'casa/sala'</span>, <span class="string">'Enviando para a Sala da Casa'</span>, <span class="number">1</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// Se o seu mosquitto não possuir usuário e senha, basta remover a linha seguinte.</span></div><div class="line">$c-&gt;setCredentials(<span class="string">'USUARIO_MQTT'</span>, <span class="string">'SENHA_MQTT'</span>);</div><div class="line"></div><div class="line"><span class="comment">// Conecta no broker/servidor mosquitto</span></div><div class="line">$c-&gt;connect(<span class="string">'IP_DO_MOSQUITTO'</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; <span class="number">100</span>; $i++) &#123;</div><div class="line">	<span class="comment">// Necessário para que a extensão funcione</span></div><div class="line">	<span class="comment">// Faz um loop até enviar</span></div><div class="line">	$c-&gt;loop(<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Inicia o cliente</span></span><br><span class="line">$c = <span class="keyword">new</span> Mosquitto\Client;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quando conectar, envia a publicação</span></span><br><span class="line">$c-&gt;onConnect(<span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="title">use</span> <span class="params">($c)</span> </span>&#123;</span><br><span class="line">	$c-&gt;publish(<span class="string">'casa/sala'</span>, <span class="string">'Enviando para a Sala da Casa'</span>, <span class="number">1</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Se o seu mosquitto não possuir usuário e senha, basta remover a linha seguinte.</span></span><br><span class="line">$c-&gt;setCredentials(<span class="string">'USUARIO_MQTT'</span>, <span class="string">'SENHA_MQTT'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Conecta no broker/servidor mosquitto</span></span><br><span class="line">$c-&gt;connect(<span class="string">'IP_DO_MOSQUITTO'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; <span class="number">100</span>; $i++) &#123;</span><br><span class="line">	<span class="comment">// Necessário para que a extensão funcione</span></span><br><span class="line">	<span class="comment">// Faz um loop até enviar</span></span><br><span class="line">	$c-&gt;loop(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Salve o arquivo acima como mqttpub.php.</p>
-<p>Faça um teste mais legal ainda, quando você instalou o broker mosquitto, ele vem com comandos para sub e pub, abra uma nova aba ou janela do seu terminal, e inicie o mosquitto_sub da seguinte maneira:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -h IP_DO_MOSQUITTO -t casa/# -q 1</div></pre></td></tr></table></figure></p>
-<p>Caso tenha usuário e senha<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -h IP_DO_MOSQUITTO -t casa/# -q 1 -u USUARIO -P SENHA</div></pre></td></tr></table></figure></p>
-<p>Beleza, ele vai rodar em loop, abra uma nova aba ou janela novamente, e execute o arquivo mqttpub.php que você criou ali em cima.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php mqttpub.php</div></pre></td></tr></table></figure></p>
+<p>Faça um teste mais legal ainda, quando você instalou o broker mosquitto, ele vem com comandos para sub e pub, abra uma nova aba ou janela do seu terminal, e inicie o mosquitto_sub da seguinte maneira:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h IP_DO_MOSQUITTO -t casa/# -q 1</span><br></pre></td></tr></table></figure></p>
+<p>Caso tenha usuário e senha<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h IP_DO_MOSQUITTO -t casa/# -q 1 -u USUARIO -P SENHA</span><br></pre></td></tr></table></figure></p>
+<p>Beleza, ele vai rodar em loop, abra uma nova aba ou janela novamente, e execute o arquivo mqttpub.php que você criou ali em cima.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php mqttpub.php</span><br></pre></td></tr></table></figure></p>
 <p>Repare que na aba onde está rodando o mosquitto_sub vai aparecer a mensagem “<strong>Enviando para a Sala da Casa</strong>“ publicada pelo mqttpub.php uando a extensão Mosquitto-PHP. Doido né?</p>
-<p>Quer mais sobre a extensão Mosquitto-PHP? Então, <a href="https://github.com/mgdm/Mosquitto-PHP" target="_blank" rel="external">aqui está o Github</a> deles e <a href="http://mosquitto-php.readthedocs.io/en/latest/client.html" target="_blank" rel="external">aqui a documentação</a>.</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/"><span>Procure portas no macOS e saiba quais processos estão usando elas</span></a></h3>
-    
-  
-
-  <!--
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/Procure-portas-no-macOS-e-saiba-quais-processos-estao-usando-elas/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-07T19:45:47.000Z">
-          2017-02-07
-        </time>
-      </a>
-    </span>
-  </div>
-  -->
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Olha essa linha de comando que coisinha mais simples e cheia de graça.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsof -i tcp:8000</div></pre></td></tr></table></figure></p>
-<p>Falei macOS, mas estou usando o OS X El Capitain. Na linha acima, vai mostrar o seguinte<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME</div><div class="line">VBoxHeadl 2011 wow   24u  IPv4 0xd0e6a899f3a4fa03      0t0  TCP *:irdmi (LISTEN)</div></pre></td></tr></table></figure></p>
-<p>Na minha porta 8000 quem (ou o quê) está usando é o <a href="https://pt.wikipedia.org/wiki/VirtualBox" target="_blank" rel="external">Virtual Box</a> rodando o <a href="https://laravel.com/docs" target="_blank" rel="external">Laravel</a> <a href="https://laravel.com/docs/homestead" target="_blank" rel="external">Homestead</a>.</p>
-<p>Não tem Mac? Fazer o quê, demorei a ter um também! Paciência!</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Quer-aprender-a-programar-para-web-sem-enrolacao/"><span>Quer aprender a programar para web sem enrolação?</span></a></h3>
-    
-  
-
-  <!--
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/Quer-aprender-a-programar-para-web-sem-enrolacao/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-07T19:09:37.000Z">
-          2017-02-07
-        </time>
-      </a>
-    </span>
-  </div>
-  -->
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Quer aprender a programar sem frescura? Deixa eu dar uma dica então. Eu aprendi a programar em 1 mês (a 17 anos atrás, lembrando que isto está sendo escrito em 2017), na minha época tudo era mais difícil, mais complicado, nem internet eu tinha só livros (em portugês) e uma documentação em inglês que não adiantava de nada porquê eu não sabia inglês.</p>
-<p>Hoje em dia, tem muito, muito, mas muito conteúdo grátis por ai, para ser explorado e estudado. <strong>Já falei, que tem muito mesmo?</strong> Mas para facilitar, reuni alguns cursos grátis que eu acredito ser um (ótimo) ponta pé inicial. Melhor que muitos pagos por ai.</p>
+<p>Quer mais sobre a extensão Mosquitto-PHP? Então, <a href="https://github.com/mgdm/Mosquitto-PHP" target="_blank" rel="noopener">aqui está o Github</a> deles e <a href="http://mosquitto-php.readthedocs.io/en/latest/client.html" target="_blank" rel="noopener">aqui a documentação</a>.</p>
 <hr>
-<h2 id="Curso-de-Algoritmo-e-Logica"><a href="#Curso-de-Algoritmo-e-Logica" class="headerlink" title="Curso de Algoritmo e Lógica"></a>Curso de Algoritmo e Lógica</h2><p><a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV</a></p>
-<h2 id="Curso-HTML5-Completo"><a href="#Curso-HTML5-Completo" class="headerlink" title="Curso HTML5 Completo"></a>Curso HTML5 Completo</h2><p><a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dlAnJ_jJtV29RFxnPHDuk9o" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLHz_AreHm4dlAnJ_jJtV29RFxnPHDuk9o</a></p>
-<h2 id="Curso-de-Banco-de-Dados-MySQL"><a href="#Curso-de-Banco-de-Dados-MySQL" class="headerlink" title="Curso de Banco de Dados MySQL"></a>Curso de Banco de Dados MySQL</h2><p><a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r</a></p>
-<h2 id="Curso-PHP-Iniciantes"><a href="#Curso-PHP-Iniciantes" class="headerlink" title="Curso PHP Iniciantes"></a>Curso PHP Iniciantes</h2><p><a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dm4beCCCmW4xwpmLf6EHY9k" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLHz_AreHm4dm4beCCCmW4xwpmLf6EHY9k</a></p>
-<h2 id="Curso-de-POO-PHP-Programacao-Orientada-a-Objetos"><a href="#Curso-de-POO-PHP-Programacao-Orientada-a-Objetos" class="headerlink" title="Curso de POO PHP (Programação Orientada a Objetos)"></a>Curso de POO PHP (Programação Orientada a Objetos)</h2><p><a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dmGuLII3tsvryMMD7VgcT7x" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLHz_AreHm4dmGuLII3tsvryMMD7VgcT7x</a></p>
+<p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Executando-comandos-de-Apple-Script-no-Node-js/"><span>Executando comandos de Apple Script no Node.js</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Executando-comandos-de-Apple-Script-no-Node-js/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-16T16:53:11.000Z">
+          2017-02-16
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Para mim, automatizar tarefas no Mac é meio que uma diversão. Por exemplo, scripts para backup e sincronização no Google Drive, Dropbox e HD externo, envio de SMS quando tais backups chegam ao fim, execução de comandos bash personalizados e etc.</p>
+<p>Recentemente criei um projeto em node que recebe comandos atavés de um <strong>MQTT Broker</strong> (usando publisher, claro!) que executa certas tarefas no Mac, uma vez que costumo sair do escritório e deixá-lo ligado. E o que mais uso, são <strong>Apple Scripts</strong>.</p>
+<p>Precisei executar alguns <strong>Apple Scripts</strong> através do <strong>Node.js</strong> e encontrei a biblioteca <a href="https://www.npmjs.com/package/node-osascript" target="_blank" rel="noopener">node-osascript</a>, não tenho muito o que falar, só que funciona perfeitamente.</p>
+<p>Enfim, aqui eu instalei o pacote global<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install node-osascript -g</span><br></pre></td></tr></table></figure></p>
+<p>E para testar, crie um script (<a href="https://www.npmjs.com/package/node-osascript#simple" target="_blank" rel="noopener">o mesmo do exemplo na página do pacote</a>), porém mudei para ativar o Google Chrome. Se ele estiver fechado, será aberto e se já estiver aberto, será focado/ativado.</p>
+<p>Salve o script abaixo como <strong>index.js</strong> em qualquer pasta que você quiser.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> osascript = <span class="built_in">require</span>(<span class="string">'node-osascript'</span>);</span><br><span class="line"> </span><br><span class="line">osascript.execute(<span class="string">'tell application "Chrome" to activate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, result, raw</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.error(err)</span><br><span class="line">  <span class="built_in">console</span>.log(result, raw)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Execute o script com o node e seja feliz.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node index.php</span><br></pre></td></tr></table></figure></p>
+<p>Para ver como funciona, você pode testar o <strong>Apple Script</strong> sem o node, usando o terminal do Mac:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript -e <span class="string">'tell application "Chrome" to activate'</span></span><br></pre></td></tr></table></figure></p>
+<p>Não gosto de usar aplicativos prontos pois, para começar eu nunca encontro um que me atenda da forma que preciso, além de alguns custarem um preço absurdo (eu pelo menos não pago). Segundo, é legal criar esses scripts e aprender um pouco mais sobre node, apple scripts, javascript e etc. E tem mais, porquê pagar 30.. 50 dólares se eu posso fazer a mesma coisa em algumas horas?</p>
+<img src="/images/emojis/joy.png" width="32" height="32" class="custom_class1 custom_class2 emoji nofancybox" title="joy">
 <hr>
-<p>Tem MUITAS outras coisas para aprender mas o básico é isso, te aconselho a iniciar do primeiro para o último. O <a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dmSj0MHol_aoNYCSGFqvfXV" target="_blank" rel="external"><strong>Curso de Algoritmo e Lógica</strong></a> e o <a href="https://www.youtube.com/playlist?list=PLHz_AreHm4dlAnJ_jJtV29RFxnPHDuk9o" target="_blank" rel="external"><strong>Curso HTML5 Completo</strong></a> são os principais para quem quer começar a programar e já focar em web.</p>
-<p>Dai você me fala “<strong>Quanta coisa, a neim to com preguiça!</strong>“.</p>
-<p>Eu também tive preguiça no início quando vi um livro de mais de mil páginas, eu li todas? <strong>Claro que não (kkk)</strong>.</p>
-<p>Na medida que eu fui entendendo como as coisas funcionavam logo no início do livro, eu comecei a fazer testes reais e fui testando, no que fui testando também fui encontrando erros e aprendendo com eles.</p>
-<p><strong>Tempo quem perde é relógio sem pilha meu chapa! Sabia?</strong></p>
+<p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
 
       
     </div>
@@ -275,16 +224,16 @@
 
   
     
-    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/"><span>Precisando de um Cliente MQTT para usar no Arduino?</span></a></h3>
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Diferencas-entre-os-diversos-modelos-de-Arduino/"><span>Diferenças entre os diversos modelos de Arduino</span></a></h3>
     
   
 
   <!--
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/Precisando-de-um-Cliente-MQTT-para-usar-no-Arduino/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-07T18:40:03.000Z">
-          2017-02-07
+      <a href="/Diferencas-entre-os-diversos-modelos-de-Arduino/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-16T16:45:44.000Z">
+          2017-02-16
         </time>
       </a>
     </span>
@@ -297,18 +246,12 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>Não vou explicar como instalar uma Biblioteca na <a href="https://www.arduino.cc/en/main/software" target="_blank" rel="external">Arduino IDE</a>, está cheio de tutoriais no Google, de qualquer forma, <a href="http://labdegaragem.com/profiles/blogs/tutorial-arduino-instalando-bibliotecas" target="_blank" rel="external">aqui tem um</a>, <a href="http://fritzenlab.com.br/2016/02/como-instalar-novas-bibliotecas-na-ide-do-arduino/" target="_blank" rel="external">aqui tem outro</a> e <a href="https://www.youtube.com/watch?v=C1U4KvMbhJk" target="_blank" rel="external">aqui tem mais outro (vídeo)</a> tutorial.</p>
-<p>Então, conheça o <a href="https://github.com/knolleary/pubsubclient" target="_blank" rel="external">PubSubClient</a>, esse caboco é danado! Todos sabemos (ou não) que o <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external"><strong>MQTT</strong></a> trabalha com publicações e subscrições!</p>
-<p>Não entendeu? Bora lá então, quando você envia um comando para um servidor <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external"><strong>MQTT</strong></a>, você usa um <strong>publish</strong>, ou seja, você faz uma <strong>publicação</strong> para o servidor <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external"><strong>MQTT</strong></a>, e se existe uma <strong>publicação</strong> ele precisa receber ela, ler e executar uma algo, correto?</p>
-<p>É ai que entra o <strong>subscribe</strong>, ele basicamente, fica o tempo todo “<strong>ouvindo</strong>“ se existe novas publicações e se existe ele recebe, de acordo com o tópico e o conteúdo desta <strong>publicação</strong> você executa uma ação como por exemplo ligar uma luz, fechar um portão e etc.</p>
-<p>No próprio GitHub deles, <a href="https://github.com/knolleary/pubsubclient/tree/master/examples" target="_blank" rel="external">existem ótimos exemplos</a> como usar com autenticação, sem e por ai vai.</p>
-<p>Primeiro, você tem que incluir ele no seu código do Arduino, como?<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;PubSubClient.h&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>Depois você cria o client<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">PubSubClient <span class="title">client</span><span class="params">(server, <span class="number">1883</span>, CALLBACK_SUB, CLIENT_ETHERNET_OU_WIFI)</span></span>;</div></pre></td></tr></table></figure></p>
-<h4 id="Publish"><a href="#Publish" class="headerlink" title="Publish"></a>Publish</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">client.publish(<span class="string">"tópico"</span>,<span class="string">"mensagem"</span>);</div></pre></td></tr></table></figure>
-<h4 id="Subscribe"><a href="#Subscribe" class="headerlink" title="Subscribe"></a>Subscribe</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">client.subscribe(<span class="string">"tópico"</span>);</div></pre></td></tr></table></figure>
-<p>Enfim, <a href="https://github.com/knolleary/pubsubclient/blob/master/examples/mqtt_auth/mqtt_auth.ino" target="_blank" rel="external">olhe este exemplo no Github deles</a>, é bem legal e você vai entender bem melhor, porquê criar o que já foi criado? Bora ganhar tempo galera.</p>
-<p>Mesmo assim, ainda está com dificuldades? Bom, eu acho difícil isso estar acontecendo mas vamos lá, <a href="http://pubsubclient.knolleary.net/api.html" target="_blank" rel="external">aqui tem a documentação completa do PubSubClient</a>.</p>
-<p>Pronto, foi? Deu certo? <strong>#tchaubrigado</strong></p>
+        <p>O lance aqui hoje é rápido, você sabe a diferença entre os modelos de Arduino? Se não sabe, essa é a hora camarada.</p>
+<p><img src="http://blog.filipeflop.com/wp-content/uploads/2014/02/Tabela-comparativa1.png" alt="I"></p>
+<p>Essa tabela acima é bem legal, ela explica e resume tudo. Na empresa utilizamos muito o Nano, Pro Mini e o <a href="http://www.arduinoportugal.pt/temas/programar-arduino-no-nodemcu/" target="_blank" rel="noopener">NodeMCU</a> (que não está na lista) para produtos finais e o Uno para testes.</p>
+<p>Mas, para mais detalhes você pode acessar ela lá no <a href="http://blog.filipeflop.com/arduino/tipos-de-arduino-qual-comprar.html" target="_blank" rel="noopener">Blog do FilipeFlop</a> e <a href="http://blog.filipeflop.com/wp-content/uploads/2014/02/Tabela-comparativa1.png" target="_blank" rel="noopener">aqui você pode ver</a> a imagem em tamanho real.</p>
+<hr>
+<p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
 
       
     </div>
@@ -334,16 +277,16 @@
 
   
     
-    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Instalando-o-MQTT-no-macOS/"><span>Instalando, testando e conhecendo o MQTT no macOS</span></a></h3>
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Criar-uma-paginacao-customizada-no-Laravel-com-dados-de-uma-collection/"><span>Criar uma paginação customizada no Laravel com dados de uma collection</span></a></h3>
     
   
 
   <!--
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/Instalando-o-MQTT-no-macOS/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-07T11:57:13.000Z">
-          2017-02-07
+      <a href="/Criar-uma-paginacao-customizada-no-Laravel-com-dados-de-uma-collection/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-10T17:31:35.000Z">
+          2017-02-10
         </time>
       </a>
     </span>
@@ -356,26 +299,65 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>Eu acredito que quem chegou até aqui, já saiba bastante sobre programação. Então não vou explicar o que é <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>, <a href="https://blog.butecopensource.org/mqtt-parte-1-o-que-e-mqtt/" target="_blank" rel="external">MQTT</a> e nem <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>, a idéia aqui é ser direto e mostrar como deixar as coisas funcionando.</p>
-<p>Primeiro, vamos instalar o <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>, caso não o tenha feito ainda.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure></p>
-<p>Segundo, vamos instalar o <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a> usando o <a href="http://brew.sh/index_pt-br.html" target="_blank" rel="external">Homebrew</a>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mosquitto</div></pre></td></tr></table></figure></p>
-<p>Quando termina a instalação, é mostrado como colocar para iniciar o MQTT server na inicialização do sistema. Simples!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/mosquitto/*.plist ~/Library/LaunchAgents</div></pre></td></tr></table></figure></p>
-<p>Então, precisamos iniciar o <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>, certo? É mamão com açucar!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">launchctl load /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/homebrew.mxcl.mosquitto.plist</div></pre></td></tr></table></figure></p>
-<p>Legal né? Agora, você pode usar o <strong><em>mosquitto_sub</em></strong> e o <strong><em>mosquitto_pub</em></strong> para brincar e fazer seus testes!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Wowwww padrim, to em casa!"</span></div></pre></td></tr></table></figure>
-<p>Opa, mas espera ai! Eu não quero o meu <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a> livre pra qualquer um acessar né? Bora colocar senha então!</p>
-<p>Antes de mais nada, você precisa definir o mosquitto para <strong>não</strong> aceitar usuários anônimos, abra o arquivo de configuração usando o <strong>editor vim</strong> mesmo.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/etc/mosquitto/mosquitto.conf</div></pre></td></tr></table></figure></p>
-<p>E adicione (ou altere) a linha onde está o <strong>allow_anonymous</strong> para <strong>false</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">allow_anonymous <span class="literal">false</span></div></pre></td></tr></table></figure></p>
-<p>Se estiver comentado, descomente!<br>Feito isto reinicie o Mosquitto. Para tal, você pode parar e iniciar novamente o serviço usando os comandos citados no início e no fim deste artigo.</p>
-<p>E agora, vamos adicionar um usuário e senha:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_passwd -c /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/etc/mosquitto/pwfile USUARIO</div></pre></td></tr></table></figure></p>
-<p>Quando você pressionar RETURN/ENTER, ele vai pedir uma senha!<br>Defina uma senha, confirme e pressione RETURN/ENTER movamente.</p>
-<p>E agora você precisa passar o usuário e senha nos seus testes não é mesmo? Simples de novo!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -u USUARIO -P SENHA</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Noh, agora to protegido!"</span> -u USUARIO -P SENHA</div></pre></td></tr></table></figure>
-<p>Quer definir o HOST e a PORTA manualmente?<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_sub -t topic/home -h 127.0.0.1 -p 1883</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mosquitto_pub -t topic/home -m <span class="string">"Wowwww padrim, to em casa!"</span> -h 127.0.0.1 -p 1883</div></pre></td></tr></table></figure>
-<p>Gosta de <a href="http://pythonclub.com.br/" target="_blank" rel="external">Python</a> ou <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>? Então conheça o pacote <a href="https://pypi.python.org/pypi/paho-mqtt" target="_blank" rel="external">paho-mqtt</a> para <a href="http://pythonclub.com.br/" target="_blank" rel="external">Python</a> e o <a href="https://github.com/mqttjs/MQTT.js" target="_blank" rel="external">MQTT.js</a> para <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a>, esses caras são demais. Tem também para <a href="http://br.php.net/" target="_blank" rel="external">PHP</a> que é bem legal e funciona perfeitamente com a extensão <a href="https://github.com/mgdm/Mosquitto-PHP" target="_blank" rel="external">Mosquitto-PHP</a>, eu particularmente uso ele para comunicação com uma API desenvolvida em <a href="https://laravel.com/docs" target="_blank" rel="external">Laravel</a>.</p>
-<p>Cansou de brincar e fazer seus testes? Se quiser, pode finalizar o seu <a href="https://mosquitto.org/" target="_blank" rel="external">Mosquitto</a>!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">launchctl unload /usr/<span class="built_in">local</span>/Cellar/mosquitto/1.4.10_1/homebrew.mxcl.mosquitto.plist</div></pre></td></tr></table></figure></p>
-<p>Quer saber mais sobre Mosquitto e MQTT? La no <a href="https://www.google.com.br/webhp?ion=1&amp;espv=2&amp;ie=UTF-8#q=mqtt" target="_blank" rel="external">google</a> tem muito material, até o que você não precisa saber e nunca vai usar na sua vida.</p>
+        <p>Talvez você seja um programador fodão em Laravel e fale “Mais isso todo mundo sabe fazer”. É ai que você se engana meu coleguinha, trabalho com Laravel a bastante tempo e posso dizer com toda certeza, muita gente tem dificuldade no momento de criar uma instância customizada de paginação com Laravel.</p>
+<p>Logo abaixo, encontra-se uma função usando os recursos do Laravel, mas você pode criar uma classe, uma pacote ou seja la o que for necessário no seu caso.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!function_exists(<span class="string">'paginator_instance'</span>)) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Cria uma intância personalizada do paginator, a qual pode ser usada em retornos de collect e retornis customizados</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  collect/model $items         Itens a serem paginados</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  array  $requests             Requests que devem ser passados na paginação, por exemplo, uma busca (query) e etc</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  int $perPage                 Quantidade de itens por página</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  int $currentPage             Página atual, normalmente vazio pois usa padrão do Laravel</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  array  $options              Opções de paginação, normalmente, usa o padrão do Laravel</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> paginator/collect            Paginator com resultados</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">paginator_instance</span><span class="params">($items, $requests = [], $perPage = <span class="number">10</span>, $currentPage = null, array $options = [])</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Monta $perPage</span></span><br><span class="line">        $perPage = $perPage;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Pega a página atual</span></span><br><span class="line">        <span class="comment">// Se não preenchido, usa o método resolveCurrentPage() da \Illuminate\Pagination\LengthAwarePaginator</span></span><br><span class="line">        $page = $currentPage ? $currentPage : \Illuminate\Pagination\LengthAwarePaginator::resolveCurrentPage();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Monta collection com itens para paginacao</span></span><br><span class="line">        $currentPageSearchResults = collect($items)-&gt;slice(($page - <span class="number">1</span>) * $perPage, $perPage)-&gt;all();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Cria a paginação</span></span><br><span class="line">        $paginator = (<span class="keyword">new</span> \Illuminate\Pagination\LengthAwarePaginator($currentPageSearchResults, count($items), $perPage, $page, $options &gt;= <span class="number">1</span> ? $options : [</span><br><span class="line">            <span class="string">'path'</span> =&gt; \Illuminate\Pagination\Paginator::resolveCurrentPath(),</span><br><span class="line">            <span class="string">'pageName'</span> =&gt; <span class="string">'page'</span>,</span><br><span class="line">        ]));</span><br><span class="line">		</span><br><span class="line">        <span class="comment">// Retorna os dados montado e com paginação</span></span><br><span class="line">        <span class="keyword">return</span> $paginator-&gt;appends($requests);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Fácil né? Poisé!<br>Entenda melhor a classe <a href="https://laravel.com/api/5.4/Illuminate/Pagination/LengthAwarePaginator.html" target="_blank" rel="noopener"><strong>LengthAwarePaginator</strong></a> e <a href="https://github.com/laravel/framework/blob/5.4/src/Illuminate/Pagination/LengthAwarePaginator.php" target="_blank" rel="noopener">aqui você pode ver</a> o arquivo completo no Github.</p>
+<hr>
+<p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><a href="/Alterar-Collection-de-uma-tabela-no-MySQL/"><span>Alterar Collection de uma tabela no MySQL</span></a></h3>
+    
+  
+
+  <!--
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/Alterar-Collection-de-uma-tabela-no-MySQL/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-08T19:07:50.000Z">
+          2017-02-08
+        </time>
+      </a>
+    </span>
+  </div>
+  -->
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p> Com a chegada do Laravel 5.4, nós preferimos mudar a collection de algumas tabelas do nosso banco de dados, não vou explicar o que mudou, nem o porquê, mas você <a href="https://laravel.com/docs/5.4/releases" target="_blank" rel="noopener">pode ver aqui</a>.</p>
+<p> Mas, para tal ação é só executar a seguinte query no console do MySQL ou no seu gerenciador preferido de banco de dados.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE  SUA_TABELA CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</span><br></pre></td></tr></table></figure>
+<p>É isso, sem muita frescura.</p>
+<hr>
+<p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
 
       
     </div>
@@ -400,7 +382,7 @@
 
 <nav class="pagination">
   
-  <a href="/" class="pagination-prev">上一页</a>
+  <a href="/" class="pagination-prev">Prev</a>
   
   
 </nav>
@@ -412,7 +394,7 @@
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2017 Faz-B Man
+    &copy; 2020 Faz-B Man
     
   </p>
 </footer>

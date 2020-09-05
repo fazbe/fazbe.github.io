@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>Executando comandos de Apple Script no Node.js | Faz-B</title>
@@ -15,22 +15,22 @@
 
   
   
-  <meta name="keywords" content="">
+  <meta name="keywords" content>
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="Executando comandos de Apple Script no Node.js"/>
+  <meta property="og:title" content="Executando comandos de Apple Script no Node.js">
 
-  <meta property="og:site_name" content="Faz-B"/>
+  <meta property="og:site_name" content="Faz-B">
 
   
-  <meta property="og:image" content="/favicon.ico"/>
+  <meta property="og:image" content="/favicon.ico">
   
 
-  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U" />
+  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U">
 
   <link href="/favicon.ico" rel="icon">
   <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
@@ -54,7 +54,7 @@
       
         <li><a href="/">Início</a></li>
       
-        <li><a href="/Sobre">Sobre</a></li>
+        <li><a href="https://gercil.me">Gercil.Me</a></li>
       
     </ul>
   </nav>
@@ -99,8 +99,8 @@
   <div class="article-top-meta">
     <span class="posted-on">
       <a href="/Executando-comandos-de-Apple-Script-no-Node-js/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-12T13:54:43.000Z">
-          2017-02-12
+        <time class="entry-date published" datetime="2017-02-16T16:53:11.000Z">
+          2017-02-16
         </time>
       </a>
     </span>
@@ -115,14 +115,17 @@
       
         <p>Para mim, automatizar tarefas no Mac é meio que uma diversão. Por exemplo, scripts para backup e sincronização no Google Drive, Dropbox e HD externo, envio de SMS quando tais backups chegam ao fim, execução de comandos bash personalizados e etc.</p>
 <p>Recentemente criei um projeto em node que recebe comandos atavés de um <strong>MQTT Broker</strong> (usando publisher, claro!) que executa certas tarefas no Mac, uma vez que costumo sair do escritório e deixá-lo ligado. E o que mais uso, são <strong>Apple Scripts</strong>.</p>
-<p>Precisei executar alguns <strong>Apple Scripts</strong> através do <strong>Node.js</strong> e encontrei a biblioteca <a href="https://www.npmjs.com/package/node-osascript" target="_blank" rel="external">node-osascript</a>, não tenho muito o que falar, só que funciona perfeitamente.</p>
-<p>Enfim, aqui eu instalei o pacote global<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install node-osascript -g</div></pre></td></tr></table></figure></p>
-<p>E para testar, crie um script (<a href="https://www.npmjs.com/package/node-osascript#simple" target="_blank" rel="external">o mesmo do exemplo na página do pacote</a>), porém mudei para ativar o Google Chrome. Se ele estiver fechado, será aberto e se já estiver aberto, será focado/ativado.</p>
-<p>Salve o script abaixo como <strong>index.js</strong> em qualquer pasta que você quiser.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> osascript = <span class="built_in">require</span>(<span class="string">'node-osascript'</span>);</div><div class="line"> </div><div class="line">osascript.execute(<span class="string">'tell application "Chrome" to activate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, result, raw</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.error(err)</div><div class="line">  <span class="built_in">console</span>.log(result, raw)</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>Execute o script com o node e seja feliz.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node index.php</div></pre></td></tr></table></figure></p>
-<p>Para ver como funciona, você pode testar o <strong>Apple Script</strong> sem o node, usando o terminal do Mac:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">osascript <span class="_">-e</span> <span class="string">'tell application "Chrome" to activate'</span></div></pre></td></tr></table></figure></p>
+<p>Precisei executar alguns <strong>Apple Scripts</strong> através do <strong>Node.js</strong> e encontrei a biblioteca <a href="https://www.npmjs.com/package/node-osascript" target="_blank" rel="noopener">node-osascript</a>, não tenho muito o que falar, só que funciona perfeitamente.</p>
+<p>Enfim, aqui eu instalei o pacote global<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install node-osascript -g</span><br></pre></td></tr></table></figure></p>
+<p>E para testar, crie um script (<a href="https://www.npmjs.com/package/node-osascript#simple" target="_blank" rel="noopener">o mesmo do exemplo na página do pacote</a>), porém mudei para ativar o Google Chrome. Se ele estiver fechado, será aberto e se já estiver aberto, será focado/ativado.</p>
+<p>Salve o script abaixo como <strong>index.js</strong> em qualquer pasta que você quiser.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> osascript = <span class="built_in">require</span>(<span class="string">'node-osascript'</span>);</span><br><span class="line"> </span><br><span class="line">osascript.execute(<span class="string">'tell application "Chrome" to activate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, result, raw</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.error(err)</span><br><span class="line">  <span class="built_in">console</span>.log(result, raw)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Execute o script com o node e seja feliz.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node index.php</span><br></pre></td></tr></table></figure></p>
+<p>Para ver como funciona, você pode testar o <strong>Apple Script</strong> sem o node, usando o terminal do Mac:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript -e <span class="string">'tell application "Chrome" to activate'</span></span><br></pre></td></tr></table></figure></p>
 <p>Não gosto de usar aplicativos prontos pois, para começar eu nunca encontro um que me atenda da forma que preciso, além de alguns custarem um preço absurdo (eu pelo menos não pago). Segundo, é legal criar esses scripts e aprender um pouco mais sobre node, apple scripts, javascript e etc. E tem mais, porquê pagar 30.. 50 dólares se eu posso fazer a mesma coisa em algumas horas?</p>
 <img src="/images/emojis/joy.png" width="32" height="32" class="custom_class1 custom_class2 emoji nofancybox" title="joy">
+<hr>
+<p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
+
       
     </div>
 
@@ -150,7 +153,7 @@
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2017 Faz-B Man
+    &copy; 2020 Faz-B Man
     
   </p>
 </footer>

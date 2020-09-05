@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>Verificando se um conteúdo ou palavra existe dentro de arquivos com PHP e Laravel | Faz-B</title>
@@ -15,22 +15,22 @@
 
   
   
-  <meta name="keywords" content="">
+  <meta name="keywords" content>
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="Verificando se um conteúdo ou palavra existe dentro de arquivos com PHP e Laravel"/>
+  <meta property="og:title" content="Verificando se um conteúdo ou palavra existe dentro de arquivos com PHP e Laravel">
 
-  <meta property="og:site_name" content="Faz-B"/>
+  <meta property="og:site_name" content="Faz-B">
 
   
-  <meta property="og:image" content="/favicon.ico"/>
+  <meta property="og:image" content="/favicon.ico">
   
 
-  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U" />
+  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U">
 
   <link href="/favicon.ico" rel="icon">
   <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
@@ -54,7 +54,7 @@
       
         <li><a href="/">Início</a></li>
       
-        <li><a href="/Sobre">Sobre</a></li>
+        <li><a href="https://gercil.me">Gercil.Me</a></li>
       
     </ul>
   </nav>
@@ -99,8 +99,8 @@
   <div class="article-top-meta">
     <span class="posted-on">
       <a href="/Verificando-se-um-conteudo-ou-palavra-existe-dentro-de-arquivos-com-PHP-e-Laravel/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-10T17:33:55.000Z">
-          2017-02-10
+        <time class="entry-date published" datetime="2017-02-16T17:21:03.000Z">
+          2017-02-16
         </time>
       </a>
     </span>
@@ -114,10 +114,12 @@
     <div class="entry">
       
         <p>Isso mesmo que você leu. Sem enrolação vamos executar esse código logo. Mais uma vez, como na postagem anterior, iremos criar como uma função simples, mas você usa como quiser.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!function_exists((<span class="string">'file_has_content'</span>))) &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">file_has_content</span><span class="params">($file, $subject)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> str_contains(file_get_contents(base_path($file)), $subject);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Para usar é simples, levando em consideração que usa dois helpers do Laravel, o <a href="https://laravel.com/docs/5.4/helpers#method-str-contains" target="_blank" rel="external">str_contains</a> e o <a href="https://laravel.com/docs/5.4/helpers#method-base-path" target="_blank" rel="external">base_path</a>, vamos fazer o seguinte:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">file_has_content(<span class="string">'composer.json'</span>, <span class="string">'require-dev'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!function_exists((<span class="string">'file_has_content'</span>))) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">file_has_content</span><span class="params">($file, $subject)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> str_contains(file_get_contents(base_path($file)), $subject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Para usar é simples, levando em consideração que usa dois helpers do Laravel, o <a href="https://laravel.com/docs/5.4/helpers#method-str-contains" target="_blank" rel="noopener">str_contains</a> e o <a href="https://laravel.com/docs/5.4/helpers#method-base-path" target="_blank" rel="noopener">base_path</a>, vamos fazer o seguinte:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file_has_content(<span class="string">'composer.json'</span>, <span class="string">'require-dev'</span>);</span><br></pre></td></tr></table></figure>
 <p>Provavelmente o código acima irá retornar <strong>true</strong> uma vez que na instalação padrão do Laravel, existe <strong>require-dev</strong> no <strong>composer.json</strong> que está na base do projeto Laravel.</p>
+<hr>
+<p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
 
       
     </div>
@@ -146,7 +148,7 @@
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2017 Faz-B Man
+    &copy; 2020 Faz-B Man
     
   </p>
 </footer>
