@@ -1,104 +1,106 @@
 <!DOCTYPE HTML>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  
-  <title>Instalando a extensão Mosquitto-PHP no Ubuntu | Faz-B</title>
 
-  
-  <meta name="author" content="Faz-B Man">
-  
+<head>
+    <meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
 
-  
-  <meta name="description" content="Como instalar a extensão Mosquitto-PHP no Ubuntu">
-  
+    <title>Instalando a extensão Mosquitto-PHP no Ubuntu | Faz-B</title>
 
-  
-  
-  <meta name="keywords" content>
 
-  <meta http-equiv="refresh" content="0;url=https://gercil.me/blog/instalando-a-extensao-mosquittophp-no-ubuntu" />
-  <link rel="canonical" href="https://gercil.me/blog/instalando-a-extensao-mosquittophp-no-ubuntu" />
-  
+    <meta name="author" content="Faz-B Man">
 
-  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="Instalando a extensão Mosquitto-PHP no Ubuntu">
 
-  <meta property="og:site_name" content="Faz-B">
+    <meta name="description" content="Como instalar a extensão Mosquitto-PHP no Ubuntu">
 
-  
-  <meta property="og:image" content="/favicon.ico">
-  
 
-  <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U">
 
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    <meta name="keywords" content>
+
+    <meta http-equiv="refresh" content="0;url=https://gercil.me/blog/instalando-a-extensao-mosquittophp-no-ubuntu" />
+    <link rel="canonical" href="https://gercil.me/blog/instalando-a-extensao-mosquittophp-no-ubuntu" />
+
+
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta property="og:title" content="Instalando a extensão Mosquitto-PHP no Ubuntu">
+
+    <meta property="og:site_name" content="Faz-B">
+
+
+    <meta property="og:image" content="/favicon.ico">
+
+
+    <meta name="google-site-verification" content="VSyuiZ57yu1p3PRQGOiZxEOSgbYE7Zy5s8dWJoH-k-U">
+
+    <link href="/favicon.ico" rel="icon">
+    <link rel="alternate" href="/atom.xml" title="Faz-B" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
 </head>
 
 
 <body>
-<div class="blog">
-  <div class="content">
+    <div class="blog">
+        <div class="content">
 
-    <header>
-  <div class="site-branding">
-    <h1 class="site-title">
-      <a href="/">Faz-B</a>
-    </h1>
-    <p class="site-description"></p>
-  </div>
-  <nav class="site-navigation">
-    <ul>
-      
-        <li><a href="/">Início</a></li>
-      
-        <li><a href="https://gercil.me">Gercil.Me</a></li>
-      
-    </ul>
-  </nav>
-  <nav class="site-navigation">
-    <ul>
-      <li style="text-align: left !important; padding: 0 !important; margin:0 !important;">
-        <br>
-        <br>
+            <header>
+                <div class="site-branding">
+                    <h1 class="site-title">
+                        <a href="/">Faz-B</a>
+                    </h1>
+                    <p class="site-description"></p>
+                </div>
+                <nav class="site-navigation">
+                    <ul>
 
-<script>
-  (function() {
-    var cx = '004458774873966046760:dbs6nv-auso';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:searchbox-only></gcse:searchbox-only>
+                        <li><a href="/">Início</a></li>
 
+                        <li><a href="https://gercil.me">Gercil.Me</a></li>
 
-      </li>
-    </ul>
-  </nav>
-</header>
+                    </ul>
+                </nav>
+                <nav class="site-navigation">
+                    <ul>
+                        <li style="text-align: left !important; padding: 0 !important; margin:0 !important;">
+                            <br>
+                            <br>
+
+                            <script>
+                                (function() {
+                                    var cx = '004458774873966046760:dbs6nv-auso';
+                                    var gcse = document.createElement('script');
+                                    gcse.type = 'text/javascript';
+                                    gcse.async = true;
+                                    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                                    var s = document.getElementsByTagName('script')[0];
+                                    s.parentNode.insertBefore(gcse, s);
+                                })();
+                            </script>
+                            <gcse:searchbox-only></gcse:searchbox-only>
 
 
+                        </li>
+                    </ul>
+                </nav>
+            </header>
 
 
-    <main class="site-main posts-loop">
-    <article>
 
-  
-    
-    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Instalando a extensão Mosquitto-PHP no Ubuntu</span></h3>
-    
-  
 
-  <!--
+            <main class="site-main posts-loop">
+                <article>
+
+
+
+                    <h3 class="article-title" style="text-align: left; margin-left: 0; padding-left: 0;"><span>Instalando a extensão Mosquitto-PHP no Ubuntu</span></h3>
+
+
+
+                    <!--
   <div class="article-top-meta">
     <span class="posted-on">
       <a href="/Instalando-a-extensao-Mosquitto-PHP/" rel="bookmark">
@@ -111,85 +113,269 @@
   -->
 
 
-  
 
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>E ai, bora instalar a extensão Mosquitto-PHP? Testado e sendo usado em <strong>dois servidores</strong> com Ubuntu 16+, um local e um externo. Não sabe a versão do seu? Use o comando no terminal:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure></p>
-<p>O comando acima irá retornar algo como:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure></p>
-<p>Certo, chega de perder tempo olhando versão. Primeiro, temos que instalar o pacote libmosquitto-dev, em alguns sistemas derivados do Red Hat é provável que seja chamado de libmosquitto-devel, mas, se não for, tente a outra forma.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libmosquitto-dev</span><br></pre></td></tr></table></figure></p>
-<p>Já ia me esquecendo, a primeira vez que fui instalar usando o PECL e seguindo o tutorial do próprio Github deles, não deu muito certo, eu tive que pesquisar e tentar outras maneiras, até que achei uma solução e funcionou, mas mesmo assim houve alguns problemas no decorrer da instalação, então, aqui eu mostro como instalei e funcionou sem nenhum problema e sem nenhum erro antes, durante e nem depois da instalação. <strong>Se der algum problema no seu, pesquise e ache uma solução</strong>, mas creio que dará tudo certo.</p>
-<p>Agora vamos clonar o repositório da extensão para uma pasta qualquer, eu costumo jogar tudo na /tmp, mas é você quem decide.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/mgdm/Mosquitto-PHP.git</span><br></pre></td></tr></table></figure></p>
-<p>E vamos entrar na pasta…<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Mosquitto-PHP/</span><br></pre></td></tr></table></figure></p>
-<p>E agora? Vamos instalar a extensão de fato.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phpize</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --with-mosquitto=/path/to/libmosquitto</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-<p>Em alguns casos, aqui não é necessário usar sudo, mas em outros é! Então, faça de acordo com sua máquina.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
-<p>Já instalado, está quase pronto. Agora precisamos ativar a extensão nas configurações (<strong>php.ini</strong>) do PHP. No meu caso, o PHP se encontra instalado em <strong>/etc/php/7.0/</strong>.</p>
-<p>Abra e altere o arquivo php.ini. Se você não sabe como usar o vim, <a href="http://aurelio.net/vim/vim-basico.txt" target="_blank" rel="noopener">olhe aqui</a>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/php/7.0/cli/php.ini</span><br></pre></td></tr></table></figure></p>
-<p>E adicione a seguinte linha em extension no PHP Cli<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">extension</span>=mosquitto.so</span><br></pre></td></tr></table></figure></p>
-<p>Abra e altere o arquivo php.ini no FPM também.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/php/7.0/fpm/php.ini</span><br></pre></td></tr></table></figure></p>
-<p>E adicione a seguinte linha em extension no PHP FPM<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension=mosquitto.so</span><br></pre></td></tr></table></figure></p>
-<p>Como usar? Darei um exemplo simples para ouvir o tópico “<strong>casa</strong>“<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Inicia o cliente</span></span><br><span class="line">$c = <span class="keyword">new</span> \Mosquitto\Client;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Se o seu mosquitto não possuir usuário e senha, basta remover a linha seguinte.</span></span><br><span class="line">$c-&gt;setCredentials(<span class="string">'USUARIO_MQTT'</span>, <span class="string">'SENHA_MQTT'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Conecta no broker/servidor mosquitto</span></span><br><span class="line">$c-&gt;connect(<span class="string">'IP_DO_MOSQUITTO'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quando usa o "#", você está dizendo que tudo que chegar para o subscribe após a / (barra), ele irá receber.</span></span><br><span class="line"><span class="comment">// Lembrando que você pode subscrever em vários tópicos, basta adicionar uma linha abaixo da outra.</span></span><br><span class="line">$c-&gt;subscribe(<span class="string">'casa/#'</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quando chegar uma mensagem ao subscribe no tópico "casa"</span></span><br><span class="line">$c-&gt;onMessage(<span class="function"><span class="keyword">function</span><span class="params">($m)</span> <span class="title">use</span> <span class="params">($c)</span> </span>&#123;</span><br><span class="line">    print_r($m);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Coloca em loop</span></span><br><span class="line">$c-&gt;loopForever(<span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
-<p>Tudo beleza? Salve o aquivo acima como mqttext.php em algum lugar na sua máquina. Dai, corre no seu terminal e digita o seguinte:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php mqttext.php</span><br></pre></td></tr></table></figure></p>
-<p>Envie uma publicação (usando o <a href="https://github.com/mqttjs/MQTT.js" target="_blank" rel="noopener">MQTT.js</a> ou o <a href="https://pypi.python.org/pypi/paho-mqtt" target="_blank" rel="noopener">paho-mqtt</a> ou qualquer outro que você quiser, só para teste) para o canal <strong>casa</strong> e veja a mágina acontecer.</p>
-<p>E para publicar uma mensagem usando a extensão Mosquitto-PHP? Simples também!</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Inicia o cliente</span></span><br><span class="line">$c = <span class="keyword">new</span> Mosquitto\Client;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quando conectar, envia a publicação</span></span><br><span class="line">$c-&gt;onConnect(<span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="title">use</span> <span class="params">($c)</span> </span>&#123;</span><br><span class="line">	$c-&gt;publish(<span class="string">'casa/sala'</span>, <span class="string">'Enviando para a Sala da Casa'</span>, <span class="number">1</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Se o seu mosquitto não possuir usuário e senha, basta remover a linha seguinte.</span></span><br><span class="line">$c-&gt;setCredentials(<span class="string">'USUARIO_MQTT'</span>, <span class="string">'SENHA_MQTT'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Conecta no broker/servidor mosquitto</span></span><br><span class="line">$c-&gt;connect(<span class="string">'IP_DO_MOSQUITTO'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; <span class="number">100</span>; $i++) &#123;</span><br><span class="line">	<span class="comment">// Necessário para que a extensão funcione</span></span><br><span class="line">	<span class="comment">// Faz um loop até enviar</span></span><br><span class="line">	$c-&gt;loop(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Salve o arquivo acima como mqttpub.php.</p>
-<p>Faça um teste mais legal ainda, quando você instalou o broker mosquitto, ele vem com comandos para sub e pub, abra uma nova aba ou janela do seu terminal, e inicie o mosquitto_sub da seguinte maneira:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h IP_DO_MOSQUITTO -t casa/# -q 1</span><br></pre></td></tr></table></figure></p>
-<p>Caso tenha usuário e senha<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h IP_DO_MOSQUITTO -t casa/# -q 1 -u USUARIO -P SENHA</span><br></pre></td></tr></table></figure></p>
-<p>Beleza, ele vai rodar em loop, abra uma nova aba ou janela novamente, e execute o arquivo mqttpub.php que você criou ali em cima.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php mqttpub.php</span><br></pre></td></tr></table></figure></p>
-<p>Repare que na aba onde está rodando o mosquitto_sub vai aparecer a mensagem “<strong>Enviando para a Sala da Casa</strong>“ publicada pelo mqttpub.php uando a extensão Mosquitto-PHP. Doido né?</p>
-<p>Quer mais sobre a extensão Mosquitto-PHP? Então, <a href="https://github.com/mgdm/Mosquitto-PHP" target="_blank" rel="noopener">aqui está o Github</a> deles e <a href="http://mosquitto-php.readthedocs.io/en/latest/client.html" target="_blank" rel="noopener">aqui a documentação</a>.</p>
-<hr>
-<p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
 
-      
+                    <div class="article-content">
+                        <div class="entry">
+
+                            <p>E ai, bora instalar a extensão Mosquitto-PHP? Testado e sendo usado em <strong>dois servidores</strong> com Ubuntu 16+, um local e um externo. Não sabe a versão do seu? Use o comando no terminal:<br>
+                                <figure class="highlight bash">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>O comando acima irá retornar algo como:<br>
+                                <figure class="highlight bash">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>Certo, chega de perder tempo olhando versão. Primeiro, temos que instalar o pacote libmosquitto-dev, em alguns sistemas derivados do Red Hat é provável que seja chamado de libmosquitto-devel, mas, se não for, tente a outra
+                                forma.
+                                <br>
+                                <figure class="highlight bash">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">sudo apt-get install libmosquitto-dev</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>Já ia me esquecendo, a primeira vez que fui instalar usando o PECL e seguindo o tutorial do próprio Github deles, não deu muito certo, eu tive que pesquisar e tentar outras maneiras, até que achei uma solução e funcionou, mas
+                                mesmo assim houve alguns problemas no decorrer da instalação, então, aqui eu mostro como instalei e funcionou sem nenhum problema e sem nenhum erro antes, durante e nem depois da instalação. <strong>Se der algum problema no seu, pesquise e ache uma solução</strong>,
+                                mas creio que dará tudo certo.</p>
+                            <p>Agora vamos clonar o repositório da extensão para uma pasta qualquer, eu costumo jogar tudo na /tmp, mas é você quem decide.<br>
+                                <figure class="highlight bash">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/mgdm/Mosquitto-PHP.git</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>E vamos entrar na pasta…<br>
+                                <figure class="highlight bash">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line"><span class="built_in">cd</span> Mosquitto-PHP/</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>E agora? Vamos instalar a extensão de fato.<br>
+                                <figure class="highlight bash">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">phpize</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <figure class="highlight bash">
+                                <table>
+                                    <tr>
+                                        <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                        <td class="code"><pre><span class="line">./configure --with-mosquitto=/path/to/libmosquitto</span><br></pre></td>
+                                    </tr>
+                                </table>
+                            </figure>
+                            <figure class="highlight bash">
+                                <table>
+                                    <tr>
+                                        <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                        <td class="code"><pre><span class="line">make</span><br></pre></td>
+                                    </tr>
+                                </table>
+                            </figure>
+                            <figure class="highlight bash">
+                                <table>
+                                    <tr>
+                                        <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                        <td class="code"><pre><span class="line">make <span class="built_in">test</span></span><br></pre></td>
+                                    </tr>
+                                </table>
+                            </figure>
+                            <p>Em alguns casos, aqui não é necessário usar sudo, mas em outros é! Então, faça de acordo com sua máquina.<br>
+                                <figure class="highlight bash">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">sudo make install</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>Já instalado, está quase pronto. Agora precisamos ativar a extensão nas configurações (<strong>php.ini</strong>) do PHP. No meu caso, o PHP se encontra instalado em <strong>/etc/php/7.0/</strong>.</p>
+                            <p>Abra e altere o arquivo php.ini. Se você não sabe como usar o vim, <a href="http://aurelio.net/vim/vim-basico.txt" target="_blank" rel="noopener">olhe aqui</a>.<br>
+                                <figure class="highlight bash">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">sudo vi /etc/php/7.0/cli/php.ini</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>E adicione a seguinte linha em extension no PHP Cli<br>
+                                <figure class="highlight ini">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line"><span class="attr">extension</span>=mosquitto.so</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>Abra e altere o arquivo php.ini no FPM também.<br>
+                                <figure class="highlight bash">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">sudo vi /etc/php/7.0/fpm/php.ini</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>E adicione a seguinte linha em extension no PHP FPM<br>
+                                <figure class="highlight plain">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">extension=mosquitto.so</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>Como usar? Darei um exemplo simples para ouvir o tópico “<strong>casa</strong>“<br>
+                                <figure class="highlight php">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td>
+                                            <td class="code"><pre><span class="line"><span class="comment">// Inicia o cliente</span></span><br><span class="line">$c = <span class="keyword">new</span> \Mosquitto\Client;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Se o seu mosquitto não possuir usuário e senha, basta remover a linha seguinte.</span></span><br><span class="line">$c-&gt;setCredentials(<span class="string">'USUARIO_MQTT'</span>, <span class="string">'SENHA_MQTT'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Conecta no broker/servidor mosquitto</span></span><br><span class="line">$c-&gt;connect(<span class="string">'IP_DO_MOSQUITTO'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quando usa o "#", você está dizendo que tudo que chegar para o subscribe após a / (barra), ele irá receber.</span></span><br><span class="line"><span class="comment">// Lembrando que você pode subscrever em vários tópicos, basta adicionar uma linha abaixo da outra.</span></span><br><span class="line">$c-&gt;subscribe(<span class="string">'casa/#'</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quando chegar uma mensagem ao subscribe no tópico "casa"</span></span><br><span class="line">$c-&gt;onMessage(<span class="function"><span class="keyword">function</span><span class="params">($m)</span> <span class="title">use</span> <span class="params">($c)</span> </span>&#123;</span><br><span class="line">    print_r($m);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Coloca em loop</span></span><br><span class="line">$c-&gt;loopForever(<span class="number">0</span>);</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>Tudo beleza? Salve o aquivo acima como mqttext.php em algum lugar na sua máquina. Dai, corre no seu terminal e digita o seguinte:<br>
+                                <figure class="highlight bash">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">php mqttext.php</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>Envie uma publicação (usando o <a href="https://github.com/mqttjs/MQTT.js" target="_blank" rel="noopener">MQTT.js</a> ou o <a href="https://pypi.python.org/pypi/paho-mqtt" target="_blank" rel="noopener">paho-mqtt</a> ou qualquer
+                                outro que você quiser, só para teste) para o canal <strong>casa</strong> e veja a mágina acontecer.</p>
+                            <p>E para publicar uma mensagem usando a extensão Mosquitto-PHP? Simples também!</p>
+                            <figure class="highlight php">
+                                <table>
+                                    <tr>
+                                        <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td>
+                                        <td class="code"><pre><span class="line"><span class="comment">// Inicia o cliente</span></span><br><span class="line">$c = <span class="keyword">new</span> Mosquitto\Client;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quando conectar, envia a publicação</span></span><br><span class="line">$c-&gt;onConnect(<span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="title">use</span> <span class="params">($c)</span> </span>&#123;</span><br><span class="line">	$c-&gt;publish(<span class="string">'casa/sala'</span>, <span class="string">'Enviando para a Sala da Casa'</span>, <span class="number">1</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Se o seu mosquitto não possuir usuário e senha, basta remover a linha seguinte.</span></span><br><span class="line">$c-&gt;setCredentials(<span class="string">'USUARIO_MQTT'</span>, <span class="string">'SENHA_MQTT'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Conecta no broker/servidor mosquitto</span></span><br><span class="line">$c-&gt;connect(<span class="string">'IP_DO_MOSQUITTO'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; <span class="number">100</span>; $i++) &#123;</span><br><span class="line">	<span class="comment">// Necessário para que a extensão funcione</span></span><br><span class="line">	<span class="comment">// Faz um loop até enviar</span></span><br><span class="line">	$c-&gt;loop(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td>
+                                    </tr>
+                                </table>
+                            </figure>
+                            <p>Salve o arquivo acima como mqttpub.php.</p>
+                            <p>Faça um teste mais legal ainda, quando você instalou o broker mosquitto, ele vem com comandos para sub e pub, abra uma nova aba ou janela do seu terminal, e inicie o mosquitto_sub da seguinte maneira:<br>
+                                <figure class="highlight plain">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">mosquitto_sub -h IP_DO_MOSQUITTO -t casa/# -q 1</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>Caso tenha usuário e senha<br>
+                                <figure class="highlight plain">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">mosquitto_sub -h IP_DO_MOSQUITTO -t casa/# -q 1 -u USUARIO -P SENHA</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>Beleza, ele vai rodar em loop, abra uma nova aba ou janela novamente, e execute o arquivo mqttpub.php que você criou ali em cima.<br>
+                                <figure class="highlight bash">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter"><pre><span class="line">1</span><br></pre></td>
+                                            <td class="code"><pre><span class="line">php mqttpub.php</span><br></pre></td>
+                                        </tr>
+                                    </table>
+                                </figure>
+                            </p>
+                            <p>Repare que na aba onde está rodando o mosquitto_sub vai aparecer a mensagem “<strong>Enviando para a Sala da Casa</strong>“ publicada pelo mqttpub.php uando a extensão Mosquitto-PHP. Doido né?</p>
+                            <p>Quer mais sobre a extensão Mosquitto-PHP? Então, <a href="https://github.com/mgdm/Mosquitto-PHP" target="_blank" rel="noopener">aqui está o Github</a> deles e <a href="http://mosquitto-php.readthedocs.io/en/latest/client.html"
+                                    target="_blank" rel="noopener">aqui a documentação</a>.</p>
+                            <hr>
+                            <p>Dicas por Gercil Junio - <a href="https://gercil.me" target="_blank" rel="noopener">https://gercil.me</a></p>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="article-footer">
+                        <div class="article-meta pull-left">
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+                </article>
+
+
+            </main>
+
+            <footer class="site-footer">
+                <p class="site-info">
+                    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+                    </br>
+
+                    &copy; 2020 Faz-B Man
+
+                </p>
+            </footer>
+
+            <script>
+                (function(i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function() {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+                ga('create', 'UA-74265041-14', 'auto');
+                ga('send', 'pageview');
+            </script>
+
+        </div>
     </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-    </main>
-
-    <footer class="site-footer">
-  <p class="site-info">
-    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
-    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
-    </br>
-    
-    &copy; 2020 Faz-B Man
-    
-  </p>
-</footer>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-74265041-14', 'auto');
-  ga('send', 'pageview');
-
-</script>
-    
-  </div>
-</div>
 </body>
+
 </html>
